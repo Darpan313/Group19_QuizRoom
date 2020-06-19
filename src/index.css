@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css?family=Catamaran:300,400|Kaushan+Script&display=swap");
+:root {
+  --primaryColor: #f15025;
+  --primaryDarkColor: #c02c03;
+  --primaryFont: "Catamaran", sans-serif;
+  --slantedFont: "Kaushan Script", cursive;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBackground: #ececec;
+  --mainOverlay: rgba(35, 10, 36, 0.4);
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #afafaf;
+  --mainRed: #bd0303;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 0.3rem;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --mainBorderRadius: 0.25rem;
+  --maxWidth: 40rem;
+  --smallWidth: 85vw;
+  --fullWidth: 1170px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--primaryFont);
+  color: var(--mainBlack);
+  background: var(--mainBackground);
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 300;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primaryFont);
+  margin-bottom: 1.25rem;
+  letter-spacing: var(--mainSpacing);
+}
+p {
+  margin-bottom: 1.25rem;
+}
+ul {
+  list-style-type: none;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 3px solid rgba(0, 0, 0, 0.3);
+}
+img {
+  width: 100%;
+  display: block;
+}
+.loading {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 1.7rem;
+  margin-top: 3rem;
+  letter-spacing: var(--mainSpacing);
+}
+.loading img {
+  width: 10rem;
+  margin: 0 auto;
+}
+
+.btn,
+.btn-white,
+.btn-primary {
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryColor);
+  padding: 0.45rem 0.8rem;
+  display: inline-block;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  font-size: 0.8rem;
+  background: transparent;
+}
+.btn:hover {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+}
+.btn-white {
+  background: transparent;
+  color: var(--mainWhite);
+  border-color: var(--mainWhite);
+}
+.btn-white:hover {
+  background: var(--mainWhite);
+  color: var(--primaryColor);
+}
+.btn-primary {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  border-color: var(--primaryColor);
+}
+.btn-primary:hover {
+  background: transparent;
+  color: var(--primaryColor);
+}
+.btn-block {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--lightShadow);
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .header a {
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+  }
+}
+
+.section {
+  padding: 4rem 0;
+}
+.classes {
+  background: var(--mainWhite);
+  margin-bottom: 2rem;
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 19.69rem;
+}
+.classes:hover {
+  box-shadow: var(--darkShadow);
+}
+.img-container {
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.5);
+  position: relative;
+  /* height: 5rem; */
+}
+.classes img {
+  transition: var(--mainTransition);
+  min-height: 9rem;
+}
+
+.classes:hover img {
+  opacity: 0.3;
+}
+
+.hero {
+  min-height: calc(65vh);
+  background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.2) 40%,
+      rgba(255, 255, 255, 0.9)
+    ),
+    url("./assets/home.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: left;
+  align-items: top;
+  color: var(--primaryDarkColor);
+}
+.banner {
+  width: var(--smallWidth);
+  max-width: var(--fullWidth);
+  margin-left: 5%;
+}
+.hero h2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: black;
+  letter-spacing: 3px;
+  margin-bottom: 3rem;
+}
+.btn-hero {
+  border-radius: 0;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem;
+  background: var(--primaryDarkColor);
+  border-color: var(--primaryDarkColor);
+  color: var(--mainBlack);
+}
+.btn-hero:hover {
+  color: var(--primaryDarkColor);
+}
+@media screen and (min-width: 768px) {
+  .banner {
+    margin-top: 5%;
+  }
+
+  .btn-hero {
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+  }
+}
+.container {
+  max-width: 100%;
+  display: block;
+}
+.editlist {
+  width: 15rem;
+}
+.editform {
+  width: 60rem;
+}
