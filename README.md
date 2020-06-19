@@ -19,4 +19,4 @@ Repository Link:
 https://github.com/Darpan313/quiz-web-app
 
 Deployed Application Link:
-https://quiz-application-g19.herokuapp.com/
+https://web-service-g19-quiz-app.herokuapp.com
