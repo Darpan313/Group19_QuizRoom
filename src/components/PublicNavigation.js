@@ -8,9 +8,17 @@ class PublicNavigation extends Component {
     this.state = { modalShow: false, setModalShow: false };
   }
   render() {
+    var url = require(`../assets/logo.png`);
     return (
       <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-        <Navbar.Brand href="/">Quizz room App</Navbar.Brand>
+        <Navbar.Brand href="/">
+          {/* <img
+            src={url}
+            className="d-inline-block align-top"
+            alt="React Bootstrap logo"
+          /> */}
+          QuizzRoom
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
