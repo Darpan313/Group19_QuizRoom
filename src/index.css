@@ -169,10 +169,10 @@ img {
 .banner {
   width: var(--smallWidth);
   max-width: var(--fullWidth);
-  margin-left: 5%;
+  margin-left: 7%;
 }
 .hero h2 {
-  font-size: 3rem;
+  font-size: 2.5 rem;
   font-weight: bold;
   text-transform: capitalize;
 }

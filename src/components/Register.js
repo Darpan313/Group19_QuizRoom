@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Form } from "react-bootstrap";
 import { FormErrors } from "./FormErrors";
 
 class Register extends React.Component {
@@ -37,7 +37,6 @@ class Register extends React.Component {
         const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         emailValid = re.test(value);
         fieldValidationErrors.email = emailValid ? "" : " is invalid";
-        console.log(emailValid);
         break;
       case "password":
         passwordValid = value.length >= 6;
@@ -70,7 +69,7 @@ class Register extends React.Component {
     return (
       <div>
         <Button variant="primary" onClick={() => this.handleModalShowHide()}>
-          Register Free
+          Register
         </Button>
 
         <Modal show={this.state.showHide}>
@@ -96,9 +95,16 @@ class Register extends React.Component {
                   placeholder="Last name"
                 />
               </div>
+              <Form.Group>
+                <Form.Label>Select Role</Form.Label>
+                <Form.Control as="select">
+                  <option>Student</option>
+                  <option>Manager</option>
+                </Form.Control>
+              </Form.Group>
 
               <div className="form-group ${this.errorClass(this.state.formErrors.email)}">
-                <label>Email address</label>
+                <label>Email</label>
                 <input
                   type="email"
                   name="email"
@@ -120,17 +126,20 @@ class Register extends React.Component {
                   value={this.state.password}
                   onChange={this.handleUserInput}
                 />
+                <Form.Text id="passwordHelpBlock" muted>
+                  Must be 8-20 characters long.
+                </Form.Text>
               </div>
               <FormErrors formErrors={this.state.formErrors} />
 
               <button
                 type="submit"
-                className="btn btn-primary btn-block"
+                className="btn btn-primary btn-block mt-3"
                 disabled={!this.state.formValid}
               >
                 Sign Up
               </button>
-
+              <br></br>
               <p className="forgot-password text-right">
                 Already registered <a href="#">sign in?</a>
               </p>

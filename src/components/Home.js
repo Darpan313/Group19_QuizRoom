@@ -7,9 +7,7 @@ export default class Home extends Component {
   render() {
     return (
       <>
-        <Hero>
-          <Button type="submit">Register</Button>
-        </Hero>
+        <Hero />
         <div>
           <Featurelist />
         </div>
