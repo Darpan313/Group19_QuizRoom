@@ -12,7 +12,7 @@ export default class Home extends Component {
         <div>
           <Featurelist />
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }

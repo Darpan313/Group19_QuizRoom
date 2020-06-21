@@ -21,7 +21,7 @@ export default function Hero() {
                 debitis?
               </p>
             </div>
-            <div className="row">
+            <div className="row my-3">
               <Register />
             </div>
           </div>

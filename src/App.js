@@ -15,6 +15,7 @@ import Dashboard from "./components/Dashboard";
 import Analytics from "./components/Analytics";
 import EditProfile from "./components/EditProfile";
 import { UserContext } from "./context/user";
+import Footer from "./components/Footer";
 function App() {
   const { user } = React.useContext(UserContext);
   if (user.token) {
@@ -45,6 +46,7 @@ function App() {
             <Route path="/faqs" component={Faqs}></Route>
             <Route path="/contact-us" component={ContactUs}></Route> }
           </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     );

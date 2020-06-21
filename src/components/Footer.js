@@ -10,7 +10,7 @@ export default function Footer() {
               <div class="col-xs-12 col-sm-6 col-md-3">
                 <div class="widget subscribe no-box">
                   <h5 class="widget-title">
-                    Quizz Room<span></span>
+                    QuizzRoom<span></span>
                   </h5>
                   <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -101,7 +101,7 @@ export default function Footer() {
           </div>
         </div>
         <div class="container text-center">
-          <small>Copyright Quizz Room &copy; 2020. All rights reserved.</small>
+          <small>Copyright QuizzRoom &copy; 2020. All rights reserved.</small>
         </div>
       </footer>
     </>
