@@ -13,6 +13,7 @@ import Faqs from "./components/Faqs";
 import Features from "./components/Features";
 import Dashboard from "./components/Dashboard";
 import Analytics from "./components/Analytics";
+import Reports from "./components/Reports";
 import EditProfile from "./components/EditProfile";
 import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
@@ -28,7 +29,7 @@ function App() {
             <Route path="/dashboard" component={Dashboard} exact></Route>
             <Route path="/classrooms" component={Classrooms}></Route>
             <Route path="/quizzes" component={Quizzes}></Route>
-            <Route path="/analytics" component={Analytics}></Route>
+            <Route path="/reports" component={Reports}></Route>
             <Route path="/editprofile" component={EditProfile}></Route>
           </Switch>
         </div>

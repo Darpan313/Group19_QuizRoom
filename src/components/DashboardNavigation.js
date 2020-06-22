@@ -20,7 +20,7 @@ export default function DashboardNavigation() {
           <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           <Nav.Link href="/classrooms">Classrooms</Nav.Link>
           <Nav.Link href="/quizzes">Quizzes</Nav.Link>
-          <Nav.Link href="/analytics">Analytics</Nav.Link>
+          <Nav.Link href="/reports">Reports</Nav.Link>
           <NavDropdown title="Help" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">User Manual</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">FAQ</NavDropdown.Item>
