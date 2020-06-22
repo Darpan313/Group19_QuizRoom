@@ -26,7 +26,7 @@ export default class Dashboard extends React.Component {
                   <h5 class="card-header">
                     Details
                   </h5>
-                  <div class="card-body">
+                  <div class="card-body border-bottom">
                   <div class="row">
                   <div class="col-md-11">
                     <a class="card-text anchor-card-text" href="/classrooms">
@@ -40,7 +40,7 @@ export default class Dashboard extends React.Component {
                     </div>
                     </div>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body border-bottom">
                   <div class="row">
                   <div class="col-md-11">
                     <a class="card-text anchor-card-text" href="/quizzes">
@@ -54,7 +54,7 @@ export default class Dashboard extends React.Component {
                     </div>
                   </div>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body border-bottom">
                   <div class="row">
                   <div class="col-md-11">
                     <a class="card-text anchor-card-text" href="#">
@@ -74,12 +74,12 @@ export default class Dashboard extends React.Component {
                   <h5 class="card-header">
                     Progress
                   </h5>
-                  <div class="card-body">
+                  <div class="card-body border-bottom">
                     <a class="card-text anchor-card-text" href="#">
                       Results
                     </a>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body border-bottom">
                     <a class="card-text anchor-card-text" href="#">
                       Analytics
                     </a>
@@ -90,12 +90,12 @@ export default class Dashboard extends React.Component {
                   <h5 class="card-header">
                     Profile
                   </h5>
-                  <div class="card-body">
+                  <div class="card-body border-bottom">
                     <a class="card-text anchor-card-text" href="#">
                       Edit Profile
                     </a>
                   </div>
-                  <div class="card-body">
+                  <div class="card-body border-bottom">
                     <a class="card-text anchor-card-text" href="/faqs">
                       FAQs and Support
                     </a>
