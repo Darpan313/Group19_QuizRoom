@@ -15,35 +15,13 @@ export default class Dashboard extends React.Component {
                 </div>
                 <div class="col-md-4">
                   <br/>
-                  <h3>
+                  <h3 class="text-sm-left h3Home">
                     New Updates
                           </h3>
                 </div>
               </header>
               <div class="row">
                 <div class="col-md-8">
-                {/* <div class="tabbable" id="tabs-498512">
-						<ul class="nav nav-tabs">
-							<li class="nav-item">
-								<a class="nav-link active" href="#tab1" data-toggle="tab">Section 1</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#tab2" data-toggle="tab">Section 2</a>
-							</li>
-						</ul>
-						<div class="tab-content">
-							<div class="tab-pane active" id="panel-270702">
-								<p>
-									I'm in Section 1.
-								</p>
-							</div>
-							<div class="tab-pane" id="tab2">
-								<p>
-									Howdy, I'm in Section 2.
-								</p>
-							</div>
-						</div>
-					</div>  */}
                 <div class="card">
                   <h5 class="card-header">
                     Details
@@ -51,28 +29,28 @@ export default class Dashboard extends React.Component {
                   <div class="card-body">
                   <div class="row">
                   <div class="col-md-11">
-                    <a class="card-text anchor-card-text" href="#">
-                      Courses
+                    <a class="card-text anchor-card-text" href="/classrooms">
+                      Classrooms
                     </a>
                     </div>
                     <div class="col-md-1">
-                    <a class="card-text anchor-card-text" href="#">
+                    <p class="card-text anchor-card-text">
                       5
-                    </a>
+                    </p>
                     </div>
                     </div>
                   </div>
                   <div class="card-body">
                   <div class="row">
                   <div class="col-md-11">
-                    <a class="card-text anchor-card-text" href="#">
+                    <a class="card-text anchor-card-text" href="/quizzes">
                       Quizzes
                     </a>
                   </div>
                   <div class="col-md-1">
-                    <a class="card-text anchor-card-text" href="#">
+                    <p class="card-text anchor-card-text">
                       7
-                    </a>
+                    </p>
                     </div>
                   </div>
                   </div>
@@ -84,15 +62,12 @@ export default class Dashboard extends React.Component {
                     </a>
                   </div>
                   <div class="col-md-1">
-                    <a class="card-text anchor-card-text" href="#">
+                    <p class="card-text anchor-card-text">
                       2
-                    </a>
+                    </p>
                     </div>
                   </div>
-                  </div>
-                  {/* <div class="card-footer">
-                    Quizzes
-                  </div> */}
+                  </div>  
                 </div>
                 <br/>
                 <div class="card">
@@ -108,21 +83,23 @@ export default class Dashboard extends React.Component {
                     <a class="card-text anchor-card-text" href="#">
                       Analytics
                     </a>
-                  </div>
-                  {/* <div class="card-body">
-                    <a class="card-text anchor-card-text" href="#">
-                      Analytics by Results
-                    </a>
-                  </div> */}
-                  {/* <div class="card-footer">
-                    Card footer
-                  </div> */}
+                  </div>                 
                 </div> 
-                <div>
-                  <br/>
-                  <center>
-                    <a class="card-text anchor-card-text" href="#">FAQs and Support</a>
-                  </center>
+                <br/>
+                <div class="card">
+                  <h5 class="card-header">
+                    Profile
+                  </h5>
+                  <div class="card-body">
+                    <a class="card-text anchor-card-text" href="#">
+                      Edit Profile
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <a class="card-text anchor-card-text" href="/faqs">
+                      FAQs and Support
+                    </a>
+                  </div>
                 </div>
                 </div>
                 <div class="col-md-4 sliderDiv">
@@ -175,7 +152,7 @@ export default class Dashboard extends React.Component {
                 </div>
               </div>
             </div>
-
+        <p/>
     </div>
     )
   }
