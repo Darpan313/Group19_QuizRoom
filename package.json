@@ -21,7 +21,7 @@
     "react-scripts": "3.4.1",
     "react-scroll-up-button": "^1.6.4",
     "react-stripe-elements": "^6.0.1",
-    "victory": "^34.3.11"
+    "victory": "^34.3.12"
   },
   "scripts": {
     "start": "react-scripts start",

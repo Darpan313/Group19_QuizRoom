@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import QuizList from "./QuizList";
 import CreateClass from "./Createclass";
+import { Button } from "react-bootstrap";
 
 export default function Quizzes() {
   var quizList = [
@@ -12,8 +13,8 @@ export default function Quizzes() {
       time: "30 mins",
       weightage: "10%",
       due: "2020-06-30",
-      marks:"20/30",
-      grade:"A"
+      marks: "20/30",
+      grade: "A",
     },
     {
       img: "serverless-course.jpeg",
@@ -23,8 +24,8 @@ export default function Quizzes() {
       time: "30 mins",
       weightage: "5%",
       due: "2020-07-30",
-      marks:"25/30",
-      grade:"A+"
+      marks: "25/30",
+      grade: "A+",
     },
     {
       img: "special-topic-course.jpg",
@@ -34,27 +35,24 @@ export default function Quizzes() {
       time: "30 mins",
       weightage: "2%",
       due: "2020-06-29",
-      marks:"5/10",
-      grade:"B"
+      marks: "5/10",
+      grade: "B",
     },
   ];
 
-  const [roomlist, setRoomList] = useState(quizList)
+  const [roomlist, setRoomList] = useState(quizList);
 
   const addRoom = (data) => {
-
     let temp = roomlist;
-    setRoomList([
-      ...temp,
-      data
-    ])
-
-  }
+    setRoomList([...temp, data]);
+  };
 
   return (
     <div className="container">
+      <Button className="mt-5 d-flex justify-content-left padding">Analyse</Button>
+
       {/* <CreateClass addRoom={addRoom}/> */}
-      <QuizList quizList={roomlist}/>
+      <QuizList quizList={roomlist} />
     </div>
   );
 }
