@@ -1,5 +1,8 @@
 import { Card, Button, ListGroup } from "react-bootstrap";
 
+import Dashboard from "../components/Dashboard";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import React from "react";
 
 export default function QuizCard({
@@ -12,7 +15,7 @@ export default function QuizCard({
   weightage,
   due,
   marks,
-  grade
+  grade,
 }) {
   var url = require(`../assets/${img}`);
 
@@ -20,12 +23,6 @@ export default function QuizCard({
     return (
       <div className="classes">
         <Card border="success">
-          <Card.Img
-            variant="top"
-            src={url}
-            height="150vh"
-            className="card-img-top"
-          />
           <Card.Body>
             <Card.Title>{code}</Card.Title>
             <Card.Text>{name}</Card.Text>
@@ -34,7 +31,16 @@ export default function QuizCard({
               <ListGroup.Item>Weightage : {weightage}</ListGroup.Item>
               <ListGroup.Item>Due : {due}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary">Open</Button>
+            <Button variant="primary">
+              <a
+                href="/startquiz"
+                target="_blank"
+                without
+                rel="noopener noreferrer"
+              >
+                Open
+              </a>
+            </Button>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">{status}</small>
@@ -46,19 +52,12 @@ export default function QuizCard({
     return (
       <div className="classes">
         <Card border="danger">
-          <Card.Img
-            variant="top"
-            src={url}
-            height="150vh"
-            className="card-img-top"
-          />
           <Card.Body>
             <Card.Title>{code}</Card.Title>
             <Card.Text>{name}</Card.Text>
             <ListGroup variant="flush">
-            <ListGroup.Item> Marks : {marks}</ListGroup.Item>
-            <ListGroup.Item> Grade : {grade}</ListGroup.Item>
-
+              <ListGroup.Item> Marks : {marks}</ListGroup.Item>
+              <ListGroup.Item> Grade : {grade}</ListGroup.Item>
             </ListGroup>
             <Button variant="primary">Open</Button>
           </Card.Body>

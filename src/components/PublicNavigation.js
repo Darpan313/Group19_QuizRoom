@@ -12,12 +12,7 @@ class PublicNavigation extends Component {
     return (
       <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
         <Navbar.Brand href="/">
-          {/* <img
-            src={url}
-            className="d-inline-block align-top"
-            alt="React Bootstrap logo"
-          /> */}
-          QuizzRoom
+          <img src={require("../assets/logo.png")} width="30" height="30" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

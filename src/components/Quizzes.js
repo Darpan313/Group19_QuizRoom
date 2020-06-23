@@ -49,9 +49,9 @@ export default function Quizzes() {
 
   return (
     <div className="container">
-      <div className ="row">
-      <Button className="justify-content-left  m-3">Analyse</Button>
-      <Button className="justify-content-left  m-3">Create Quiz</Button>
+      <div className="row d-flex justify-content-center my-3">
+        {/* <Button className="justify-content-left  m-3">Analyse</Button> */}
+        <Button>Create Quiz</Button>
       </div>
       {/* <CreateClass addRoom={addRoom}/> */}
       <QuizList quizList={roomlist} />
