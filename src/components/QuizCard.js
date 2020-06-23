@@ -1,4 +1,5 @@
 import { Card, Button, ListGroup } from "react-bootstrap";
+import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 
 import Dashboard from "../components/Dashboard";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -31,19 +32,40 @@ export default function QuizCard({
               <ListGroup.Item>Weightage : {weightage}</ListGroup.Item>
               <ListGroup.Item>Due : {due}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary">
-              <a
+            <Button
+              variant="primary"
+              className="mt-3"
+              href="/startquiz"
+              target="_blank"
+            >
+              {/* <a
                 href="/startquiz"
                 target="_blank"
                 without
                 rel="noopener noreferrer"
-              >
-                Open
-              </a>
+              > */}
+              Open
+              {/* </a> */}
             </Button>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">{status}</small>
+            <div className="row">
+              <div className="col-auto mr-auto">
+                <small className="text-muted">{status}</small>
+              </div>
+              <div className=" row col-auto">
+                <div className="column mr-3">
+                  <a href="#" style={{ color: "black" }}>
+                    <FaRegEdit />
+                  </a>
+                </div>
+                <div className="column mr-2">
+                  <a href="#" style={{ color: "red" }}>
+                    <FaRegTrashAlt />
+                  </a>
+                </div>
+              </div>
+            </div>
           </Card.Footer>
         </Card>
       </div>
@@ -59,7 +81,9 @@ export default function QuizCard({
               <ListGroup.Item> Marks : {marks}</ListGroup.Item>
               <ListGroup.Item> Grade : {grade}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary">Open</Button>
+            <Button variant="primary" className="mt-3">
+              Open
+            </Button>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">{status}</small>
