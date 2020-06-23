@@ -1,11 +1,8 @@
 import React, { Component } from "react";
+import StackedBar from "./charts/StackedBar";
 
 export default class Analytics extends Component {
   render() {
-    return (
-      <div>
-        <h2>This is Analytics page</h2>
-      </div>
-    );
+    return <div>{/* <StackedBar /> */}</div>;
   }
 }

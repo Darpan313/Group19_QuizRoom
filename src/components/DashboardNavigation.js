@@ -13,14 +13,16 @@ export default function DashboardNavigation() {
   };
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-      <Navbar.Brand href="#home">Quizz room App</Navbar.Brand>
+      <Navbar.Brand href="/">
+        <img src={require("../assets/logo.png")} width="30" height="30" />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/dashboard">Dashboard</Nav.Link>
           <Nav.Link href="/classrooms">Classrooms</Nav.Link>
           <Nav.Link href="/quizzes">Quizzes</Nav.Link>
-          <Nav.Link href="/analytics">Analytics</Nav.Link>
+          <Nav.Link href="/reports">Reports</Nav.Link>
           <NavDropdown title="Help" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">User Manual</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">FAQ</NavDropdown.Item>
