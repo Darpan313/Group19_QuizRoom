@@ -16,10 +16,12 @@ import Features from "./components/Features";
 import Dashboard from "./components/Dashboard";
 import Analytics from "./components/Analytics";
 import Reports from "./components/Reports";
+
 import EditProfile from "./components/EditProfile";
 import Certificate from "./components/Certificate";
 import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
+import CreateQuiz from "./components/CreateQuiz";
 function App() {
   const { user } = React.useContext(UserContext);
   if (user.token) {
@@ -37,6 +39,8 @@ function App() {
             <Route path="/reports" component={Reports}></Route>
             <Route path="/editprofile" component={EditProfile}></Route>
             <Route path="/startquiz" component={StartQuiz}></Route>
+            <Route path="/createquiz" component={CreateQuiz}></Route>
+
             <Route path="/certificate" component={Certificate}></Route>
           </Switch>
         </div>

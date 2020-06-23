@@ -51,7 +51,10 @@ export default function Quizzes() {
     <div className="container">
       <div className="row d-flex justify-content-center my-3">
         {/* <Button className="justify-content-left  m-3">Analyse</Button> */}
-        <Button>Create Quiz</Button>
+        <Button variant="primary"
+              className="mt-3"
+              href="/createquiz"
+              target="_blank">Create Quiz</Button>
       </div>
       {/* <CreateClass addRoom={addRoom}/> */}
       <QuizList quizList={roomlist} />
