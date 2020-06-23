@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Classrooms from "./components/Classrooms";
 import Profile from "./components/Profile";
 import Quizzes from "./components/Quizzes";
+import StartQuiz from "./components/Quiz/Quiz"
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import DashboardNavigation from "./components/DashboardNavigation";
 import ScrollUpButton from "react-scroll-up-button";
@@ -15,6 +16,7 @@ import Dashboard from "./components/Dashboard";
 import Analytics from "./components/Analytics";
 import Reports from "./components/Reports";
 import EditProfile from "./components/EditProfile";
+import Certificate from "./components/Certificate";
 import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
 function App() {
@@ -31,6 +33,8 @@ function App() {
             <Route path="/quizzes" component={Quizzes}></Route>
             <Route path="/reports" component={Reports}></Route>
             <Route path="/editprofile" component={EditProfile}></Route>
+            <Route path="/startquiz" component={StartQuiz}></Route>
+            <Route path="/certificate" component={Certificate}></Route>
           </Switch>
         </div>
       </BrowserRouter>
@@ -45,7 +49,7 @@ function App() {
             <Route exact path="/" component={Home} exact></Route>
             <Route path="/features" component={Features}></Route>
             <Route path="/faqs" component={Faqs}></Route>
-            <Route path="/contact-us" component={ContactUs}></Route> }
+            <Route path="/contact-us" component={ContactUs}></Route> 
           </Switch>
           <Footer />
         </div>

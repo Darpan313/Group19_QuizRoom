@@ -1,5 +1,8 @@
 import { Card, Button, ListGroup } from "react-bootstrap";
 
+import Dashboard from "../components/Dashboard";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import React from "react";
 
 export default function QuizCard({
@@ -34,7 +37,10 @@ export default function QuizCard({
               <ListGroup.Item>Weightage : {weightage}</ListGroup.Item>
               <ListGroup.Item>Due : {due}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary">Open</Button>
+            <Button variant="primary" >
+              <a href="/startquiz" target="_blank" without rel="noopener noreferrer">Open</a>
+            </Button>
+            
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">{status}</small>
