@@ -30,7 +30,7 @@ class QuizDetails extends Component{
                 <h1 className="ui centered col-lg-12">Enter Quiz Details</h1>
                 <Form.Field>
                 <div className="col-lg-12">
-                    <div className=""> Question Title </div>
+                    <div className="col-lg-12"> Question Title </div>
                     <input
                     placeholder='Quiz title'
                     className="col-lg-12 form-control"
