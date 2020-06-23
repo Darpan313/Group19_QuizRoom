@@ -109,12 +109,15 @@ class Createclass extends React.Component {
               <input
                 type="file"
                 name="filetype"
-                className="pb-3"
                 required
                 value={this.state.filetype}
                 onChange={this.handleUserInput}
               />
+              <Form.Text id="fileHelpBlock" muted>
+                Must be .CSV file.
+              </Form.Text>
             </div>
+
             <FormErrors formErrors={this.state.formErrors} />
 
             <button

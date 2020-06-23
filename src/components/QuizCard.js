@@ -1,4 +1,5 @@
 import { Card, Button, ListGroup } from "react-bootstrap";
+import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 
 import Dashboard from "../components/Dashboard";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -15,7 +16,7 @@ export default function QuizCard({
   weightage,
   due,
   marks,
-  grade
+  grade,
 }) {
   var url = require(`../assets/${img}`);
 
@@ -23,12 +24,6 @@ export default function QuizCard({
     return (
       <div className="classes">
         <Card border="success">
-          <Card.Img
-            variant="top"
-            src={url}
-            height="150vh"
-            className="card-img-top"
-          />
           <Card.Body>
             <Card.Title>{code}</Card.Title>
             <Card.Text>{name}</Card.Text>
@@ -37,11 +32,40 @@ export default function QuizCard({
               <ListGroup.Item>Weightage : {weightage}</ListGroup.Item>
               <ListGroup.Item>Due : {due}</ListGroup.Item>
             </ListGroup>
-              <a href="/startquiz" className="btn-primary mt-2" target="_blank" without rel="noopener noreferrer">Open</a>
-            
+            <Button
+              variant="primary"
+              className="mt-3"
+              href="/startquiz"
+              target="_blank"
+            >
+              {/* <a
+                href="/startquiz"
+                target="_blank"
+                without
+                rel="noopener noreferrer"
+              > */}
+              Open
+              {/* </a> */}
+            </Button>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">{status}</small>
+            <div className="row">
+              <div className="col-auto mr-auto">
+                <small className="text-muted">{status}</small>
+              </div>
+              <div className=" row col-auto">
+                <div className="column mr-3">
+                  <a href="#" style={{ color: "black" }}>
+                    <FaRegEdit />
+                  </a>
+                </div>
+                <div className="column mr-2">
+                  <a href="#" style={{ color: "red" }}>
+                    <FaRegTrashAlt />
+                  </a>
+                </div>
+              </div>
+            </div>
           </Card.Footer>
         </Card>
       </div>
@@ -50,21 +74,16 @@ export default function QuizCard({
     return (
       <div className="classes">
         <Card border="danger">
-          <Card.Img
-            variant="top"
-            src={url}
-            height="150vh"
-            className="card-img-top"
-          />
           <Card.Body>
             <Card.Title>{code}</Card.Title>
             <Card.Text>{name}</Card.Text>
             <ListGroup variant="flush">
-            <ListGroup.Item> Marks : {marks}</ListGroup.Item>
-            <ListGroup.Item> Grade : {grade}</ListGroup.Item>
-
+              <ListGroup.Item> Marks : {marks}</ListGroup.Item>
+              <ListGroup.Item> Grade : {grade}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary">Open</Button>
+            <Button variant="primary" className="mt-3">
+              Open
+            </Button>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">{status}</small>

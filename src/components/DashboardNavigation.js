@@ -13,9 +13,9 @@ export default function DashboardNavigation() {
   };
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-    <Navbar.Brand href="/">
-          <img src={require("../assets/logo.png")}/>
-        </Navbar.Brand>
+      <Navbar.Brand href="/">
+        <img src={require("../assets/logo.png")} width="30" height="30" />
+      </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

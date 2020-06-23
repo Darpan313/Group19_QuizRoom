@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Home from "./components/Home";
 import Classrooms from "./components/Classrooms";
+import ViewClass from "./components/ViewClass";
 import Profile from "./components/Profile";
 import Quizzes from "./components/Quizzes";
 import StartQuiz from "./components/Quiz/Quiz"
@@ -28,8 +29,10 @@ function App() {
         <div className="container-fullwidth">
           <DashboardNavigation />
           <Switch>
+            <Route path="/" component={Dashboard} exact></Route>
             <Route path="/dashboard" component={Dashboard} exact></Route>
             <Route path="/classrooms" component={Classrooms}></Route>
+            <Route path="/viewclass" component={ViewClass}></Route>
             <Route path="/quizzes" component={Quizzes}></Route>
             <Route path="/reports" component={Reports}></Route>
             <Route path="/editprofile" component={EditProfile}></Route>

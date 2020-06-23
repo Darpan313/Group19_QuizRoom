@@ -1,4 +1,6 @@
 import { Card, Button } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
 
 import React from "react";
 
@@ -18,10 +20,28 @@ export default function ClassroomCard({ img, name, code, children, status }) {
           <Card.Body>
             <Card.Title>{code}</Card.Title>
             <Card.Text>{name}</Card.Text>
+            <Link to="/viewclass">
             <Button variant="primary">Open</Button>
+            </Link>
           </Card.Body>
           <Card.Footer>
-            <small className="text-muted">{status}</small>
+            <div className="row">
+              <div className="col-auto mr-auto">
+                <small className="text-muted">{status}</small>
+              </div>
+              <div className=" row col-auto">
+                <div className="column mr-3">
+                  <a href="#" style={{ color: "black" }}>
+                    <FaRegEdit />
+                  </a>
+                </div>
+                <div className="column mr-2">
+                  <a href="#" style={{ color: "red" }}>
+                    <FaRegTrashAlt />
+                  </a>
+                </div>
+              </div>
+            </div>
           </Card.Footer>
         </Card>
       </div>
