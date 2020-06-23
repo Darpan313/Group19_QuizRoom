@@ -31,15 +31,20 @@ export default function QuizCard({
               <ListGroup.Item>Weightage : {weightage}</ListGroup.Item>
               <ListGroup.Item>Due : {due}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary" className="mt-3">
-              <a
+            <Button
+              variant="primary"
+              className="mt-3"
+              href="/startquiz"
+              target="_blank"
+            >
+              {/* <a
                 href="/startquiz"
                 target="_blank"
                 without
                 rel="noopener noreferrer"
-              >
-                Open
-              </a>
+              > */}
+              Open
+              {/* </a> */}
             </Button>
           </Card.Body>
           <Card.Footer>
