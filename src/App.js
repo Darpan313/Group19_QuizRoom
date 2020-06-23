@@ -16,6 +16,7 @@ import Features from "./components/Features";
 import Dashboard from "./components/Dashboard";
 import Analytics from "./components/Analytics";
 import Reports from "./components/Reports";
+import Support from "./components/Support";
 
 import EditProfile from "./components/EditProfile";
 import Certificate from "./components/Certificate";
@@ -40,6 +41,7 @@ function App() {
             <Route path="/editprofile" component={EditProfile}></Route>
             <Route path="/startquiz" component={StartQuiz}></Route>
             <Route path="/createquiz" component={CreateQuiz}></Route>
+            <Route path="/faqs" component={Support}></Route>
 
             <Route path="/certificate" component={Certificate}></Route>
           </Switch>
@@ -55,7 +57,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} exact></Route>
             <Route path="/features" component={Features}></Route>
-            <Route path="/faqs" component={Faqs}></Route>
+            <Route path="/faqs" component={Support}></Route>
             <Route path="/contact-us" component={ContactUs}></Route> 
           </Switch>
           <Footer />

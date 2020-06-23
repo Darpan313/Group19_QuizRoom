@@ -25,10 +25,10 @@ export default function DashboardNavigation() {
           <Nav.Link href="/reports">Reports</Nav.Link>
           <NavDropdown title="Help" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">User Manual</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">FAQ</NavDropdown.Item>
+            <NavDropdown.Item href="/faqs">FAQ</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Tutorial</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Contact Us</NavDropdown.Item>
+            <NavDropdown.Item href="/faqs">Contact Us</NavDropdown.Item>
           </NavDropdown>
         </Nav>
         <Nav className="ml-auto">
