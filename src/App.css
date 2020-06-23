@@ -57,3 +57,19 @@
 .anchor-card-text{
   color: black;
 }
+
+.m-all-20{
+  margin: 20px;
+}
+
+.m-l-20{
+  margin-left: 20px;
+}
+
+.m-l-10{
+  margin-left: 10px;
+}
+
+.m-t-20{
+  margin-top: 20px;
+}
