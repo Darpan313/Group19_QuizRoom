@@ -6,8 +6,6 @@ export default function QuizList(props) {
   return (
     <>
       <section>
-        <p> </p>
-
         <h3>2020-Summer</h3>
         <div className="row">
           <hr />
