@@ -117,3 +117,37 @@
   width:40%;
   height:20%
 }
+
+.certificateCompletion{
+  margin-top:2%;
+  margin-left:3%;
+  margin-right:3%
+}
+.courseTitle{
+  margin-top:25px
+}
+.certificateImage{
+  height:40%;
+  width:40%
+}
+.certificateText{
+  margin-left:4%;
+  margin-right:4%
+}
+.message{
+  margin-top:5%
+}
+.buttonsDiv{
+  width:100%;
+  display:inline-block
+}
+.certificateButtons{
+  height:60%;
+  width:75%;
+  margin-left: 10%;
+  margin-top: 30%;
+}
+
+.pad{
+  margin-left: 20%;
+}

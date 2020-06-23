@@ -42,7 +42,6 @@ function App() {
             <Route path="/startquiz" component={StartQuiz}></Route>
             <Route path="/createquiz" component={CreateQuiz}></Route>
             <Route path="/faqs" component={Support}></Route>
-
             <Route path="/certificate" component={Certificate}></Route>
           </Switch>
         </div>
