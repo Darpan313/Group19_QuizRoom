@@ -31,7 +31,7 @@ export default function QuizCard({
               <ListGroup.Item>Weightage : {weightage}</ListGroup.Item>
               <ListGroup.Item>Due : {due}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary">
+            <Button variant="primary" className="mt-3">
               <a
                 href="/startquiz"
                 target="_blank"
@@ -59,7 +59,9 @@ export default function QuizCard({
               <ListGroup.Item> Marks : {marks}</ListGroup.Item>
               <ListGroup.Item> Grade : {grade}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary">Open</Button>
+            <Button variant="primary" className="mt-3">
+              Open
+            </Button>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">{status}</small>
