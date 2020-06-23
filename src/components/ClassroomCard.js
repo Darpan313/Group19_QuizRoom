@@ -28,10 +28,14 @@ export default function ClassroomCard({ img, name, code, children, status }) {
               </div>
               <div className=" row col-auto">
                 <div className="column mr-3">
-                  <FaRegEdit />
+                  <a href="#" style={{ color: "black" }}>
+                    <FaRegEdit />
+                  </a>
                 </div>
                 <div className="column mr-2">
-                  <FaRegTrashAlt />
+                  <a href="#" style={{ color: "red" }}>
+                    <FaRegTrashAlt />
+                  </a>
                 </div>
               </div>
             </div>

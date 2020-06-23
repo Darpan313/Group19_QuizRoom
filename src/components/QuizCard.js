@@ -55,10 +55,14 @@ export default function QuizCard({
               </div>
               <div className=" row col-auto">
                 <div className="column mr-3">
-                  <FaRegEdit />
+                  <a href="#" style={{ color: "black" }}>
+                    <FaRegEdit />
+                  </a>
                 </div>
                 <div className="column mr-2">
-                  <FaRegTrashAlt />
+                  <a href="#" style={{ color: "red" }}>
+                    <FaRegTrashAlt />
+                  </a>
                 </div>
               </div>
             </div>
