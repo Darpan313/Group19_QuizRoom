@@ -37,9 +37,7 @@ export default function QuizCard({
               <ListGroup.Item>Weightage : {weightage}</ListGroup.Item>
               <ListGroup.Item>Due : {due}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary" >
-              <a href="/startquiz" target="_blank" without rel="noopener noreferrer">Open</a>
-            </Button>
+              <a href="/startquiz" className="btn-primary mt-2" target="_blank" without rel="noopener noreferrer">Open</a>
             
           </Card.Body>
           <Card.Footer>
