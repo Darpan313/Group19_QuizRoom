@@ -24,22 +24,19 @@ export default function Classrooms() {
     },
   ];
 
-  const [roomlist, setRoomList] = useState(classroomList)
+  const [roomlist, setRoomList] = useState(classroomList);
 
   const addRoom = (data) => {
-
     let temp = roomlist;
-    setRoomList([
-      ...temp,
-      data
-    ])
-
-  }
+    setRoomList([...temp, data]);
+  };
 
   return (
     <div className="container">
-      <CreateClass addRoom={addRoom}/>
-      <Classrommlist classroomList={roomlist}/>
+      <div className="d-flex justify-content-center">
+        <CreateClass addRoom={addRoom} />
+      </div>
+      <Classrommlist classroomList={roomlist} />
     </div>
   );
 }
