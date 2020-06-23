@@ -1,5 +1,5 @@
 import { Card, Button } from "react-bootstrap";
-
+import { Link } from 'react-router-dom';
 import React from "react";
 
 export default function ClassroomCard({ img, name, code, children, status }) {
@@ -18,7 +18,9 @@ export default function ClassroomCard({ img, name, code, children, status }) {
           <Card.Body>
             <Card.Title>{code}</Card.Title>
             <Card.Text>{name}</Card.Text>
+            <Link to="/viewclass">
             <Button variant="primary">Open</Button>
+            </Link>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">{status}</small>
