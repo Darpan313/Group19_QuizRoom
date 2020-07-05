@@ -9,6 +9,7 @@ class Createclass extends React.Component {
       showHide: false,
       classname: "",
       term: "",
+      email: "",
       filetype: "",
       formErrors: { classname: "", filetype: "" },
       classnameValid: false,
@@ -105,7 +106,21 @@ class Createclass extends React.Component {
             </Form.Group>
 
             <div className="form-group ${this.errorClass(this.state.formErrors.classname)}">
-              <label>Add Student using Excel</label>
+            <label className="font-weight-bold">Add Students: </label><br />
+            <label>Using Email</label>
+            <input
+                type="email"
+                name="emails"
+                className="form-control"
+                required
+                placeholder="Enter Student Email"
+                // value={this.state.email}
+                onChange={this.handleUserInput}
+              />
+              <Form.Text id="fileHelpBlock" muted className="pt-2 pb-2 text-center font-weight-bold">
+                Or
+              </Form.Text>
+              <label>Using Excel file</label><br />
               <input
                 type="file"
                 name="filetype"
