@@ -82,7 +82,7 @@ export default function QuizCard({
               <ListGroup.Item> Grade : {grade}</ListGroup.Item>
             </ListGroup>
             <Button variant="primary" className="mt-3">
-              Open
+              Analyze
             </Button>
           </Card.Body>
           <Card.Footer>

@@ -29,7 +29,7 @@ export default function Login() {
     const value = e.target.value;
     if (name == "email") {
       setEmail(value);
-      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const re = /\S+@\S+\.\S+/;
       setEmailValid(re.test(value));
       formErrors.email = emailValid ? "" : " is invalid";
     } else if (name == "password") {
@@ -78,6 +78,7 @@ export default function Login() {
               <input
                 type="email"
                 name="email"
+                autoComplete="false"
                 className="form-control"
                 required
                 placeholder="Enter email"
