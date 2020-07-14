@@ -12,7 +12,7 @@ export default function DashboardNavigation() {
     history.push("/");
   };
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+    <Navbar collapseSelect bg="dark" variant="dark" expand="lg" sticky="top">
       <Navbar.Brand href="/">
         <img src={require("../assets/logo.png")} width="30" height="30" />
       </Navbar.Brand>
@@ -23,7 +23,7 @@ export default function DashboardNavigation() {
           <Nav.Link href="/classrooms">Classrooms</Nav.Link>
           <Nav.Link href="/quizzes">Quizzes</Nav.Link>
           <Nav.Link href="/reports">Reports</Nav.Link>
-          <NavDropdown title="Help" id="basic-nav-dropdown">
+          <NavDropdown title="Help" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">User Manual</NavDropdown.Item>
             <NavDropdown.Item href="/faqs">FAQ</NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Tutorial</NavDropdown.Item>

@@ -1,9 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
-import axios from "axios";
-import { Tabs, Tab } from "react-bootstrap";
-import Table from "./Table";
-import { columns } from "./QuizTabCol";
-
+import React, { useMemo } from "react";
 const Genres = ({ values }) => {
   return (
     <>
@@ -17,8 +12,8 @@ const Genres = ({ values }) => {
     </>
   );
 };
-export default function Reports() {
-  const [key, setKey] = useState("by quiz");
+
+export default function QuizTabCol() {
   const columns = useMemo(
     () => [
       {
@@ -65,38 +60,5 @@ export default function Reports() {
     ],
     []
   );
-
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
-      setData(result.data);
-    })();
-  }, []);
-  return (
-    <div>
-      <Tabs
-        id="controlled-tab-example"
-        activeKey={key}
-        onSelect={(k) => setKey(k)}
-      >
-        <Tab eventKey="by quiz" title="By Quizzes">
-          <div className="quiztab">
-            <Table columns={columns} data={data} />
-          </div>
-        </Tab>
-        <Tab eventKey="By User" title="By Users">
-          <div className="quiztab">
-            <Table columns={columns} data={data} />
-          </div>
-        </Tab>
-        <Tab eventKey="By Classroom" title="By Classrooms">
-          <div className="quiztab">
-            <Table columns={columns} data={data} />
-          </div>
-        </Tab>
-      </Tabs>
-    </div>
-  );
+  return <div></div>;
 }
