@@ -13,14 +13,14 @@ const Genres = ({ values }) => {
   );
 };
 
-export default function QuizTabCol() {
+export default function ClassroomTabCol() {
   const columns = useMemo(
     () => [
       {
-        Header: "Quizzes",
+        Header: "Classrooms",
         columns: [
           {
-            Header: "Quiz Name",
+            Header: "Course Name",
             accessor: "show.name",
           },
           {

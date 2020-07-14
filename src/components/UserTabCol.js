@@ -13,18 +13,18 @@ const Genres = ({ values }) => {
   );
 };
 
-export default function QuizTabCol() {
+export default function UserTabCol() {
   const columns = useMemo(
     () => [
       {
-        Header: "Quizzes",
+        Header: "Users",
         columns: [
           {
-            Header: "Quiz Name",
+            Header: "UserName",
             accessor: "show.name",
           },
           {
-            Header: "Data Published",
+            Header: "BannerID",
             accessor: "show.type",
           },
         ],
@@ -37,7 +37,7 @@ export default function QuizTabCol() {
             accessor: "show.language",
           },
           {
-            Header: "Concept(s)",
+            Header: "Completed Quiz(s)",
             accessor: "show.genres",
             Cell: ({ cell: { value } }) => <Genres values={value} />,
           },

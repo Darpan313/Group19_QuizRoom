@@ -2,7 +2,9 @@ import React, { useMemo, useState, useEffect } from "react";
 import axios from "axios";
 import { Tabs, Tab } from "react-bootstrap";
 import Table from "./Table";
-import { columns } from "./QuizTabCol";
+import QuizTabCol from "./QuizTabCol";
+import ClassroomTabCol from "./ClassroomTabCol";
+import UserTabCol from "./UserTabCol";
 
 const Genres = ({ values }) => {
   return (
@@ -19,59 +21,29 @@ const Genres = ({ values }) => {
 };
 export default function Reports() {
   const [key, setKey] = useState("by quiz");
-  const columns = useMemo(
-    () => [
-      {
-        Header: "Quizzes",
-        columns: [
-          {
-            Header: "Quiz Name",
-            accessor: "show.name",
-          },
-          {
-            Header: "Data Published",
-            accessor: "show.type",
-          },
-        ],
-      },
-      {
-        Header: "Details",
-        columns: [
-          {
-            Header: "Classroom",
-            accessor: "show.language",
-          },
-          {
-            Header: "Concept(s)",
-            accessor: "show.genres",
-            Cell: ({ cell: { value } }) => <Genres values={value} />,
-          },
-          {
-            Header: "Avg. Score",
-            accessor: "show.runtime",
-            Cell: ({ cell: { value } }) => {
-              const hour = Math.floor(value / 60);
-              const min = Math.floor(value % 60);
-              return (
-                <>
-                  {hour > 0 ? `${hour} hr${hour > 1 ? "s" : ""} ` : ""}
-                  {min > 0 ? `${min} min${min > 1 ? "s" : ""}` : ""}
-                </>
-              );
-            },
-          },
-        ],
-      },
-    ],
-    []
-  );
-
-  const [data, setData] = useState([]);
+  const quizColumns = QuizTabCol();
+  const [quizData, setQuizData] = useState([]);
+  const userColumns = UserTabCol();
+  const [userData, setUserData] = useState([]);
+  const classroomColumns = ClassroomTabCol();
+  const [classroomData, setClassroomData] = useState([]);
 
   useEffect(() => {
     (async () => {
       const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
-      setData(result.data);
+      setQuizData(result.data);
+    })();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
+      setUserData(result.data);
+    })();
+  }, []);
+  useEffect(() => {
+    (async () => {
+      const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
+      setClassroomData(result.data);
     })();
   }, []);
   return (
@@ -82,18 +54,18 @@ export default function Reports() {
         onSelect={(k) => setKey(k)}
       >
         <Tab eventKey="by quiz" title="By Quizzes">
-          <div className="quiztab">
-            <Table columns={columns} data={data} />
+          <div className="tableStyle">
+            <Table columns={quizColumns} data={quizData} />
           </div>
         </Tab>
         <Tab eventKey="By User" title="By Users">
-          <div className="quiztab">
-            <Table columns={columns} data={data} />
+          <div className="tableStyle">
+            <Table columns={userColumns} data={userData} />
           </div>
         </Tab>
         <Tab eventKey="By Classroom" title="By Classrooms">
-          <div className="quiztab">
-            <Table columns={columns} data={data} />
+          <div className="tableStyle">
+            <Table columns={classroomColumns} data={classroomData} />
           </div>
         </Tab>
       </Tabs>

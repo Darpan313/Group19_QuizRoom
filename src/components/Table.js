@@ -32,7 +32,7 @@ export default function Table({ columns, data }) {
       <input
         value={filterInput}
         onChange={handleFilterChange}
-        placeholder={"Search by Quiz Name"}
+        placeholder={"Search by Name"}
       />
       <table {...getTableProps()} responsive>
         <thead>
