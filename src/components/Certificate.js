@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../logo.svg';
+import logo from '../assets/certificate.png';
 export default function Certificate(){
     return (
         <div>
@@ -78,7 +78,7 @@ export default function Certificate(){
 										<button class="btn btn-primary certificateButtons" type="submit">Download</button>
 									</div>
 									<div class="col-md-6">
-										<button class="btn btn-primary certificateButtons" type="submit">Share</button>
+										<button class="btn btn-primary certificateButtons" type="submit">Email</button>
 									</div>
 								</div>
 							</div>
