@@ -9,6 +9,7 @@ export default function Login() {
   const { userLogin } = React.useContext(UserContext);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [role, setRole] = React.useState("Student");
   const [modalDisplay, setModalDisplay] = React.useState(false);
   const [formErrors, setFormErrors] = React.useState({
     email: "",
@@ -47,9 +48,14 @@ export default function Login() {
     let response = await loginUser({ email, password });
     if (response) {
       const { jwt: token, username: username } = response.data;
-      const newUser = { token, username };
+      const newUser = { token, username, role };
       userLogin(newUser);
-      history.push("/dashboard");
+      //console.log(role);
+      if (role == "Student") {
+        history.push("/StudentDashboard");
+      } else {
+        history.push("/dashboard");
+      }
     } else {
       alert("Error!");
     }
@@ -65,12 +71,15 @@ export default function Login() {
           <Modal.Title>Login</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form>
+          <Form>
             <Form.Group>
               <Form.Label>Select Role</Form.Label>
-              <Form.Control as="select">
-                <option>Student</option>
-                <option>Manager</option>
+              <Form.Control
+                as="select"
+                onChange={(e) => setRole(e.target.value)}
+              >
+                <option value="Student">Student</option>
+                <option value="Manager">Manager</option>
               </Form.Control>
             </Form.Group>
             <div className="form-group">
@@ -124,7 +133,7 @@ export default function Login() {
                 </p>
               </div>
             </div>
-          </form>
+          </Form>
         </Modal.Body>
       </Modal>
     </div>
