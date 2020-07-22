@@ -7,6 +7,9 @@ class Register extends React.Component {
     super(props);
     this.state = {
       showHide: false,
+      firstName: "",
+      lastName: "",
+      role : "",
       email: "",
       password: "",
       formErrors: { email: "", password: "" },
@@ -14,6 +17,8 @@ class Register extends React.Component {
       passwordValid: false,
       formValid: false,
     };
+    this.handleUserInput = this.handleUserInput.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
   handleModalShowHide() {
@@ -21,8 +26,10 @@ class Register extends React.Component {
   }
 
   handleUserInput = (e) => {
+    debugger;
     const name = e.target.name;
     const value = e.target.value;
+    this.setState({ [e.target.name]: e.target.value });
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
@@ -65,6 +72,43 @@ class Register extends React.Component {
     return error.length === 0 ? "" : "has-error";
   }
 
+  // onChange(e) {
+  //   this.setState({ [e.target.name]: e.target.value })
+    
+  // }
+  onSubmit(e) {
+    debugger;
+    e.preventDefault()
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName:this.state.firstName,
+        lastName:this.state.lastName,
+        role:this.state.role,
+        email: this.state.email,
+        password: this.state.password
+      })
+    };
+    console.log('request ');
+    console.log(requestOptions);
+    fetch('http://localhost:5000/user/login', requestOptions)
+      .then(response => response.json())
+      .then(data => {
+        if (data.data === "success") {
+          console.log(data.data)
+          // this.props.history.push({
+          //   pathname: '/welcome',
+          //   search: '?user:' + this.state.email,
+          //   state: { email: this.state.email }
+          // })
+
+        }
+      })
+
+  }
+
   render() {
     return (
       <div>
@@ -77,13 +121,16 @@ class Register extends React.Component {
             <Modal.Title>Register</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form>
+            <form noValidate onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label>First name</label>
                 <input
                   type="text"
                   className="form-control"
                   placeholder="First name"
+                  name="firstName"
+                  value={this.state.firstName}
+                  onChange={this.handleUserInput}
                 />
               </div>
 
@@ -92,12 +139,16 @@ class Register extends React.Component {
                 <input
                   type="text"
                   className="form-control"
+                  name="lastName"
                   placeholder="Last name"
+                  value={this.state.lastName}
+                  onChange={this.handleUserInput}
                 />
               </div>
               <Form.Group>
                 <Form.Label>Select Role</Form.Label>
-                <Form.Control as="select">
+                <Form.Control as="select" name="role" value={this.state.role} onChange={this.handleUserInput}>
+                  <option>Select Option</option>
                   <option>Student</option>
                   <option>Manager</option>
                 </Form.Control>
