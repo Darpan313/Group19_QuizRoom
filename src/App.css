@@ -73,3 +73,81 @@
 .m-t-20{
   margin-top: 20px;
 }
+
+.head{
+  text-align:left;
+  margin-left: 7%;
+}
+.text{
+  text-align: left;
+  margin-left: 7%;
+}
+.link{
+  margin-left:40%;
+}
+
+.btnLink{
+  margin-left: 72%;
+}
+.textfields {
+  outline: 0;
+  background: #dcdcdc;
+  border-radius: 20px;
+  border: 1px solid #2d9fd9;
+  border: 0;
+  height:10%;
+  margin: 0 0 3%;
+  padding: 6%;
+  font-size: 100%;
+}
+
+.supportFormPanel {
+  float: right;
+  position: relative;
+  background: #f0f0f0;
+  width: 88%;
+  height: 90%;
+  margin: 2% 6% 6% 0%;
+  padding: 7%;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.supportButton{
+  margin-top:5%;
+  width:40%;
+  height:20%
+}
+
+.certificateCompletion{
+  margin-top:2%;
+  margin-left:3%;
+  margin-right:3%
+}
+.courseTitle{
+  margin-top:25px
+}
+.certificateImage{
+  height:25%;
+  width:25%
+}
+.certificateText{
+  margin-left:4%;
+  margin-right:4%
+}
+.message{
+  margin-top:5%
+}
+.buttonsDiv{
+  width:100%;
+  display:inline-block
+}
+.certificateButtons{
+  height:60%;
+  width:75%;
+  margin-left: 10%;
+  margin-top: 30%;
+}
+
+.pad{
+  margin-left: 20%;
+}

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { UserContext } from "../context/user";
+import { UserContext } from "../../context/user";
 import { useHistory } from "react-router-dom";
 
-export default function DashboardNavigation() {
+export default function StudentDashboardNavigation() {
   const history = useHistory();
   const { user, userLogout } = React.useContext(UserContext);
   const handleLogout = () => {
@@ -14,15 +14,14 @@ export default function DashboardNavigation() {
   return (
     <Navbar collapseSelect bg="dark" variant="dark" expand="lg" sticky="top">
       <Navbar.Brand href="/">
-        <img src={require("../assets/logo.png")} width="30" height="30" />
+        <img src={require("../../assets/logo.png")} width="30" height="30" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+          <Nav.Link href="/StudentDashboard">Dashboard</Nav.Link>
           <Nav.Link href="/classrooms">Classrooms</Nav.Link>
           <Nav.Link href="/quizzes">Quizzes</Nav.Link>
-          <Nav.Link href="/reports">Reports</Nav.Link>
           <NavDropdown title="Help" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">User Manual</NavDropdown.Item>
             <NavDropdown.Item href="/faqs">FAQ</NavDropdown.Item>

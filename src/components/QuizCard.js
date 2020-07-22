@@ -1,5 +1,5 @@
 import { Card, Button, ListGroup } from "react-bootstrap";
-import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
+import { FaRegEdit, FaRegTrashAlt, FaRegClock } from "react-icons/fa";
 
 import Dashboard from "../components/Dashboard";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -31,6 +31,9 @@ export default function QuizCard({
               <ListGroup.Item>Time : {time}</ListGroup.Item>
               <ListGroup.Item>Weightage : {weightage}</ListGroup.Item>
               <ListGroup.Item>Due : {due}</ListGroup.Item>
+              <ListGroup.Item>
+                <FaRegClock />
+              </ListGroup.Item>
             </ListGroup>
             <Button
               variant="primary"
@@ -82,7 +85,7 @@ export default function QuizCard({
               <ListGroup.Item> Grade : {grade}</ListGroup.Item>
             </ListGroup>
             <Button variant="primary" className="mt-3">
-              Open
+              Analyze
             </Button>
           </Card.Body>
           <Card.Footer>

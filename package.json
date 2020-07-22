@@ -11,8 +11,10 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "material-table": "^1.62.0",
+    "flask": "^0.2.10",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
@@ -22,6 +24,7 @@
     "react-scripts": "^3.4.1",
     "react-scroll-up-button": "^1.6.4",
     "react-stripe-elements": "^6.0.1",
+    "react-table": "^7.2.2",
     "semantic-ui-react": "^0.88.2",
     "victory": "^34.3.12"
   },

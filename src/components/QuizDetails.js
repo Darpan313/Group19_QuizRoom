@@ -23,25 +23,28 @@ class QuizDetails extends Component{
     render(){
         const { values } = this.props;
         return(
+            
             <Form >
-                <h1 className="ui centered">Enter Quiz Details</h1>
+                <div class="row align-items-center h-100">
+              <div className="col-4 mx-auto">
+                <h1 className="ui centered col-lg-12">Enter Quiz Details</h1>
                 <Form.Field>
-                <div className="col-md-12">
-                    <div className=""> Question Title </div>
+                <div className="col-lg-12">
+                    <div className="col-lg-12"> Question Title </div>
                     <input
                     placeholder='Quiz title'
-                    className="col-md-4"
+                    className="col-lg-12 form-control"
                     onChange={this.props.handleChange('quizTitle')}
                     defaultValue={values.quizTitle}
                     />
                     </div>
                 </Form.Field>
                 <Form.Field>
-                <div className="col-md-12">
-                    <div className=""> Timer </div>
+                <div className="col-lg-12">
+                    <div className="col-lg-12"> Timer </div>
                     <input
                     placeholder='Timer'
-                    className="col-md-4"
+                    className="col-lg-12 form-control"
                     onChange={this.props.handleChange('timer')}
                     defaultValue={values.timer}
                     type="number"
@@ -49,23 +52,23 @@ class QuizDetails extends Component{
                     </div>
                 </Form.Field>
                 <Form.Field>
-                <div className="col-md-12">
-                    <div className=""> Category </div>
+                <div className="col-lg-12">
+                    <div className="col-lg-12"> Category </div>
                     <input
                     type='category'
                     placeholder='Category'
-                    className="col-md-4"
+                    className="col-lg-12 form-control"
                     onChange={this.props.handleChange('category')}
                     defaultValue={values.category}
                     />
                     </div>
-                    <div className="col-md-12">
-                    <div className=""> Import from Existing Quiz </div>
+                    <div className="col-lg-12">
+                    <div className="col-lg-12"> Import from Existing Quiz </div>
                         {/* <input type="checkbox" onChange={this.onChange}></input>
                         <label className="m-l-10">Import from Existing Quiz?</label>
                         <div>
                         {this.props.values.checked && */}
-                            <select className="col-md-4">
+                            <select className="col-lg-12 form-control">
                             <option>Select Quiz</option>
                             <option>Quiz 1</option>
                             <option>Quiz 2</option>
@@ -76,8 +79,11 @@ class QuizDetails extends Component{
                         </div> */}
                     </div>
                 </Form.Field>
-                <Button className="m-t-20 m-l-20" onClick={this.saveAndContinue}>Save And Continue </Button>
+                <Button variant="primary" className=" m-t-20 m-l-20" onClick={this.saveAndContinue}>Save And Continue </Button>
+                </div>
+            </div>
             </Form>
+            
         )
     }
 }
