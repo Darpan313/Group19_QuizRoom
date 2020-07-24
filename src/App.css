@@ -37,6 +37,23 @@
   }
 }
 
+.certificate{
+/* position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;  */
+  display: flex;
+  height: 600px;
+  width: 800px !important;
+  
+
+}
+
 .slider{
   max-width: 150%;
   max-height: 630px;
@@ -121,7 +138,7 @@
 .certificateCompletion{
   margin-top:2%;
   margin-left:3%;
-  margin-right:3%
+  margin-right:3%;
 }
 .courseTitle{
   margin-top:25px
