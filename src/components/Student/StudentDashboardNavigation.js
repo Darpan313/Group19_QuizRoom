@@ -19,7 +19,7 @@ export default function StudentDashboardNavigation() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+          <Nav.Link href="/StudentDashboard">Dashboard</Nav.Link>
           <Nav.Link href="/classrooms">Classrooms</Nav.Link>
           <Nav.Link href="/quizzes">Quizzes</Nav.Link>
           <NavDropdown title="Help" id="collasible-nav-dropdown">
