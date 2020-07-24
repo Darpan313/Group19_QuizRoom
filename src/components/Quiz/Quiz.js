@@ -8,8 +8,8 @@ import "./Quiz.css";
 class Quiz extends Component {
     state = {
         currentQuestion: {},
-        minutes: 0,
-        seconds: 10,
+        minutes: 1,
+        seconds: 0,
         questionSet: []
     }
     componentWillMount() {
@@ -90,6 +90,8 @@ class Quiz extends Component {
                     question_obj.options.map((opt) => {
                         if (opt.id == options.id) {
                             opt.isChecked = !opt.isChecked
+                        }else{
+                            opt.isChecked = false
                         }
                     })
                 }
