@@ -28,13 +28,18 @@ export default class Support extends Component {
 
     componentDidMount() {
         fetch(`http://localhost:5000/faq`)
-          .then(response => response.json())
-          .then((data) =>{
-              console.log(data[0]["question"])
-              console.log(data[0]["answer"])
-          } );
-      }
-      
+            .then(response => response.json())
+            .then((data) => {
+                let i=0
+                let questionList = []
+                for (i; i < data.length; i++) {
+                    questionList.push(createData(data[i]["question"], data[i]["answer"]))
+                }
+
+            });
+    }
+    
+
     render() {
         return (
             <div class="container-fluid">
