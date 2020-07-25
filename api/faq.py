@@ -1,3 +1,4 @@
+#author: Krutarth Patel (B00835794)
 from flask import Blueprint, jsonify
 from flask_restx import Resource,Api
 import pymongo
@@ -9,19 +10,20 @@ client=pymongo.MongoClient("mongodb+srv://shwethasubash:webgroup19@webtutorial.u
 db=client.QuizzRoom
 faqs=db.FAQ
 
-class getFAQs(Resource):
+class FAQs(Resource):
     def get(self):
         data = {}
         results = []
+        
+        #iterate through all FAQs present in the mongoDB collection
         for question in faqs.find({}):
             lst = {}
-            ques=question["question"]
-            ans=question["answer"]
+            ques=question["question"]   #fetch questions
+            ans=question["answer"]  #fetch answers to the corresponding question
             lst["question"]= ques
             lst["answer"] = ans
             results.append(lst)
-            
-        print(results)
-        return jsonify(results)
+        
+        return jsonify(results) #return all FAQs in json data format
 
-api.add_resource(getFAQs,'/faq')
+api.add_resource(FAQs,'/faq')

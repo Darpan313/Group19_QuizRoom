@@ -22,8 +22,13 @@ app.register_blueprint(ping_blueprint)
 from report import report_blueprint
 app.register_blueprint(report_blueprint)
 
+#Krutarth Patel (B00835794)
 from faq import faq_blueprint
 app.register_blueprint(faq_blueprint)
+
+#Krutarth Patel (B00835794)
+from support import support_blueprint
+app.register_blueprint(support_blueprint)
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000)
