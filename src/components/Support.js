@@ -16,8 +16,10 @@ const rows = [
     e.preventDefault();    
 
     emailjs.sendForm('gmail', 'template_PjL3dMN0', e.target, 'user_WCE3K6J0MJmpEMk0m5IYq')
-      .then((result) => {
+    .then((result) => {
+        
       }, (error) => {
+          console.log(error.text);
       });
   }
 
