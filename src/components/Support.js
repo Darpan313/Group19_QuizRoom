@@ -25,6 +25,16 @@ function sendEmail(e) {
 }
 
 export default class Support extends Component {
+
+    componentDidMount() {
+        fetch(`http://localhost:5000/faq`)
+          .then(response => response.json())
+          .then((data) =>{
+              console.log(data[0]["question"])
+              console.log(data[0]["answer"])
+          } );
+      }
+      
     render() {
         return (
             <div class="container-fluid">
