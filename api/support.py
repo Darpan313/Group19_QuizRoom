@@ -16,6 +16,6 @@ class Support(Resource):
         subject = request.args.get('subject')   #fetch user support subject
         message = request.args.get('message')   #fetch user support message
         record = { "email": email, "subject": subject, "message": message}
-        support.insert_one(record)  #insert record in mongoDB collection
+        result = support.insert_one(record)  #insert record in mongoDB collection
         
 api.add_resource(Support,'/support')
