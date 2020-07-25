@@ -18,7 +18,7 @@ import {
   PDFDownloadLink,
 } from "@react-pdf/renderer";
 
-  
+
 export default function Certificate() {
   // const [currentTime, setCurrentTime] = useState(0);
 
@@ -27,9 +27,9 @@ export default function Certificate() {
   //     setCurrentTime(data.time);
   //   });
   // }, []);
-  
+
   const MyDocument = () => (
-  
+
     <Document>
       <Page style={styles.page} size={[700, 1100]} page orientation="landscape">
         <View style={styles.textWrapper}>
@@ -44,9 +44,9 @@ export default function Certificate() {
       </Page>
     </Document>
   );
-  
+
   const App = () => (
-    
+
     <div>
       <PDFViewer>
         <MyDocument />
@@ -97,7 +97,7 @@ export default function Certificate() {
                     <dd>
                       You can now download the PDF version of your course certifcate. Selects the Download now button!
                     </dd>
-                    
+
                   </dl>
                 </center>
               </section>
@@ -134,7 +134,7 @@ export default function Certificate() {
     );
         ReactDOM.render(<App />, document.getElementById("root"));
 
-    
+
   }
 
 
@@ -192,7 +192,7 @@ Font.register({
 
 
 // const MyDocument = () => (
-  
+
 //   <Document>
 //     <Page style={styles.page} size={[700, 1100]} page orientation="landscape">
 //       <View style={styles.textWrapper}>
@@ -209,7 +209,7 @@ Font.register({
 // );
 
 // const App = () => (
-  
+
 //   <div>
 //     <PDFViewer>
 //       <MyDocument />
@@ -222,4 +222,3 @@ Font.register({
 //   </div>
 // );
 // ReactDOM.render(<App />, document.getElementById("root"));
-    
