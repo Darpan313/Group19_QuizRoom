@@ -4,6 +4,8 @@ import word from "../assets/certiword.png";
 import ReactPDF from "@react-pdf/renderer";
 import ReactDOM from "react-dom";
 import { PDFViewer } from "@react-pdf/renderer";
+import { useState, useEffect } from 'react';
+
 import React from "react";
 import {
   Page,
@@ -16,8 +18,47 @@ import {
   PDFDownloadLink,
 } from "@react-pdf/renderer";
 
-export default class Certificate extends React.Component {
-  render() {
+  
+export default function Certificate() {
+  // const [currentTime, setCurrentTime] = useState(0);
+
+  // useEffect(() => {
+  //   fetch('/time').then(res => res.json()).then(data => {
+  //     setCurrentTime(data.time);
+  //   });
+  // }, []);
+  
+  const MyDocument = () => (
+  
+    <Document>
+      <Page style={styles.page} size={[700, 1100]} page orientation="landscape">
+        <View style={styles.textWrapper}>
+          <Image style={styles.wordimage} src={word}></Image>
+          <Image style={styles.image} src={certi}></Image>
+          <Text style={styles.text}>
+            This is to certify that Student has completed COURSE with GRADE
+          </Text>
+          <Text style={styles.text}>Director X.Y.Z</Text>
+          <Image style={styles.logoimage} src={logo}></Image>
+        </View>
+      </Page>
+    </Document>
+  );
+  
+  const App = () => (
+    
+    <div>
+      <PDFViewer>
+        <MyDocument />
+      </PDFViewer>
+      <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
+        {({ blob, url, loading, error }) =>
+          loading ? "Loading document..." : "Download now!"
+        }
+      </PDFDownloadLink>
+    </div>
+  );
+
     return (
       <div>
         <div class="container-fluid">
@@ -52,46 +93,29 @@ export default class Certificate extends React.Component {
               <section>
                 <center>
                   <dl>
-                    <dt>Lorem ipsum</dt>
+                    <dt>Course completed successfully</dt>
                     <dd>
-                      Lorem ipsum dolor sit ametLorem ipsum dolor sit amet
+                      You can now download the PDF version of your course certifcate. Selects the Download now button!
                     </dd>
-                    <dt>Lorem ipsum dolor sit amet dolor sit amet</dt>
-                    <dd>
-                      Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet
-                    </dd>
+                    
                   </dl>
                 </center>
               </section>
               <br />
-              <section>
-                Lorem ipsum dolor sit amet,{" "}
-                <strong>consectetur adipiscing elit</strong>. Aliquam eget
-                sapien sapien. Curabitur in metus urna. In hac habitasse platea
-                dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam
-                purus nibh, lacinia non faucibus et, pharetra in dolor. Sed
-                iaculis posuere diam ut cursus.{" "}
-                <em>
-                  Morbi commodo sodales nisi id sodales. Proin consectetur, nisi
-                  id commodo imperdiet, metus nunc consequat lectus, id bibendum
-                  diam velit et dui.
-                </em>{" "}
-                Proin massa magna, vulputate nec bibendum nec, posuere nec
-                lacus. <br />
-                <br />
-              </section>
               <br />
               <div class="buttonsDiv">
                 <div class="row">
-                  <div class="btn-primary col-md-6 certificateButtons">
+                <div class="col-md-6">
+                  <div class = "btn btn-primary certificateButtons">
                   <PDFDownloadLink
                     document={<MyDocument />}
-                    fileName="somename.pdf"
+                    fileName="certificate.pdf"
                   >
                     {({ blob, url, loading, error }) =>
-                      loading ? "Loading document..." : "Download now!"
+                      loading ? "Loading document..." : "Download"
                     }
                   </PDFDownloadLink>
+                  </div>
                   </div>
                   <div class="col-md-6">
                     <button
@@ -108,8 +132,11 @@ export default class Certificate extends React.Component {
         </div>
       </div>
     );
+        ReactDOM.render(<App />, document.getElementById("root"));
+
+    
   }
-}
+
 
 const styles = StyleSheet.create({
   page: {
@@ -162,32 +189,37 @@ Font.register({
   family: "Oswald",
   src: "https://fonts.gstatic.com/s/oswald/v13/Y_TKV6o8WovbUd3m_X9aAA.ttf",
 });
-const MyDocument = () => (
-  <Document>
-    <Page style={styles.page} size={[700, 1100]} page orientation="landscape">
-      <View style={styles.textWrapper}>
-        <Image style={styles.wordimage} src={word}></Image>
-        <Image style={styles.image} src={certi}></Image>
-        <Text style={styles.text}>
-          This is to certify that STUDENT has completed COURSE with GRADE
-        </Text>
-        <Text style={styles.text}>Director X.Y.Z</Text>
-        <Image style={styles.logoimage} src={logo}></Image>
-      </View>
-    </Page>
-  </Document>
-);
 
-const App = () => (
-  <div>
-    <PDFViewer>
-      <MyDocument />
-    </PDFViewer>
-    <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
-      {({ blob, url, loading, error }) =>
-        loading ? "Loading document..." : "Download now!"
-      }
-    </PDFDownloadLink>
-  </div>
-);
-ReactDOM.render(<App />, document.getElementById("root"));
+
+// const MyDocument = () => (
+  
+//   <Document>
+//     <Page style={styles.page} size={[700, 1100]} page orientation="landscape">
+//       <View style={styles.textWrapper}>
+//         <Image style={styles.wordimage} src={word}></Image>
+//         <Image style={styles.image} src={certi}></Image>
+//         <Text style={styles.text}>
+//           This is to certify that {currentTime} has completed COURSE with GRADE
+//         </Text>
+//         <Text style={styles.text}>Director X.Y.Z</Text>
+//         <Image style={styles.logoimage} src={logo}></Image>
+//       </View>
+//     </Page>
+//   </Document>
+// );
+
+// const App = () => (
+  
+//   <div>
+//     <PDFViewer>
+//       <MyDocument />
+//     </PDFViewer>
+//     <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
+//       {({ blob, url, loading, error }) =>
+//         loading ? "Loading document..." : "Download now!"
+//       }
+//     </PDFDownloadLink>
+//   </div>
+// );
+// ReactDOM.render(<App />, document.getElementById("root"));
+    
