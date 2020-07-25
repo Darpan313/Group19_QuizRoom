@@ -14,15 +14,16 @@ class FAQs(Resource):
     def get(self):
         data = {}
         results = []
+        
+        #iterate through all FAQs present in the mongoDB collection
         for question in faqs.find({}):
             lst = {}
-            ques=question["question"]
-            ans=question["answer"]
+            ques=question["question"]   #fetch questions
+            ans=question["answer"]  #fetch answers to the corresponding question
             lst["question"]= ques
             lst["answer"] = ans
             results.append(lst)
-            
-        print(results)
-        return jsonify(results)
+        
+        return jsonify(results) #return all FAQs in json data format
 
 api.add_resource(FAQs,'/faq')

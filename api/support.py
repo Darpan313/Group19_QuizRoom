@@ -12,13 +12,10 @@ support=db.Support
 
 class Support(Resource):
     def get(self):
-        email = request.args.get('email')
-        subject = request.args.get('subject')
-        message = request.args.get('message')
-        print(email)
-        print(subject)
-        print(message)
+        email = request.args.get('email')       #fetch user email address
+        subject = request.args.get('subject')   #fetch user support subject
+        message = request.args.get('message')   #fetch user support message
         record = { "email": email, "subject": subject, "message": message}
-        support.insert_one(record)
+        support.insert_one(record)  #insert record in mongoDB collection
         
 api.add_resource(Support,'/support')
