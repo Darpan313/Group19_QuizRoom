@@ -1,7 +1,9 @@
 from flask import Flask, request
+from flask_cors import CORS
 import json
 
 app = Flask(__name__, static_folder="../build", static_url_path='/')
+CORS(app)
 
 @app.route('/')
 def index():

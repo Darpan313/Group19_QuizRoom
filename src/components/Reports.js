@@ -30,7 +30,9 @@ export default function Reports() {
 
   useEffect(() => {
     (async () => {
-      const result = await axios("http://localhost:5000/report/ByQuiz");
+      const result = await axios(
+        "https://web-service-g19-quiz-app.herokuapp.com/report/ByQuiz"
+      );
       console.log(result["data"]);
       setQuizData(result["data"]);
     })();
@@ -43,7 +45,9 @@ export default function Reports() {
   }, []);
   useEffect(() => {
     (async () => {
-      const result = await axios("http://localhost:5000/report/ByClassroom");
+      const result = await axios(
+        "https://web-service-g19-quiz-app.herokuapp.com/report/ByClassroom"
+      );
       setClassroomData(result.data);
     })();
   }, []);
