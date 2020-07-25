@@ -22,6 +22,7 @@ app.register_blueprint(ping_blueprint)
 from report import report_blueprint
 app.register_blueprint(report_blueprint)
 
+#Krutarth Patel (B00835794)
 from faq import faq_blueprint
 app.register_blueprint(faq_blueprint)
 
