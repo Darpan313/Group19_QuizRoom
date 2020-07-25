@@ -54,6 +54,13 @@
 
 }
 
+.sliderFAQ{
+  max-width: 115%;
+  max-height: 570px;
+  margin-left: -44px;
+  background-color:#ececec
+}
+
 .slider{
   max-width: 150%;
   max-height: 630px;
@@ -61,6 +68,7 @@
   outline-color: black;
   background-color:#F0F0F0
 }
+
 .sliderImg{
   background-color: "#F0F0F0";
 }

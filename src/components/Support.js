@@ -51,17 +51,25 @@ export default class Support extends Component {
                                 <h2><b>FAQs!</b></h2><br />
                             </center>
                         </header>
-                        <section>
-                            {rows.map((row) => (
-                                <div>
-                                    <h3 class="head">{row.question}
-                                    </h3>
-                                    <p class="text">
-                                        {row.answer}
-                                    </p>
+                        <div class="col-md-12 sliderDiv">
+                            <div>
+                                <div class="d-md-flex">
+                                    <div class="overflow-auto p-3  mr-md-3 sliderFAQ">
+                                        <section>
+                                            {rows.map((row) => (
+                                                <div>
+                                                    <h3 class="head">{row.question}
+                                                    </h3>
+                                                    <p class="text">
+                                                        {row.answer}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </section>
+                                    </div>
                                 </div>
-                            ))}
-                        </section>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-5">
                         <div class="container">
