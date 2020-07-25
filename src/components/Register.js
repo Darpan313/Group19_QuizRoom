@@ -1,8 +1,9 @@
 import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { FormErrors } from "./FormErrors";
-
+import { Redirect } from 'react-router-dom'; 
 class Register extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +27,7 @@ class Register extends React.Component {
   }
 
   handleUserInput = (e) => {
-    debugger;
+
     const name = e.target.name;
     const value = e.target.value;
     this.setState({ [e.target.name]: e.target.value });
@@ -77,7 +78,7 @@ class Register extends React.Component {
     
   // }
   onSubmit(e) {
-    debugger;
+    ;
     e.preventDefault()
 
     const requestOptions = {
@@ -93,17 +94,18 @@ class Register extends React.Component {
     };
     console.log('request ');
     console.log(requestOptions);
-    fetch('http://localhost:5000/user/login', requestOptions)
+    
+    fetch('http://localhost:5000/register', requestOptions)
       .then(response => response.json())
       .then(data => {
+        ;
         if (data.data === "success") {
           console.log(data.data)
-          // this.props.history.push({
-          //   pathname: '/welcome',
-          //   search: '?user:' + this.state.email,
-          //   state: { email: this.state.email }
-          // })
-
+          alert('Registered successfully!')
+          // this.props.history.push('/login')
+         
+        }else{
+          alert('Sorry not able to register!')
         }
       })
 

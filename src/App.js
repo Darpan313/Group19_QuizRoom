@@ -24,6 +24,8 @@ import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
 import CreateQuiz from "./components/CreateQuiz";
 import StudentDashboardNavigation from "./components/Student/StudentDashboardNavigation";
+import Login from './components/Login';
+import Register from './components/Register';
 function App() {
   const { user } = React.useContext(UserContext);
   if (user.token && user.role == "Manager") {
@@ -44,6 +46,8 @@ function App() {
             <Route path="/createquiz" component={CreateQuiz}></Route>
             <Route path="/faqs" component={Support}></Route>
             <Route path="/certificate" component={Certificate}></Route>
+            <Route path="/login" component={Login}></Route>
+            <Route path="/register" component={Register}></Route>
           </Switch>
         </div>
       </BrowserRouter>
