@@ -81,7 +81,7 @@ export default class Support extends Component {
             .then((result) => {
                 let email = self.refs.email.value;
                 let subject = self.refs.subject.value;
-                let message = self.refs.message.value;
+                let message = self.refs.message.value;                
                 fetch(`https://web-service-g19-quiz-app.herokuapp.com/support?email=` + email + `&subject=` + subject + `&message=` + message);
                 alert("Email sent!");
                 window.location.reload()
