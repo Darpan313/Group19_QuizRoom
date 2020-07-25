@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import emailjs from 'emailjs-com';
 
 function createData(question, answer) {
     return {question, answer};
@@ -11,9 +12,7 @@ const rows = [
   ];
 
 export default class Support extends Component {
-
     
-
     render() {
         return (
             <div class="container-fluid">
@@ -47,7 +46,7 @@ export default class Support extends Component {
                                 </center>
                             </header>
                             <div class="supportFormPanel">
-                                <form class="form-signin" onSubmit="alert('sf');">
+                                <form class="form-signin" onSubmit={sendEmail}>
                                     <input class="form-control textfields" type="email" placeholder="Email" required autoFocus/>
                                     <input class="form-control textfields" type="text" placeholder="Subject" required />
                                     <textarea class="form-control textfields" rows="5" placeholder="Message" required></textarea>
