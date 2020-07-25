@@ -26,6 +26,13 @@ function sendEmail(e) {
 
 export default class Support extends Component {
 
+    constructor(props) {
+        super(props);
+    this.state = {
+        rows: [],
+      };
+    }
+
     componentDidMount() {
         fetch(`http://localhost:5000/faq`)
             .then(response => response.json())
@@ -35,10 +42,8 @@ export default class Support extends Component {
                 for (i; i < data.length; i++) {
                     questionList.push(createData(data[i]["question"], data[i]["answer"]))
                 }
-
             });
     }
-    
 
     render() {
         return (
