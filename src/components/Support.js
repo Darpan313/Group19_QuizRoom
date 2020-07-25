@@ -22,16 +22,16 @@ export default class Support extends Component {
 
     constructor(props) {
         super(props);
-    this.state = {
-        rows: [],
-      };
+        this.state = {
+            rows: [],
+        };
     }
 
     componentDidMount() {
         fetch(`http://localhost:5000/faq`)
             .then(response => response.json())
             .then((data) => {
-                let i=0
+                let i = 0
                 let questionList = []
                 for (i; i < data.length; i++) {
                     questionList.push(createData(data[i]["question"], data[i]["answer"]))
@@ -39,7 +39,7 @@ export default class Support extends Component {
                 }
             });
     }
-    
+
     render() {
         let rows = this.state.rows;
         return (
@@ -59,9 +59,6 @@ export default class Support extends Component {
                                     <p class="text">
                                         {row.answer}
                                     </p>
-                                    {/* <p>
-                                <a class="btnLink" href="#">View details »</a>
-                            </p> */}
                                 </div>
                             ))}
                         </section>
