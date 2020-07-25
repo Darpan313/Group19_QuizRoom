@@ -6,28 +6,6 @@ function createData(question, answer) {
     return { question, answer };
 }
 
-//Reference: https://stackoverflow.com/questions/55795125/how-to-send-email-from-my-react-web-application
-//sends an acknowledgement email to the user using emailjs library
-// function sendEmail(e) {
-//     e.preventDefault();
-
-//     //format - emailjs.sendForm('serviceID', 'templateID', target address, 'userID')
-//     emailjs.sendForm('gmail', 'template_PjL3dMN0', e.target, 'user_WCE3K6J0MJmpEMk0m5IYq')
-//         .then((result) => {
-//             alert(new Support().state.email);
-//             alert("Email sent!");
-//             saveRequest();            
-//             window.location.reload()
-//         }, (error) => {
-//             console.log(error.text);
-//         });
-// }
-
-// function saveRequest() {
-//     alert(new Support().state.email);
-//     //fetch(`https://web-service-g19-quiz-app.herokuapp.com/support?`);
-// }
-
 export default class Support extends Component {
 
     constructor(props) {
@@ -76,12 +54,16 @@ export default class Support extends Component {
         //save context
         let self = this;
 
-        //format - emailjs.sendForm('serviceID', 'templateID', target address, 'userID')
+        //Reference: https://stackoverflow.com/questions/55795125/how-to-send-email-from-my-react-web-application
+        //Sends an acknowledgement email to the user using emailjs library
+        //Format - emailjs.sendForm('serviceID', 'templateID', target address, 'userID')
         emailjs.sendForm('gmail', 'template_PjL3dMN0', e.target, 'user_WCE3K6J0MJmpEMk0m5IYq')
             .then((result) => {
                 let email = self.refs.email.value;
                 let subject = self.refs.subject.value;
-                let message = self.refs.message.value;                
+                let message = self.refs.message.value;      
+                
+                //Save user request in database  
                 fetch(`https://web-service-g19-quiz-app.herokuapp.com/support?email=` + email + `&subject=` + subject + `&message=` + message);
                 alert("Email sent!");
                 window.location.reload()
