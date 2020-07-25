@@ -21,11 +21,11 @@ export default function QuizTabCol() {
         columns: [
           {
             Header: "Quiz Name",
-            accessor: "show.name",
+            accessor: "quiz_name",
           },
           {
             Header: "Data Published",
-            accessor: "show.type",
+            accessor: "publish",
           },
         ],
       },
@@ -34,26 +34,16 @@ export default function QuizTabCol() {
         columns: [
           {
             Header: "Classroom",
-            accessor: "show.language",
+            accessor: "class",
           },
           {
             Header: "Concept(s)",
-            accessor: "show.genres",
+            accessor: "concepts",
             Cell: ({ cell: { value } }) => <Genres values={value} />,
           },
           {
             Header: "Avg. Score",
-            accessor: "show.runtime",
-            Cell: ({ cell: { value } }) => {
-              const hour = Math.floor(value / 60);
-              const min = Math.floor(value % 60);
-              return (
-                <>
-                  {hour > 0 ? `${hour} hr${hour > 1 ? "s" : ""} ` : ""}
-                  {min > 0 ? `${min} min${min > 1 ? "s" : ""}` : ""}
-                </>
-              );
-            },
+            accessor: "avg_score",
           },
         ],
       },

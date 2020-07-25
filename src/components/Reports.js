@@ -30,8 +30,9 @@ export default function Reports() {
 
   useEffect(() => {
     (async () => {
-      const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
-      setQuizData(result.data);
+      const result = await axios("http://localhost:5000/report/ByQuiz");
+      console.log(result["data"]);
+      setQuizData(result["data"]);
     })();
   }, []);
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function Reports() {
   }, []);
   useEffect(() => {
     (async () => {
-      const result = await axios("https://api.tvmaze.com/search/shows?q=snow");
+      const result = await axios("http://localhost:5000/report/ByClassroom");
       setClassroomData(result.data);
     })();
   }, []);

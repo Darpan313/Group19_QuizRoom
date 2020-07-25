@@ -22,7 +22,7 @@ export default function Table({ columns, data }) {
 
   const handleFilterChange = (e) => {
     const value = e.target.value || undefined;
-    setFilter("show.name", value);
+    setFilter("quiz_name", value);
     setFilterInput(value);
   };
 
