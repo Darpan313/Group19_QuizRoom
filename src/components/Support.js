@@ -17,7 +17,7 @@ function sendEmail(e) {
 
     emailjs.sendForm('gmail', 'template_PjL3dMN0', e.target, 'user_WCE3K6J0MJmpEMk0m5IYq')
         .then((result) => {
-            
+            alert("Email sent!");
             window.location.reload()
         }, (error) => {
             console.log(error.text);
