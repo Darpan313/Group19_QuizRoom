@@ -28,7 +28,7 @@ export default class Support extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:5000/faq`)
+        fetch(`https://web-service-g19-quiz-app.herokuapp.com/faq`)
             .then(response => response.json())
             .then((data) => {
                 let i = 0
