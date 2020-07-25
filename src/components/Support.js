@@ -41,6 +41,7 @@ export default class Support extends Component {
     }
     
     render() {
+        let rows = this.state.rows;
         return (
             <div class="container-fluid">
                 <div class="row">
