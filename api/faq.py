@@ -10,7 +10,7 @@ client=pymongo.MongoClient("mongodb+srv://shwethasubash:webgroup19@webtutorial.u
 db=client.QuizzRoom
 faqs=db.FAQ
 
-class getFAQs(Resource):
+class FAQs(Resource):
     def get(self):
         data = {}
         results = []
@@ -25,4 +25,4 @@ class getFAQs(Resource):
         print(results)
         return jsonify(results)
 
-api.add_resource(getFAQs,'/faq')
+api.add_resource(FAQs,'/faq')
