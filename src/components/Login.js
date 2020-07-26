@@ -30,7 +30,8 @@ export default function Login() {
     const value = e.target.value;
     if (name == "email") {
       setEmail(value);
-      const re = /\S+@\S+\.\S+/;
+      // const re = /\S+@\S+\.\S+/;
+      const re = /.+@.+\.[A-Za-z]+$/;
       setEmailValid(re.test(value));
       formErrors.email = emailValid ? "" : " is invalid";
     } else if (name == "password") {
@@ -44,13 +45,45 @@ export default function Login() {
     }
     setFormValid(emailValid && passwordValid);
   };
+
+  const onSubmit = (e) => {
+    ;
+    e.preventDefault()
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+       
+        role:role,
+        email:email,
+        password: password
+      })
+    };
+    console.log('request ');
+    console.log(requestOptions);
+    fetch('https://web-service-g19-quiz-app.herokuapp.com/login', requestOptions)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        if (data.data === "success") {
+          handleLogin(e)
+          console.log(data.data)
+        }else{
+          alert(data.message)
+        }
+      })
+
+  }
+
+
   const handleLogin = async (e) => {
-    let response = await loginUser({ email, password });
+   
+    let response = await loginUser({ email});
     if (response) {
       const { jwt: token, username: username } = response.data;
       const newUser = { token, username, role };
       userLogin(newUser);
-      //console.log(role);
       if (role == "Student") {
         history.push("/StudentDashboard");
       } else {
@@ -116,7 +149,7 @@ export default function Login() {
               type="submit"
               className="btn btn-primary btn-block mt-3"
               disabled={!formValid}
-              onClick={handleLogin}
+              onClick={(e) => onSubmit(e)}
             >
               Login
             </button>

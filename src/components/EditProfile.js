@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import EditList from "./EditList";
 import Editform from "./EditForm";
 import { Nav, Row, Col, Tab } from "react-bootstrap";
+import ChangePassword from './ChangePassword';
+import DeleteUser from './DeleteUser';
 export default class EditProfile extends Component {
   render() {
     return (
@@ -35,8 +37,9 @@ export default class EditProfile extends Component {
               <Tab.Pane eventKey="first">
                 <Editform />
               </Tab.Pane>
-              <Tab.Pane eventKey="second">{/* <Sonnet /> */}</Tab.Pane>
-              <Tab.Pane eventKey="third">{/* <Sonnet /> */}</Tab.Pane>
+              <Tab.Pane eventKey="second">{/* <Sonnet /> */}
+              <ChangePassword/></Tab.Pane>
+              <Tab.Pane eventKey="third"><DeleteUser/></Tab.Pane>
             </Tab.Content>
           </Col>
         </Row>
