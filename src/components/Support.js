@@ -36,14 +36,17 @@ export default class Support extends Component {
             });
     }
 
+    //saves the message entered in the textfield to the state object
     handleMessageChange(e) {
         this.setState({ message: e.target.value });
     }
 
+    //saves the email address entered in the textfield to the state object
     handleEmailChange(e) {
         this.setState({ email: e.target.value });
     }
 
+    //saves the subject entered in the textfield to the state object
     handleSubjectChange(e) {
         this.setState({ subject: e.target.value });
     }
@@ -55,15 +58,14 @@ export default class Support extends Component {
         let self = this;
 
         //Reference: https://stackoverflow.com/questions/55795125/how-to-send-email-from-my-react-web-application
-        //Sends an acknowledgement email to the user using emailjs library
         //Format - emailjs.sendForm('serviceID', 'templateID', target address, 'userID')
-        emailjs.sendForm('gmail', 'help_team', e.target, 'user_WCE3K6J0MJmpEMk0m5IYq')
-        emailjs.sendForm('gmail', 'template_PjL3dMN0', e.target, 'user_WCE3K6J0MJmpEMk0m5IYq')
+        emailjs.sendForm('gmail', 'help_team', e.target, 'user_WCE3K6J0MJmpEMk0m5IYq')  //Sends the email request to the help team
+        emailjs.sendForm('gmail', 'template_PjL3dMN0', e.target, 'user_WCE3K6J0MJmpEMk0m5IYq')  //Sends an acknowledgement email to the user using emailjs library
             .then((result) => {
                 let email = self.refs.email.value;
                 let subject = self.refs.subject.value;
-                let message = self.refs.message.value;      
-                
+                let message = self.refs.message.value;
+
                 //Save user request in database  
                 fetch(`https://web-service-g19-quiz-app.herokuapp.com/support?email=` + email + `&subject=` + subject + `&message=` + message);
                 alert("Email sent!");
@@ -90,9 +92,9 @@ export default class Support extends Component {
                                             {/* iterate through all retrieved questions to render the questions on the webpage */}
                                             {rows.map((row) => (
                                                 <div>
-                                                    <h3 className="head">{row.question}
+                                                    <h3 className="head">{row.question}     {/* Render the FAQ question in the webpage */}
                                                     </h3>
-                                                    <p className="text">
+                                                    <p className="text">    {/* Render the FAQ answer in the webpage */}
                                                         {row.answer}
                                                     </p>
                                                 </div>
@@ -109,6 +111,7 @@ export default class Support extends Component {
                                 <h2 className="text-center"><b>Send us a message!</b></h2><br />
                             </header>
                             <div className="supportFormPanel">
+                                {/* Submit the form details to emailjs using 'sendEmail' function */}
                                 <form className="form-signin" onSubmit={this.sendEmail}>
                                     <input className="form-control textfields" type="email" id="email" name="email" ref="email" value={this.state.email} onChange={e => this.handleEmailChange(e)} placeholder="Email" required autoFocus />
                                     <input className="form-control textfields" id="subject" name="subject" type="text" ref="subject" value={this.state.subject} onChange={e => this.handleSubjectChange(e)} placeholder="Subject" required />
