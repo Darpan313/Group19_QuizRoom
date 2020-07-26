@@ -16,7 +16,7 @@ A web application to create quizzes and publish for students in each classrooms.
 6. Yuganthi Krishnamurthy (B00839935)
 
 Repository Link:
-https://github.com/Darpan313/quiz-web-app
+https://github.com/Darpan313/Group19_QuizRoom
 
 Deployed Application Link:
 https://web-service-g19-quiz-app.herokuapp.com
