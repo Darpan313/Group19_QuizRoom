@@ -90,7 +90,7 @@ class Createclass extends React.Component {
     let formData = new FormData();
     formData.append("Student",this.state.filetype)
     formData.append("data", JSON.stringify(userObject))
-    axios.post('http://localhost:5000/class/createClass', formData,
+    axios.post('https://web-service-g19-quiz-app.herokuapp.com/class/createClass', formData,
       )
     .then((res) => {
       window.location.reload(false);

@@ -13,7 +13,7 @@ export default function Classrooms() {
     setRoomList([...roomlist, data]);
   };
   useEffect(() => {
-    axios.get('http://localhost:5000/class/getAllClass')
+    axios.get('https://web-service-g19-quiz-app.herokuapp.com/class/getAllClass')
         .then(res => {
             setRoomList(res.data)
         })

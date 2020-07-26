@@ -20,7 +20,7 @@ export default function AddStudent({ name, showHide, setShowHide }) {
   useEffect(() => {
     axios
       .put(
-        "http://localhost:5000/class/addStudent",
+        "https://web-service-g19-quiz-app.herokuapp.com/class/addStudent",
         { className: name },
         {
           headers: { "Access-Control-Allow-Origin": "*" },
@@ -45,7 +45,7 @@ export default function AddStudent({ name, showHide, setShowHide }) {
   const handleClick = () => {
     console.log("HI");
     axios
-      .put("http://localhost:5000/class/updateClass", classDetails)
+      .put("https://web-service-g19-quiz-app.herokuapp.com/class/updateClass", classDetails)
       .then((res) => {
         setClassDetails(initialData);
         setShowHide(!showHide);

@@ -24,7 +24,7 @@ export default function EditClassroom({ name, showHide, setShowHide }) {
   useEffect(() => {
     axios
       .post(
-        "http://localhost:5000/class/getClass",
+        "https://web-service-g19-quiz-app.herokuapp.com/class/getClass",
         { className: name },
         {
           headers: { "Access-Control-Allow-Origin": "*" },
@@ -49,7 +49,7 @@ export default function EditClassroom({ name, showHide, setShowHide }) {
   const handleClick = () => {
     console.log("HI");
     axios
-      .put("http://localhost:5000/class/updateClass", classDetails)
+      .put("https://web-service-g19-quiz-app.herokuapp.com/class/updateClass", classDetails)
       .then((res) => {
         setClassDetails(initialData);
         setShowHide(!showHide);

@@ -18,7 +18,7 @@ export default function ClassroomCard(props) {
     let userObject = {
         className: name,
       }
-      axios.post('http://localhost:5000/class/deleteClass', userObject)
+      axios.post('https://web-service-g19-quiz-app.herokuapp.com/class/deleteClass', userObject)
       .then((res) => {
           window.location.reload(false);
       }).catch((error) => {
