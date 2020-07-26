@@ -13,13 +13,13 @@ export default function Hero() {
               <h2>
                 The Best QuizMaker for<br></br> Education and Business.
               </h2>
-              <p>
+              {/* <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Delectus tempore deserunt itaque libero, veniam ut sapiente
                 exercitationem adipisci dolorum consequuntur voluptate magnam
                 quia assumenda asperiores doloribus officiis quae aliquid
                 debitis?
-              </p>
+              </p> */}
             </div>
             <div className="row my-3">
               <Register />
