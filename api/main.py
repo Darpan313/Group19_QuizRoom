@@ -25,5 +25,8 @@ app.register_blueprint(report_blueprint)
 from faq import faq_blueprint
 app.register_blueprint(faq_blueprint)
 
+from getcertificate import getcertificate_blueprint
+app.register_blueprint(getcertificate_blueprint)
+
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000)

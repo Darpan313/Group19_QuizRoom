@@ -5,6 +5,8 @@ import ReactPDF from "@react-pdf/renderer";
 import ReactDOM from "react-dom";
 import { PDFViewer } from "@react-pdf/renderer";
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 
 import React from "react";
 import {
@@ -20,13 +22,31 @@ import {
 
 
 export default function Certificate() {
-  // const [currentTime, setCurrentTime] = useState(0);
+  const [quiz_name, setQuiz_name] =  useState([]);
+  const [publish, setPublish] = useState([]);
+  const [className, setClassName] = useState([]);
+  const [marks, setMarks] = useState([]);
+
 
   // useEffect(() => {
-  //   fetch('/time').then(res => res.json()).then(data => {
-  //     setCurrentTime(data.time);
+  //   (async () => {
+  //     const result = await axios(
+  //       "http://localhost:5000/getcertificate"
+  //     );
+  //     console.log(`HELLOOO+${result["data"]}`);
+
+  //     setMarks(result["data"]);
+  //   })();
+  // }, []);
+
+  
+  // useEffect(() => {
+  //   console.log("inside useeffect");
+  //   fetch('http://localhost:5000/getcertificate').then(res => res.json()).then(data => {
+  //     setMarks(data.marks);
   //   });
   // }, []);
+
 
   const MyDocument = () => (
 
@@ -36,7 +56,7 @@ export default function Certificate() {
           <Image style={styles.wordimage} src={word}></Image>
           <Image style={styles.image} src={certi}></Image>
           <Text style={styles.text}>
-            This is to certify that Student has completed COURSE with GRADE
+            This is to certify that Student has completed CSCI5875 Cloud Computing with A grade.
           </Text>
           <Text style={styles.text}>Director X.Y.Z</Text>
           <Image style={styles.logoimage} src={logo}></Image>
@@ -45,19 +65,19 @@ export default function Certificate() {
     </Document>
   );
 
-  const App = () => (
+  // const App = () => (
 
-    <div>
-      <PDFViewer>
-        <MyDocument />
-      </PDFViewer>
-      <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
-        {({ blob, url, loading, error }) =>
-          loading ? "Loading document..." : "Download now!"
-        }
-      </PDFDownloadLink>
-    </div>
-  );
+  //   <div>
+  //     <PDFViewer>
+  //       <MyDocument />
+  //     </PDFViewer>
+  //     <PDFDownloadLink document={<MyDocument />} fileName="somename.pdf">
+  //       {({ blob, url, loading, error }) =>
+  //         loading ? "Loading document..." : "Download now!"
+  //       }
+  //     </PDFDownloadLink>
+  //   </div>
+  // );
 
     return (
       <div>
@@ -73,16 +93,7 @@ export default function Certificate() {
                 <PDFViewer>
                   <MyDocument />
                 </PDFViewer>
-                {/* <div class="btn-primary">
-                  <PDFDownloadLink
-                    document={<MyDocument />}
-                    fileName="somename.pdf"
-                  >
-                    {({ blob, url, loading, error }) =>
-                      loading ? "Loading document..." : "Download now!"
-                    }
-                  </PDFDownloadLink>
-                </div> */}
+               
               </div>
             </div>
             <div class="col-md-4 message">
@@ -132,7 +143,7 @@ export default function Certificate() {
         </div>
       </div>
     );
-        ReactDOM.render(<App />, document.getElementById("root"));
+        // ReactDOM.render(<App />, document.getElementById("root"));
 
 
   }
