@@ -1,30 +1,28 @@
 # Author: Yuganthi Krishnamurthy
 # Banner number : B00839935 
-import time
-from flask import Flask, request
-import json
-from flask_cors import CORS
+from flask import Flask, request, Blueprint
 import pymongo
-app = Flask(__name__)
-CORS(app)
+from flask_restx import Resource,Api
+
+quiz_blueprint = Blueprint('fetchQuestions',__name__)
+api = Api(quiz_blueprint)
 
 client=pymongo.MongoClient("mongodb+srv://shwethasubash:webgroup19@webtutorial.uaxed.mongodb.net/QuizzRoom?retryWrites=true&w=majority")
 db=client.QuizzRoom
 userCollection=db.Question_temp
 
-@app.route('/api/fetchQuestions',methods=['GET'])
-def fetchQuestions():
-    results=userCollection.aggregate([{'$match':{'questionId':{'$gte':1}}}])
-    questionSet=[]
-    for result in results:
-        question = {}
-        question['questionId']=result['questionId']
-        question['question']=result['question']
-        question['options']=result['options']
-        question['selectedOption']=False
-        question['type']=result['type']
-        questionSet.append(question)
-    return {"QuestionSet":questionSet}
+class QuestionDetails(Resource):
+    def get(self):
+        results=userCollection.aggregate([{'$match':{'questionId':{'$gte':1}}}])
+        questionSet=[]
+        for result in results:
+            question = {}
+            question['questionId']=result['questionId']
+            question['question']=result['question']
+            question['options']=result['options']
+            question['selectedOption']=False
+            question['type']=result['type']
+            questionSet.append(question)
+        return {"QuestionSet":questionSet}
 
-if __name__ == '__main__':
-	app.run()
+api.add_resource(QuestionDetails,'/fetchQuestions')
