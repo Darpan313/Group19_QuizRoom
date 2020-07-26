@@ -41,5 +41,8 @@ app.register_blueprint(profileManagement_blueprint)
 from quiz import quiz_blueprint
 app.register_blueprint(quiz_blueprint)
 
+#Author - Niharika Prasad (B00835801)
+from getcertificate import getcertificate_blueprint
+app.register_blueprint(getcertificate_blueprint)
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=5000)
