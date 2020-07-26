@@ -101,8 +101,8 @@ class Register extends React.Component {
         ;
         if (data.data === "success") {
           console.log(data.data)
-          // alert('Registered successfully!')
-          this.props.history.push('/login')
+           alert('Registered successfully!')
+          // this.props.history.push('/login')
          
         }else{
           alert('Sorry not able to register!')
@@ -193,9 +193,9 @@ class Register extends React.Component {
                 Sign Up
               </button>
               <br></br>
-              <p className="forgot-password text-right">
+              {/* <p className="forgot-password text-right">
                 Already registered <a href="#">sign in?</a>
-              </p>
+              </p> */}
             </form>
           </Modal.Body>
         </Modal>

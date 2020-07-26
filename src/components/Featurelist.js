@@ -10,23 +10,17 @@ export default function Classrommlist() {
         <div className="row justify-content-md-center">
           <div className="col-md-3 mt-3 mx-5">
             <FeatureCard img="create.png" title="Create" status="">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Distinctio excepturi nisi laudantium reprehenderit explicabo, eius
-              quas
+              Create Quizzes of your choice and test your students or juniors!
             </FeatureCard>
           </div>
           <div className="col-md-3 mt-3 mx-5">
             <FeatureCard img="publish.jpg" title="Publish" status="">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reprehenderit obcaecati aliquid culpa, accusamus exercitationem
-              exceptu
+              Publish the created quizzes and make them available to your students!
             </FeatureCard>
           </div>
           <div className="col-md-3 mt-3 mx-5">
             <FeatureCard img="analyze.jpg" title="Analyze" status="">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-              aspernatur dolore odit error corrupti assumenda explicabo adipisci
-              autem
+              Analyze the quizzes and arrive at better conclusions! 
             </FeatureCard>
           </div>
         </div>

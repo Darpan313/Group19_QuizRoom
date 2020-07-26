@@ -154,7 +154,7 @@ export default function Login() {
               Login
             </button>
             <br></br>
-            <div className="row">
+            {/* <div className="row">
               <div className="col-auto mr-auto">
                 <p className="forgot-password text-right">
                   <a href="#">forgot password?</a>
@@ -165,7 +165,7 @@ export default function Login() {
                   Not registered <a href="#">sign up?</a>
                 </p>
               </div>
-            </div>
+            </div> */}
           </Form>
         </Modal.Body>
       </Modal>
