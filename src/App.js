@@ -26,6 +26,7 @@ import CreateQuiz from "./components/CreateQuiz";
 import StudentDashboardNavigation from "./components/Student/StudentDashboardNavigation";
 import Login from './components/Login';
 import Register from './components/Register';
+import DeleteUser from './components/DeleteUser';
 function App() {
   const { user } = React.useContext(UserContext);
   if (user.token && user.role == "Manager") {
@@ -48,6 +49,7 @@ function App() {
             <Route path="/certificate" component={Certificate}></Route>
             <Route path="/login" component={Login}></Route>
             <Route path="/register" component={Register}></Route>
+            <Route path="/deleteUser" component={DeleteUser}></Route>
           </Switch>
         </div>
       </BrowserRouter>

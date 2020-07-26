@@ -1,3 +1,4 @@
+//Author - Shwetha Subash (B00852743)
 import React, { Component } from "react";
 import { Form, Image, Col, Button } from "react-bootstrap";
 import { UserContext } from "../context/user";
@@ -20,7 +21,7 @@ export default function EditForm(){
     };
     console.log('request ');
     console.log(requestOptions);
-    fetch('http://localhost:5000/getDetails', requestOptions)
+    fetch('https://web-service-g19-quiz-app.herokuapp.com/getDetails', requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data)
@@ -53,7 +54,7 @@ export default function EditForm(){
     console.log('request ');
     console.log(requestOptions);
     
-    fetch('http://localhost:5000/updateDetails', requestOptions)
+    fetch('https://web-service-g19-quiz-app.herokuapp.com/updateDetails', requestOptions)
       .then(response => response.json())
       .then(data => {
     
@@ -88,14 +89,18 @@ export default function EditForm(){
       height: "171px",
     };
     return (
+      
       <div class="card text-center editform">
         <div class="card-header">Profile</div>
         <div class="card-body">
-          <div className="row mx-5">
-            <div className="column">
+        <div align="center">
+          <div >
+            {/* <div className="column">
               <Image src={url} roundedCircle style={imageStyle} />
               <h5 class="card-title mt-2" value={firstName}></h5>
-            </div>
+            </div> */}
+            
+            
             <div className="column ml-5">
               <Form>
                 <Form.Row>
@@ -125,44 +130,17 @@ export default function EditForm(){
                 </Form.Row>
                 
 
-                {/* <Form.Group controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>Bio</Form.Label>
-                  <Form.Control as="textarea" rows="3" />
-                </Form.Group> */}
-{/* 
-                <Form.Row>
-                  <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control />
-                  </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridState">
-                    <Form.Label>State</Form.Label>
-                    <Form.Control as="select" defaultValue="Choose...">
-                      <option>Choose...</option>
-                      <option>...</option>
-                    </Form.Control>
-                  </Form.Group>
-
-                  <Form.Group as={Col} controlId="formGridZip">
-                    <Form.Label>Zip</Form.Label>
-                    <Form.Control />
-                  </Form.Group>
-                </Form.Row> */}
-                {/* <Form.Row>
-                  <Form.Group as={Col} controlId="formGridWeblink">
-                    <Form.Label>Website</Form.Label>
-                    <Form.Control placeholder="Website" />
-                  </Form.Group>
-                </Form.Row> */}
 
                 <Button variant="primary" type="submit" onClick={(e) => onSubmit(e)}>
                   Update Profile
                 </Button>
               </Form>
             </div>
+           
           </div>
         </div>
+      </div>
       </div>
     );
   }

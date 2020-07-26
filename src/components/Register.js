@@ -95,14 +95,14 @@ class Register extends React.Component {
     console.log('request ');
     console.log(requestOptions);
     
-    fetch('http://localhost:5000/register', requestOptions)
+    fetch('https://web-service-g19-quiz-app.herokuapp.com/register', requestOptions)
       .then(response => response.json())
       .then(data => {
         ;
         if (data.data === "success") {
           console.log(data.data)
-          alert('Registered successfully!')
-          // this.props.history.push('/login')
+          // alert('Registered successfully!')
+          this.props.history.push('/login')
          
         }else{
           alert('Sorry not able to register!')

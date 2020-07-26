@@ -1,3 +1,4 @@
+//Author - Shwetha Subash (B00852743)
 import React, { Component } from "react";
 import { Form, Image, Col, Button } from "react-bootstrap";
 import { FormErrors } from "./FormErrors";
@@ -35,13 +36,15 @@ export default class ChangePassword extends Component {
     console.log('request ');
     console.log(requestOptions);
     
-    fetch('http://localhost:5000/changePassword', requestOptions)
+    fetch('https://web-service-g19-quiz-app.herokuapp.com/changePassword', requestOptions)
       .then(response => response.json())
       .then(data => {
         
         if (data.data === "success") {
           console.log(data.data)
           alert('Password Updated successfully')
+          this.state.password=''
+          this.state.confirmPassword=''
           // const { history } = this.props;
           // history.push('/login')
          
@@ -86,7 +89,7 @@ export default class ChangePassword extends Component {
       <div className="card text-center editform " align='center'>
         <div className="card-header">Change Password</div>
         <div className="card-body">
-          <div className="row mx-5">
+          <div >
             
             <div className="column ml-5">
               <Form>

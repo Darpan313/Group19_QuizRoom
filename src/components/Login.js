@@ -62,7 +62,7 @@ export default function Login() {
     };
     console.log('request ');
     console.log(requestOptions);
-    fetch('http://localhost:5000/login', requestOptions)
+    fetch('https://web-service-g19-quiz-app.herokuapp.com/login', requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data)

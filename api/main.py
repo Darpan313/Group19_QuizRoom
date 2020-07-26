@@ -30,6 +30,7 @@ app.register_blueprint(faq_blueprint)
 from support import support_blueprint
 app.register_blueprint(support_blueprint)
 
+#Author - Shwetha Subash (B00852743)
 from profileManagement import profileManagement_blueprint
 app.register_blueprint(profileManagement_blueprint)
 
