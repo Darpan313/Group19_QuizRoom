@@ -46,7 +46,7 @@ class Quiz extends Component {
 
     quiz_functionalities = {
         startQuiz: () => {
-            const url = "https://quizroom-quiz-backend.herokuapp.com/api/yuganthi";
+            const url = "https://web-service-g19-quiz-app.herokuapp.com/fetchQuestions";
             let temp_Question_Set = []
             fetch(url)
                 .then(res => res.json())
