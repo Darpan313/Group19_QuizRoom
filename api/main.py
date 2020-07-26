@@ -37,6 +37,7 @@ app.register_blueprint(support_blueprint)
 from profileManagement import profileManagement_blueprint
 app.register_blueprint(profileManagement_blueprint)
 
+#Author - Yuganthi Krishnamurthy (B00839935)
 from quiz import quiz_blueprint
 app.register_blueprint(quiz_blueprint)
 
