@@ -1,35 +1,28 @@
-import React, { Component, useState } from "react";
+/* Author: Deepkumar Dharmeshbhai Patel
+Banner Id : B00845028*/
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Classrommlist from "./Classrommlist";
 import CreateClass from "./Createclass";
 
 export default function Classrooms() {
-  var classroomList = [
-    {
-      img: "web-course.png",
-      code: "CSCI 5709",
-      name: "Advance Web Services",
-      status: "Active",
-    },
-    {
-      img: "serverless-course.jpeg",
-      code: "CSCI 5410",
-      name: "Serverless Data Processing",
-      status: "Active",
-    },
-    {
-      img: "special-topic-course.jpg",
-      code: "CSCI 5902",
-      name: "Special topics in Applied CS",
-      status: "Active",
-    },
-  ];
-
-  const [roomlist, setRoomList] = useState(classroomList);
+  
+  const [roomlist, setRoomList] = useState([]);
 
   const addRoom = (data) => {
-    let temp = roomlist;
-    setRoomList([...temp, data]);
+    setRoomList([...roomlist, data]);
   };
+  useEffect(() => {
+    axios.get('http://localhost:5000/class/getAllClass')
+        .then(res => {
+            setRoomList(res.data)
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
+}, []);
+
+  
 
   return (
     <div className="container">

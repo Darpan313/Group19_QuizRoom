@@ -2,7 +2,6 @@
 Banner number : B00839935 */
 import React, { Component } from "react";
 import "./Quiz.css";
-/* DummyText(Lorem-ipsum) = https://www.blindtextgenerator.com/lorem-ipsum */
 // https://medium.com/better-programming/building-a-simple-countdown-timer-with-react-4ca32763dda7
 
 class Quiz extends Component {
@@ -47,22 +46,17 @@ class Quiz extends Component {
 
     quiz_functionalities = {
         startQuiz: () => {
-            const url = "https://quizroom-quiz-backend.herokuapp.com/api/yuganthi";
+            const url = "https://web-service-g19-quiz-app.herokuapp.com/fetchQuestions";
             let temp_Question_Set = []
             fetch(url)
                 .then(res => res.json())
                 .then(
                     (result) => {
-                        console.log(result)
-                        for (var i = 0; i < result.length; i++) {
-                            temp_Question_Set.push(result[i])
+                        for(var i=0;i<result.QuestionSet.length;i++){
+                            temp_Question_Set.push(result.QuestionSet[i])
                         }
-                        console.log(temp_Question_Set)
-                        this.setState({ questionSet: temp_Question_Set, currentQuestion: temp_Question_Set[0] });
+                        this.setState({questionSet:temp_Question_Set,currentQuestion:temp_Question_Set[0]});
                     },
-                    // Note: it's important to handle errors here
-                    // instead of a catch() block so that we don't swallow
-                    // exceptions from actual bugs in components.
                     (error) => {
                         this.setState({
                             isLoaded: true,
