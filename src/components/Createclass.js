@@ -1,4 +1,7 @@
+/* Author: Deepkumar Dharmeshbhai Patel
+Banner Id : B00845028*/
 import React from "react";
+import axios from 'axios';
 import { Button, Modal, Form } from "react-bootstrap";
 import { FormErrors } from "./FormErrors";
 
@@ -8,8 +11,10 @@ class Createclass extends React.Component {
     this.state = {
       showHide: false,
       classname: "",
+      classcode:"",
+      classdescription:"",
       term: "",
-      email: "",
+      enddate:"",
       filetype: "",
       formErrors: { classname: "", filetype: "" },
       classnameValid: false,
@@ -28,6 +33,7 @@ class Createclass extends React.Component {
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
+    
   };
 
   validateField(fieldName, value) {
@@ -66,6 +72,49 @@ class Createclass extends React.Component {
     return error.length === 0 ? "" : "has-error";
   }
 
+  onFileChange= (e) => {    
+    let filename= e.target.files[0].name
+    let file= e.target.files[0]
+    this.setState({filetype:file});
+    this.validateField('filetype',filename );
+  };
+  handleClick() {
+    const userObject = {
+      className: this.state.classname,
+      code: this.state.classcode,
+      description: this.state.classdescription,
+      endDate: this.state.enddate,
+      insId: "101",
+      term: this.state.term
+    };
+    let formData = new FormData();
+    formData.append("Student",this.state.filetype)
+    formData.append("data", JSON.stringify(userObject))
+    axios.post('http://localhost:5000/class/createClass', formData,
+      )
+    .then((res) => {
+      window.location.reload(false);
+    }).catch((error) => {
+        console.log(error)
+
+    });
+  }
+
+  setMinDate(){
+    let today = new Date(),
+      day = today.getDate(),
+      month = today.getMonth()+1, 
+      year = today.getFullYear();
+           if(day<10){
+                  day='0'+day
+              } 
+          if(month<10){
+              month='0'+month
+          }
+          today = year+'-'+month+'-'+day;
+    return today
+  }
+
   render() {
     return (
       <div className="pt-3 pb-3">
@@ -90,7 +139,31 @@ class Createclass extends React.Component {
                 onChange={this.handleUserInput}
               />
             </div>
+            <div className="form-group ${this.errorClass(this.state.formErrors.classname)}">
+              <label>Class Code</label>
+              <input
+                type="text"
+                name="classcode"
+                className="form-control"
+                required
+                value={this.state.classcode}
+                placeholder="Class code"
+                onChange={this.handleUserInput}
+              />
+            </div>
 
+            <div className="form-group ${this.errorClass(this.state.formErrors.classname)}">
+              <label>Class Description</label>
+              <input
+                type="text"
+                name="classdescription"
+                className="form-control"
+                required
+                value={this.state.classdescription}
+                placeholder="Class description"
+                onChange={this.handleUserInput}
+              />
+            </div>
             <Form.Group>
               <Form.Label>Select Term</Form.Label>
               <Form.Control
@@ -99,34 +172,25 @@ class Createclass extends React.Component {
                 value={this.state.term}
                 onChange={this.handleUserInput}
               >
+                <option hidden>Select Term</option>
                 <option value="Summer 2020">Summer 2020</option>
                 <option value="Fall 2020">Fall 2020</option>
                 <option value="Winter 2021">Winter 2021</option>
               </Form.Control>
             </Form.Group>
-
+            
             <div className="form-group ${this.errorClass(this.state.formErrors.classname)}">
-            <label className="font-weight-bold">Add Students: </label><br />
-            <label>Using Email</label>
-            <input
-                type="email"
-                name="emails"
-                className="form-control"
-                required
-                placeholder="Enter Student Email"
-                // value={this.state.email}
-                onChange={this.handleUserInput}
-              />
-              <Form.Text id="fileHelpBlock" muted className="pt-2 pb-2 text-center font-weight-bold">
-                Or
-              </Form.Text>
-              <label>Using Excel file</label><br />
+            <label>Select End Date: </label><br />
+            <input type="date" id="endDate" name="enddate"  min={this.setMinDate()} required onChange={this.handleUserInput}></input>
+            </div>
+            
+            <div className="form-group ${this.errorClass(this.state.formErrors.classname)}">
+              <label>Add Student using Excel file</label>
               <input
                 type="file"
                 name="filetype"
                 required
-                value={this.state.filetype}
-                onChange={this.handleUserInput}
+                onChange={this.onFileChange}
               />
               <Form.Text id="fileHelpBlock" muted>
                 Must be .CSV file.
@@ -139,16 +203,14 @@ class Createclass extends React.Component {
               className="btn btn-primary btn-block mt-3"
               disabled={!this.state.formValid}
               onClick={() => {
-                this.props.addRoom({
-                  name: this.state.classname,
-                  img: "cloud-computing.jpg",
-                  code: "CSCI 5409",
-                  status: "Active",
-                });
+                this.handleClick();
                 this.handleModalShowHide();
                 this.setState({
                   classname: "",
+                  classcode:"",
+                  classdescription:"",
                   term: "",
+                  enddate: "",
                   filetype: "",
                   formErrors: { classname: "", filetype: "" },
                 });
