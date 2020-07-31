@@ -13,10 +13,8 @@ export default function Footer() {
                     QuizzRoom<span></span>
                   </h5>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Atque suscipit velit tenetur. Consequatur saepe iusto
-                    consectetur, dignissimos at quidem facere aperiam eum sed
-                    aliquam nesciunt molestiae magnam unde blanditiis explicabo!{" "}
+                    The traditional methodology reformed itself with a new phase of learning, which is the online learning. 
+                    The Quiz-room application can be used for both the educational and the professional purposes.{" "}
                   </p>
                 </div>
               </div>

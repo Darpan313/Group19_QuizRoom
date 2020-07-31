@@ -1,14 +1,32 @@
+/* Author: Deepkumar Dharmeshbhai Patel
+Banner Id : B00845028*/
 import { Card, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import React, { useState, useEffect } from "react";
 import { FaRegEdit, FaRegTrashAlt } from "react-icons/fa";
+import EditClassroom from "./EditClassroom";
 
-import React from "react";
 
-export default function ClassroomCard({ img, name, code, children, status }) {
+export default function ClassroomCard(props) {
+  const { img, name, code, children, status }  = props
   var url = require(`../assets/${img}`);
+  
+  const [showHide, setShowHide] = useState(false);
 
-  if (status === "Active") {
+  const deleteClass = () => {
+    let userObject = {
+        className: name,
+      }
+      axios.post('https://web-service-g19-quiz-app.herokuapp.com/class/deleteClass', userObject)
+      .then((res) => {
+          window.location.reload(false);
+      }).catch((error) => {
+          console.log(error)
+      });
+  }
     return (
+      status == "Active" ? (
       <div className="classes">
         <Card border="success">
           <Card.Img
@@ -20,7 +38,7 @@ export default function ClassroomCard({ img, name, code, children, status }) {
           <Card.Body>
             <Card.Title>{code}</Card.Title>
             <Card.Text>{name}</Card.Text>
-            <Link to="/viewclass">
+            <Link to="/quizzes">
             <Button variant="primary">Open</Button>
             </Link>
           </Card.Body>
@@ -31,12 +49,12 @@ export default function ClassroomCard({ img, name, code, children, status }) {
               </div>
               <div className=" row col-auto">
                 <div className="column mr-3">
-                  <a href="#" style={{ color: "black" }}>
+                  <a href="#" onClick={() => setShowHide(!showHide)} style={{ color: "black" }}>
                     <FaRegEdit />
                   </a>
                 </div>
                 <div className="column mr-2">
-                  <a href="#" style={{ color: "red" }}>
+                  <a href="#" onClick={deleteClass} style={{ color: "red" }}>
                     <FaRegTrashAlt />
                   </a>
                 </div>
@@ -44,10 +62,11 @@ export default function ClassroomCard({ img, name, code, children, status }) {
             </div>
           </Card.Footer>
         </Card>
+        {
+          showHide && <EditClassroom name={name} showHide={showHide} setShowHide={setShowHide}/>
+        }
       </div>
-    );
-  } else {
-    return (
+    ) : (
       <div className="classes">
         <Card border="danger">
           <Card.Img
@@ -66,6 +85,6 @@ export default function ClassroomCard({ img, name, code, children, status }) {
           </Card.Footer>
         </Card>
       </div>
-    );
-  }
+    )
+    )  
 }

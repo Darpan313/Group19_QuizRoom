@@ -27,7 +27,7 @@ class CreateQuiz extends Component {
     }
 
     samePage = () => {
-        debugger;
+        
         const { step } = this.state
         this.setState({
             step : step
@@ -42,7 +42,7 @@ class CreateQuiz extends Component {
     }
 
     handleCheck = input => event => {
-        debugger;
+        ;
         this.setState({ [input] : event.target.value })
         this.setState({checked: !this.state.checked});
     }
