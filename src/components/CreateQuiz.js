@@ -10,6 +10,7 @@ class CreateQuiz extends Component {
         timer: '',
         category: '',
         question: '',
+        marks:0,
         freeText: '',
         numeric: '',
         mcqChooseOne: '',
@@ -60,9 +61,9 @@ class CreateQuiz extends Component {
 
     render(){
         const {step} = this.state;
-        const { quizTitle,timer,category,question,answerOption,checked, questionCategory, answer, option1, option2, option3, option4 } = this.state;
+        const { quizTitle,timer,category,question, marks, answerOption,checked, questionCategory, answer, option1, option2, option3, option4 } = this.state;
         const values = {  quizTitle,timer,category,question,answerOption,checked };
-        const valuesQuestion = {  question,answerOption, questionCategory, answer, checked, option1, option2, option3, option4 };
+        const valuesQuestion = {  question, marks, answerOption, questionCategory, answer, checked, option1, option2, option3, option4 };
         switch(step) {
         case 1:
             return <QuizDetails 

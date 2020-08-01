@@ -33,7 +33,7 @@ class QuestionDetails extends Component {
         let list = this.state.questionSet;
         // alert(this.props.values.answerOption + " " + this.props.values.question + " " + this.props.values.questionCategory + " " + this.props.values.answer + ": " + this.props.values.option1 + ", " + this.props.values.option2 + ", " + this.props.values.option3 + ", " + this.props.values.option4);
         id = id + 1;
-        list.push(this.createData(id, this.props.values.question, this.props.values.answer, this.props.values.answerOption, this.props.values.questionCategory, this.props.values.option1, this.props.values.option2, this.props.values.option3, this.props.values.option4));
+        list.push(this.createData(id, this.props.values.question, this.props.values.marks, this.props.values.answer, this.props.values.answerOption, this.props.values.questionCategory, this.props.values.option1, this.props.values.option2, this.props.values.option3, this.props.values.option4));
         this.setState({ id, questionSet: list })
 
     }
@@ -49,10 +49,14 @@ class QuestionDetails extends Component {
         let rows = this.state.questionSet;
         alert(JSON.stringify(rows));
 
+        fetch(`http://localhost:5000/addQuestions?questions=` + JSON.stringify(rows));
+        alert("Questions added!");
+        window.location.reload()
+
     }
 
-    createData(id, question, answer, answerOption, questionCategory, option1, option2, option3, option4) {
-        return { id, question, answer, answerOption, questionCategory, option1, option2, option3, option4 };
+    createData(id, question, marks, answer, answerOption, questionCategory, option1, option2, option3, option4) {
+        return { id, question, marks, answer, answerOption, questionCategory, option1, option2, option3, option4 };
     }
 
     samePage = (e) => {
@@ -71,6 +75,10 @@ class QuestionDetails extends Component {
                         <div>
                             <span>
                                 Question {row.id}: {row.question}
+                            </span>
+                            <br />
+                            <span>
+                                Marks: {row.marks}
                             </span>
                             <br />
                             <span>
@@ -108,6 +116,9 @@ class QuestionDetails extends Component {
                         <div>Question Category</div>
                         <input type="text" onChange={this.props.handleChange('questionCategory')}
                             defaultValue={values.questionCategory} className="col-md-6"></input>
+                        <div>Marks</div>
+                        <input type="number" onChange={this.props.handleChange('marks')}
+                            defaultValue={values.marks} className="col-md-6"></input>
                         <div className="col-md-12 m-t-10">
                             <div>Answer Type</div>
                             <select className="col-md-6"
