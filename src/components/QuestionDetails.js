@@ -135,7 +135,7 @@ class QuestionDetails extends Component {
                         </div>
                         <div className="col-md-12 m-t-10">
                             <div>Marks</div>
-                            <input type="number" value='1' min='1' onChange={this.props.handleChange('marks')}
+                            <input type="number" min='1' onChange={this.props.handleChange('marks')}
                                 defaultValue={values.marks} className="col-md-6" ></input>
                         </div>
                         <div className="col-md-12 m-t-10">
