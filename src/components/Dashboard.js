@@ -54,37 +54,7 @@ export default class Dashboard extends React.Component {
                     </div>
                   </div>
                   </div>
-                  <div class="card-body border-bottom">
-                  <div class="row">
-                  <div class="col-md-11">
-                    <a class="card-text anchor-card-text" href="#">
-                      Certificates
-                    </a>
-                  </div>
-                  <div class="col-md-1">
-                    <p class="card-text anchor-card-text">
-                      2
-                    </p>
-                    </div>
-                  </div>
-                  </div>  
-                </div>
-                <br/>
-                <div class="card">
-                  <h5 class="card-header">
-                    Progress
-                  </h5>
-                  <div class="card-body border-bottom">
-                    <a class="card-text anchor-card-text" href="#">
-                      Results
-                    </a>
-                  </div>
-                  <div class="card-body border-bottom">
-                    <a class="card-text anchor-card-text" href="#">
-                      Analytics
-                    </a>
-                  </div>                 
-                </div> 
+               </div> 
                 <br/>
                 <div class="card">
                   <h5 class="card-header">
@@ -111,38 +81,29 @@ export default class Dashboard extends React.Component {
                           <img src={logo} class="rounded-circle updateImage" alt="Image" />
 
                           <h5 class="text-center">
-                            Lorem ipsum dolor sit amet.
+                            Instructors can now access quiz reports!
                           </h5>
                           <p>
-                            Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus.
+                            QuizRoom has rolled out a new feature where the instructors can access a detailed report generated on the basis of quiz participation. The instructors can view statistical information and analyze interesting visualizations pertaining to the quiz results.
                           </p>
                           <p class="hr"></p>
                         </div>
                         <section>
                           <h5 class="text-center">
-                            Lorem ipsum dolor sit amet.
+                            Bug Fixes.
                           </h5>
                           <p>
-                            Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em>
+                            QuizApp received a lot of messages from the users regarding some bugs in the portal. the students faced some issues while appearing for quizzes in their appointed classrooms. Our team worked hard to find out their cause and solve them as early as possible to ensure good user experience. The bugs have been successfully resolved and we apologize for the inconvenience.
                           </p>
                           <p class="hr"></p>
                         </section>
                         <section>
                           <img src={logo} class="rounded-circle updateImage" alt="Image" />
                           <h5 class="text-center">
-                            Lorem ipsum dolor sit amet.
+                            Thank you!
                           </h5>
                           <p>
-                            Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em>
-                          </p>
-                          <p class="hr"></p>
-                        </section>
-                        <section>
-                          <h5 class="text-center">
-                            Lorem ipsum dolor sit amet.
-                          </h5>
-                          <p>
-                            Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em>
+                            We thank all the applicants who applied to be beta testers of our application. We feel happy to have been able to receive all your feedback that will further help us improve our applications. As a token of appreciation, we would like to offer you a gift card for spending your time in assessing our application. You will receive the details of the gift card on your registered email addresses in the next week.
                           </p>
                           <p class="hr"></p>
                         </section>
