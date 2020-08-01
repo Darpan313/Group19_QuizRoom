@@ -29,11 +29,9 @@ class QuestionDetails extends Component {
     }
 
     saveQuestionToList = (e) => {
-        this.props.samePage();
-        let self = this;
         let id = this.state.id;
         let list = this.state.questionSet;
-        // alert(this.props.values.answerOption + " " + this.props.values.question + " " + this.props.values.questionCategory + " " + this.props.values.answer);
+        alert(this.props.values.answerOption + " " + this.props.values.question + " " + this.props.values.questionCategory + " " + this.props.values.answer + ": " + this.props.values.option1 + ", " + this.props.values.option2 + ", " + this.props.values.option3 + ", " + this.props.values.option4);
         id = id + 1;
         list.push(this.createData(id, this.props.values.question, this.props.values.answer, this.props.values.answerOption, this.props.values.questionCategory));
         this.setState({ id, questionSet: list })
@@ -41,7 +39,7 @@ class QuestionDetails extends Component {
     }
 
     deleteQuestionFromList = (id) => {
-         alert(id);
+        alert(id);
     }
 
     saveQuestionsToDB = (e) => {
@@ -56,6 +54,9 @@ class QuestionDetails extends Component {
         return { id, question, answer, answerOption, questionCategory };
     }
 
+    setRadioAnswer(event) {
+        this.props.values.answer = event.target.value;
+    }
 
     samePage = (e) => {
         e.preventDefault();
@@ -65,6 +66,7 @@ class QuestionDetails extends Component {
     render() {
         const { values } = this.props
         let rows = this.state.questionSet;
+        let self = this;
         return (
             <div>
                 <section>
@@ -82,6 +84,10 @@ class QuestionDetails extends Component {
                                 Question Type: {row.answerOption}
                             </span>
                             <br />
+                            {/* <span>
+                                Options: {row.options}
+                            </span>
+                            <br /> */}
                             <span>
                                 Answer: {row.answer}
                             </span>
@@ -135,24 +141,25 @@ class QuestionDetails extends Component {
                             </div>
                         }
                         {this.props.values.answerOption === 'MCQ Choose one' &&
+
                             <div>
                                 <div className="col-md-12 m-t-10">Options</div>
-                                <div className="col-md-12 m-t-10">
-                                    <input name="mcq" type="radio"></input>
-                                    <input onChange={this.onChange} type="text" className="col-md-6 m-l-20" />
-                                </div>
-                                <div className="col-md-12 m-t-10">
-                                    <input name="mcq" type="radio"></input>
-                                    <input onChange={this.onChange} type="text" className="col-md-6 m-l-20" />
-                                </div>
-                                <div className="col-md-12 m-t-10">
-                                    <input name="mcq" type="radio"></input>
-                                    <input onChange={this.onChange} type="text" className="col-md-6 m-l-20" />
-                                </div>
-                                <div className="col-md-12 m-t-10">
-                                    <input name="mcq" type="radio"></input>
-                                    <input onChange={this.onChange} type="text" className="col-md-6 m-l-20" />
-                                </div>
+                                    <div className="col-md-12 m-t-10">
+                                        <input name="mcq" type="radio" name="type" value = {values.option1} defaultChecked onChange={this.props.handleChange('answer')}></input>
+                                        <input type="text" onChange={self.props.handleChange('option1')} defaultValue={values.option1} className="col-md-6 m-l-20" />
+                                    </div>
+                                    <div className="col-md-12 m-t-10">
+                                        <input name="mcq" type="radio" name="type" value = {values.option2} onChange={this.props.handleChange('answer')}></input>
+                                        <input type="text" onChange={self.props.handleChange('option2')} defaultValue={values.option2} className="col-md-6 m-l-20" />
+                                    </div>
+                                    <div className="col-md-12 m-t-10">
+                                        <input name="mcq" type="radio" name="type" value = {values.option3} onChange={this.props.handleChange('answer')}></input>
+                                        <input type="text" onChange={self.props.handleChange('option3')} defaultValue={values.option3} className="col-md-6 m-l-20" />
+                                    </div>
+                                    <div className="col-md-12 m-t-10">
+                                        <input name="mcq" type="radio" name="type" value = {values.option4} onChange={this.props.handleChange('answer')}></input>
+                                        <input type="text" onChange={self.props.handleChange('option4')} defaultValue={values.option4} className="col-md-6 m-l-20" />
+                                    </div>
                                 <div><i className="warning m-l-45">Select the correct answer</i></div>
                             </div>
                         }
@@ -161,19 +168,19 @@ class QuestionDetails extends Component {
                                 <div className="col-md-12 m-t-10">Options</div>
                                 <div className="col-md-12 m-t-10">
                                     <input type="checkbox"></input>
-                                    <input onChange={this.onChange} type="text" className="col-md-6 m-l-20" />
+                                    <input onChange={self.props.handleChange('option1')} defaultValue={values.option1} type="text" className="col-md-6 m-l-20" />
                                 </div>
                                 <div className="col-md-12 m-t-10">
                                     <input type="checkbox"></input>
-                                    <input onChange={this.onChange} type="text" className="col-md-6 m-l-20" />
+                                    <input onChange={self.props.handleChange('option2')} defaultValue={values.option2} type="text" className="col-md-6 m-l-20" />
                                 </div>
                                 <div className="col-md-12 m-t-10">
                                     <input type="checkbox"></input>
-                                    <input onChange={this.onChange} type="text" className="col-md-6 m-l-20" />
+                                    <input onChange={self.props.handleChange('option3')} defaultValue={values.option3} type="text" className="col-md-6 m-l-20" />
                                 </div>
                                 <div className="col-md-12 m-t-10">
                                     <input type="checkbox"></input>
-                                    <input onChange={this.onChange} type="text" className="col-md-6 m-l-20" />
+                                    <input onChange={self.props.handleChange('option4')} defaultValue={values.option4} type="text" className="col-md-6 m-l-20" />
                                 </div>
                                 <div><i className="warning m-l-45">Check the correct answers</i></div>
                             </div>

@@ -17,7 +17,10 @@ class CreateQuiz extends Component {
         answerOption: '',
         checked : 0,
         questionCategory: '',
-        options: '',
+        option1: '',
+        option2: '',
+        option3: '',
+        option4: '',
         answer: ''
     }
 
@@ -57,9 +60,9 @@ class CreateQuiz extends Component {
 
     render(){
         const {step} = this.state;
-        const { quizTitle,timer,category,question,answerOption,checked, questionCategory, answer } = this.state;
+        const { quizTitle,timer,category,question,answerOption,checked, questionCategory, answer, option1, option2, option3, option4 } = this.state;
         const values = {  quizTitle,timer,category,question,answerOption,checked };
-        const valuesQuestion = {  question,answerOption, questionCategory, answer, checked };
+        const valuesQuestion = {  question,answerOption, questionCategory, answer, checked, option1, option2, option3, option4 };
         switch(step) {
         case 1:
             return <QuizDetails 
