@@ -71,23 +71,22 @@ class QuestionDetails extends Component {
         return (
             <div>
                 <section>
+                    {rows.length > 0 && 
+                        <h1 className="ui centered">Questions Added</h1>
+                    }
                     {rows.map((row) => (
                         <div>
-                            <span>
+                            <div className="col-lg-12">
                                 Question {row.id}: {row.question}
-                            </span>
+                            </div>
                             <br />
-                            <span>
-                                Marks: {row.marks}
-                            </span>
-                            <br />
-                            <span>
+                            <div className="col-lg-12">
                                 Question Category: {row.questionCategory}
-                            </span>
+                            </div>
                             <br />
-                            <span>
+                            <div className="col-lg-12">
                                 Question Type: {row.answerOption}
-                            </span>
+                            </div>
                             <br />
                             {(row.answerOption === 'MCQ Choose one' || row.answerOption === 'MCQ Choose Multiple') &&
                                 <span>
@@ -95,9 +94,13 @@ class QuestionDetails extends Component {
                                     <br />
                                 </span>
                             }
-                            <span>
+                            <div className="col-lg-12">
                                 Answer: {row.answer}
-                            </span>
+                            </div>
+                            <br />
+                            <div className="col-lg-12">
+                                Marks: {row.marks}
+                            </div>
                             <br />
                             <div className="column mr-2">
                                 {/* <FaRegTrashAlt onClick={this.deleteQuestionFromList(row.id)}/> */}
@@ -113,12 +116,16 @@ class QuestionDetails extends Component {
                             <textarea name="question" onChange={this.props.handleChange('question')}
                                 defaultValue={values.question} className="col-md-6 h-200"></textarea>
                         </div>
-                        <div>Question Category</div>
-                        <input type="text" onChange={this.props.handleChange('questionCategory')}
-                            defaultValue={values.questionCategory} className="col-md-6"></input>
-                        <div>Marks</div>
-                        <input type="number" onChange={this.props.handleChange('marks')}
-                            defaultValue={values.marks} className="col-md-6"></input>
+                        <div className="col-md-12 m-t-10">
+                            <div>Question Category</div>
+                            <input type="text" onChange={this.props.handleChange('questionCategory')}
+                                defaultValue={values.questionCategory} className="col-md-6"></input>
+                        </div>
+                        <div className="col-md-12 m-t-10">
+                            <div>Marks</div>
+                            <input type="number" onChange={this.props.handleChange('marks')}
+                                defaultValue={values.marks} className="col-md-6"></input>
+                        </div>
                         <div className="col-md-12 m-t-10">
                             <div>Answer Type</div>
                             <select className="col-md-6"
