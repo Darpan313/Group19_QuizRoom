@@ -38,9 +38,12 @@ class QuestionDetails extends Component {
 
     }
 
-    deleteQuestionFromList = (id) => {
-        alert(id);
-    }
+    // deleteQuestionFromList = (id) => {
+    //     let list = this.state.questionSet;
+    //     newList = list.splice(id, 1);
+    //     this.setState({questionSet: newList});
+
+    // }
 
     saveQuestionsToDB = (e) => {
         let rows = this.state.questionSet;
@@ -90,7 +93,7 @@ class QuestionDetails extends Component {
                             </span>
                             <br />
                             <div className="column mr-2">
-                                <FaRegTrashAlt />
+                                {/* <FaRegTrashAlt onClick={this.deleteQuestionFromList(row.id)}/> */}
                             </div>
                         </div>
                     ))}
