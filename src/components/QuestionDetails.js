@@ -31,7 +31,7 @@ class QuestionDetails extends Component {
     saveQuestionToList = (e) => {
         let id = this.state.id;
         let list = this.state.questionSet;
-        alert(this.props.values.answerOption + " " + this.props.values.question + " " + this.props.values.questionCategory + " " + this.props.values.answer + ": " + this.props.values.option1 + ", " + this.props.values.option2 + ", " + this.props.values.option3 + ", " + this.props.values.option4);
+        // alert(this.props.values.answerOption + " " + this.props.values.question + " " + this.props.values.questionCategory + " " + this.props.values.answer + ": " + this.props.values.option1 + ", " + this.props.values.option2 + ", " + this.props.values.option3 + ", " + this.props.values.option4);
         id = id + 1;
         list.push(this.createData(id, this.props.values.question, this.props.values.answer, this.props.values.answerOption, this.props.values.questionCategory, this.props.values.option1, this.props.values.option2, this.props.values.option3, this.props.values.option4));
         this.setState({ id, questionSet: list })
@@ -47,9 +47,8 @@ class QuestionDetails extends Component {
 
     saveQuestionsToDB = (e) => {
         let rows = this.state.questionSet;
-        rows.map((row) => (
-            alert(row.question)
-        ))
+        alert(JSON.stringify(rows));
+
     }
 
     createData(id, question, answer, answerOption, questionCategory, option1, option2, option3, option4) {
