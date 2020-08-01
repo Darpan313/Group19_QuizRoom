@@ -40,6 +40,10 @@ class QuestionDetails extends Component {
 
     }
 
+    deleteQuestionFromList = (id) => {
+         alert(id);
+    }
+
     saveQuestionsToDB = (e) => {
         let rows = this.state.questionSet;
         rows.map((row) => (
@@ -61,7 +65,6 @@ class QuestionDetails extends Component {
     render() {
         const { values } = this.props
         let rows = this.state.questionSet;
-        let cnt = 0;
         return (
             <div>
                 <section>
@@ -83,11 +86,8 @@ class QuestionDetails extends Component {
                                 Answer: {row.answer}
                             </span>
                             <br />
-                            
                             <div className="column mr-2">
-                                <a href="#" style={{ color: "red" }}>
-                                    <FaRegTrashAlt name="delete" onClick={() => alert(row.id)} />
-                                </a>
+                                <FaRegTrashAlt />
                             </div>
                         </div>
                     ))}

@@ -17,6 +17,7 @@ class CreateQuiz extends Component {
         answerOption: '',
         checked : 0,
         questionCategory: '',
+        options: '',
         answer: ''
     }
 
