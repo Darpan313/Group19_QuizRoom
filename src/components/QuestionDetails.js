@@ -31,7 +31,7 @@ class QuestionDetails extends Component {
     saveQuestionToList = (e) => {
 
         let prev = this.state.prevAns;
-        if (!(this.props.values.question.length > 0 || this.props.values.answer.length > 0 || this.props.values.answerOption.length > 0 || this.props.values.option1.length > 0 || this.props.values.option2.length > 0 || this.props.values.option3.length > 0 || this.props.values.option4.length > 0)) {
+        if (this.props.values.question.length <= 0 || this.props.values.answer.length <= 0 || this.props.values.answerOption.length <= 0 || ((this.props.values.answerOption == "MCQ Choose one" || this.props.values.answerOption == "MCQ Choose Multiple") && (this.props.values.option1.length <= 0 || this.props.values.option2.length <= 0 || this.props.values.option3.length <= 0 || this.props.values.option4.length <= 0))) {
             alert("Please enter all details!");
         } else {
             let id = this.state.id;
@@ -52,9 +52,14 @@ class QuestionDetails extends Component {
 
     saveQuestionsToDB = (e) => {
         let rows = this.state.questionSet;
-        alert(JSON.stringify(rows));
+        let quiz = []
+        quiz.push(this.props.values.quizTitle)
+        quiz.push(this.props.values.timer)
+        quiz.push(this.props.values.category)
+        // alert(JSON.stringify(rows));
+        // alert(JSON.stringify(quiz));
 
-        fetch(`http://localhost:5000/addQuestions?questions=` + JSON.stringify(rows));
+        fetch(`https://web-service-g19-quiz-app.herokuapp.com/support?questions=` + JSON.stringify(rows)+'&quiz='+JSON.stringify(quiz));
         alert("Questions added!");
         window.location.reload()
 
@@ -62,6 +67,10 @@ class QuestionDetails extends Component {
 
     createData(id, question, marks, answer, answerOption, questionCategory, option1, option2, option3, option4) {
         return { id, question, marks, answer, answerOption, questionCategory, option1, option2, option3, option4 };
+    }
+
+    createQuizData(title, timer, category) {
+        return {title, timer, category};
     }
 
     samePage = (e) => {
@@ -85,7 +94,7 @@ class QuestionDetails extends Component {
                                 <b>Question {row.id}:</b> {row.question}
                             </div>
                             <br />
-                            {(row.questionCategory.length > 0 &&
+                            {(row.questionCategory.length <= 0 &&
                                 <div>
                                     <div className="col-lg-12">
                                         <b>Question Category: </b>{row.questionCategory}

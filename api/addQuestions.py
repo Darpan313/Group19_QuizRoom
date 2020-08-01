@@ -1,6 +1,7 @@
 #author: Krutarth Patel (B00835794)
 from flask import Blueprint, jsonify, request
 from flask_restx import Resource,Api
+from datetime import date
 import json
 import pymongo
 
@@ -14,10 +15,12 @@ quiz=db.Quiz
 class addQuestions(Resource):
     def get(self):
         questions = json.loads(request.args.get('questions'))
+        quizInfo = json.loads(request.args.get('quiz'))
         record = {}
         questionList = []
         for q in questions:
             questionDict = {}
+            questionDict['question_id'] = q['id']
             questionDict['marks'] = q['marks']
             questionDict['type'] = q['answerOption']
             questionDict['text'] = q['question']
@@ -33,10 +36,12 @@ class addQuestions(Resource):
                 
             questionList.append(questionDict)
 
+        record['quiz_name'] = quizInfo[0]
+        record['timer'] = quizInfo[1]
+        record['concepts'] = quizInfo[2]
+        record['published_date'] = date.today().strftime("%d-%m-%Y")
         record['questions'] = questionList
-
         print(record)
         x = quiz.insert_one(record)
-        return jsonify(record) #return all FAQs in json data format
 
 api.add_resource(addQuestions,'/addQuestions')
