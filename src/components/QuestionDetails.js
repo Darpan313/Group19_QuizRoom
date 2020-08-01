@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, RadioGroup, Button } from 'semantic-ui-react';
+import { FormControl, FormLabel, ControlLabel } from "react-bootstrap";
 import { FaRegTrashAlt } from "react-icons/fa";
 
 class QuestionDetails extends Component {
-
 
     constructor(props) {
         super(props);
@@ -20,8 +20,8 @@ class QuestionDetails extends Component {
     }
 
     checkFields = () => {
-        if (!(this.props.values.question || this.props.values.answerOption)) {
-            alert('All fields are required!')
+        if (this.state.questionSet.length < 1) {
+            alert('Please add questions!')
         }
         else {
             this.saveQuestionsToDB();
@@ -29,21 +29,26 @@ class QuestionDetails extends Component {
     }
 
     saveQuestionToList = (e) => {
-        let id = this.state.id;
-        let list = this.state.questionSet;
-        // alert(this.props.values.answerOption + " " + this.props.values.question + " " + this.props.values.questionCategory + " " + this.props.values.answer + ": " + this.props.values.option1 + ", " + this.props.values.option2 + ", " + this.props.values.option3 + ", " + this.props.values.option4);
-        id = id + 1;
-        list.push(this.createData(id, this.props.values.question, this.props.values.marks, this.props.values.answer, this.props.values.answerOption, this.props.values.questionCategory, this.props.values.option1, this.props.values.option2, this.props.values.option3, this.props.values.option4));
-        this.setState({ id, questionSet: list })
 
+        let prev = this.state.prevAns;
+        if (!(this.props.values.question.length > 0 || this.props.values.answer.length > 0 || this.props.values.answerOption.length > 0 || this.props.values.option1.length > 0 || this.props.values.option2.length > 0 || this.props.values.option3.length > 0 || this.props.values.option4.length > 0)) {
+            alert("Please enter all details!");
+        } else {
+            let id = this.state.id;
+            let list = this.state.questionSet;
+            // alert(this.props.values.answerOption + " " + this.props.values.question + " " + this.props.values.questionCategory + " " + this.props.values.answer + ": " + this.props.values.option1 + ", " + this.props.values.option2 + ", " + this.props.values.option3 + ", " + this.props.values.option4);
+            id = id + 1;
+            list.push(this.createData(id, this.props.values.question, this.props.values.marks, this.props.values.answer, this.props.values.answerOption, this.props.values.questionCategory, this.props.values.option1, this.props.values.option2, this.props.values.option3, this.props.values.option4));
+            this.setState({ id, questionSet: list })
+        }
     }
 
-    // deleteQuestionFromList = (id) => {
-    //     let list = this.state.questionSet;
-    //     newList = list.splice(id, 1);
-    //     this.setState({questionSet: newList});
-
-    // }
+    deleteQuestionFromList = (id) => {
+        // let list = this.state.questionSet;
+        // newList = list.splice(id, 1);
+        // this.setState({questionSet: newList});
+        alert(id);
+    }
 
     saveQuestionsToDB = (e) => {
         let rows = this.state.questionSet;
@@ -71,35 +76,42 @@ class QuestionDetails extends Component {
         return (
             <div>
                 <section>
-                    {rows.length > 0 && 
+                    {rows.length > 0 &&
                         <h1 className="ui centered">Questions Added</h1>
                     }
                     {rows.map((row) => (
                         <div>
                             <div className="col-lg-12">
-                                Question {row.id}: {row.question}
+                                <b>Question {row.id}:</b> {row.question}
                             </div>
                             <br />
-                            <div className="col-lg-12">
-                                Question Category: {row.questionCategory}
-                            </div>
-                            <br />
-                            <div className="col-lg-12">
-                                Question Type: {row.answerOption}
-                            </div>
-                            <br />
-                            {(row.answerOption === 'MCQ Choose one' || row.answerOption === 'MCQ Choose Multiple') &&
-                                <span>
-                                    Options: {row.option1}, {row.option2}, {row.option3}, {row.option4}
+                            {(row.questionCategory.length > 0 &&
+                                <div>
+                                    <div className="col-lg-12">
+                                        <b>Question Category: </b>{row.questionCategory}
+                                    </div>
                                     <br />
-                                </span>
+                                </div>
+                            )}
+                            <div className="col-lg-12">
+                                <b>Question Type: </b>{row.answerOption}
+                            </div>
+                            <br />
+
+                            {(row.answerOption === 'MCQ Choose one' || row.answerOption === 'MCQ Choose Multiple') &&
+                                <div>
+                                    <div className="col-lg-12">
+                                        <b>Options: </b>{row.option1}, {row.option2}, {row.option3}, {row.option4}
+                                    </div>
+                                    <br />
+                                </div>
                             }
                             <div className="col-lg-12">
-                                Answer: {row.answer}
+                                <b>Answer: </b>{row.answer}
                             </div>
                             <br />
                             <div className="col-lg-12">
-                                Marks: {row.marks}
+                                <b>Marks: </b>{row.marks}
                             </div>
                             <br />
                             <div className="column mr-2">
@@ -114,17 +126,17 @@ class QuestionDetails extends Component {
                         <div className="col-md-12 m-t-10">
                             <div>Question</div>
                             <textarea name="question" onChange={this.props.handleChange('question')}
-                                defaultValue={values.question} className="col-md-6 h-200"></textarea>
+                                defaultValue={values.question} className="col-md-6 h-200" ></textarea>
                         </div>
                         <div className="col-md-12 m-t-10">
                             <div>Question Category</div>
                             <input type="text" onChange={this.props.handleChange('questionCategory')}
-                                defaultValue={values.questionCategory} className="col-md-6"></input>
+                                defaultValue={values.questionCategory} className="col-md-6" placeholder="Optional"></input>
                         </div>
                         <div className="col-md-12 m-t-10">
                             <div>Marks</div>
-                            <input type="number" onChange={this.props.handleChange('marks')}
-                                defaultValue={values.marks} className="col-md-6"></input>
+                            <input type="number" value='1' min='1' onChange={this.props.handleChange('marks')}
+                                defaultValue={values.marks} className="col-md-6" ></input>
                         </div>
                         <div className="col-md-12 m-t-10">
                             <div>Answer Type</div>
@@ -145,7 +157,7 @@ class QuestionDetails extends Component {
                                 <div>Correct Answer</div>
                                 <textarea name="freeText"
                                     onChange={this.props.handleChange('answer')} defaultValue={values.answer}
-                                    className="col-md-6 h-200"></textarea>
+                                    className="col-md-6 h-200" ></textarea>
                                 <div><i className="warning ">Type the correct answer</i></div>
                             </div>
                         }
@@ -160,9 +172,10 @@ class QuestionDetails extends Component {
                         {this.props.values.answerOption === 'MCQ Choose one' &&
 
                             <div>
+
                                 <div className="col-md-12 m-t-10">Options</div>
                                 <div className="col-md-12 m-t-10">
-                                    <input name="mcq" type="radio" name="type" value={values.option1} defaultChecked onChange={this.props.handleChange('answer')}></input>
+                                    <input name="mcq" type="radio" name="type" value={values.option1} onChange={this.props.handleChange('answer')}></input>
                                     <input type="text" onChange={self.props.handleChange('option1')} defaultValue={values.option1} className="col-md-6 m-l-20" />
                                 </div>
                                 <div className="col-md-12 m-t-10">
@@ -184,7 +197,7 @@ class QuestionDetails extends Component {
                             <div>
                                 <div className="col-md-12 m-t-10">Options</div>
                                 <div className="col-md-12 m-t-10">
-                                    <input type="checkbox" value={values.option1} onChange={this.props.handleChange('answer')}></input>
+                                    <input type="checkbox" value={values.option1} onChange={this.props.handleChange('answer')} ></input>
                                     <input onChange={self.props.handleChange('option1')} defaultValue={values.option1} type="text" className="col-md-6 m-l-20" />
                                 </div>
                                 <div className="col-md-12 m-t-10">

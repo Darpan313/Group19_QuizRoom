@@ -10,7 +10,7 @@ class CreateQuiz extends Component {
         timer: '',
         category: '',
         question: '',
-        marks:0,
+        marks:1,
         freeText: '',
         numeric: '',
         mcqChooseOne: '',
