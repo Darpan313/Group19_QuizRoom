@@ -1,6 +1,6 @@
 import React from "react";
 import img1 from "../assets/web-course.png";
-import QuizCard from "./QuizCard";
+import QuizCard from "./StudentQuizCard";
 
 export default function QuizList(props) {
   return (

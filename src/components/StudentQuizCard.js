@@ -36,18 +36,23 @@ export default function QuizCard({
                 <FaRegClock />
               </ListGroup.Item>
             </ListGroup>
-            {/* <Button
+            <Button
               variant="primary"
               className="mt-3"
               href="/startquiz"
               target="_blank"
             >
-             
+              {/* <a
+                href="/startquiz"
+                target="_blank"
+                without
+                rel="noopener noreferrer"
+              > */}
               Open
-             
-            </Button> */}
+              {/* </a> */}
+            </Button>
           </Card.Body>
-          <Card.Footer>
+          {/* <Card.Footer>
             <div className="row">
               <div className="col-auto mr-auto">
                 <small className="text-muted">{status}</small>
@@ -65,7 +70,7 @@ export default function QuizCard({
                 </div>
               </div>
             </div>
-          </Card.Footer>
+          </Card.Footer> */}
         </Card>
       </div>
     );
