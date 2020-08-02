@@ -15,7 +15,7 @@ import Dashboard from "./components/Dashboard";
 import Analytics from "./components/Analytics";
 import Reports from "./components/Reports";
 import Support from "./components/Support";
-
+import StudentClassroom from "./components/Student/StudentClassroom";
 import EditProfile from "./components/EditProfile";
 import Certificate from "./components/Certificate";
 import { UserContext } from "./context/user";
