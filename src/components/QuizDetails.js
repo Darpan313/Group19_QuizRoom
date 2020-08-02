@@ -47,6 +47,7 @@ class QuizDetails extends Component{
                     className="col-lg-12 form-control"
                     onChange={this.props.handleChange('timer')}
                     defaultValue={values.timer}
+                    min='1'
                     type="number"
                     />
                     </div>
