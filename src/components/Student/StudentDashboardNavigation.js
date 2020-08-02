@@ -22,23 +22,13 @@ export default function StudentDashboardNavigation() {
           <Nav.Link href="/StudentDashboard">Dashboard</Nav.Link>
           <Nav.Link href="/StudentClassroom">Classrooms</Nav.Link>
           <Nav.Link href="/StudentQuizzes">Quizzes</Nav.Link>
-          <NavDropdown title="Help" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">User Manual</NavDropdown.Item>
-            <NavDropdown.Item href="/faqs">FAQ</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Tutorial</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/faqs">Contact Us</NavDropdown.Item>
-          </NavDropdown>
+          <Nav.Link href="/faqs">Help</Nav.Link>
         </Nav>
         <Nav className="ml-auto">
           <NavDropdown title="My Account" id="basic-nav-dropdown">
             <NavDropdown.Item href="/editprofile">
               Edit profile
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Notifications
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={handleLogout}>Log out</NavDropdown.Item>
           </NavDropdown>

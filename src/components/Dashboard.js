@@ -51,7 +51,7 @@ export default class Dashboard extends React.Component {
                   Profile
                   </h5>
                 <div class="card-body border-bottom">
-                  <a class="card-text anchor-card-text" href="#">
+                  <a class="card-text anchor-card-text" href="/editprofile">
                     Edit Profile
                     </a>
                 </div>

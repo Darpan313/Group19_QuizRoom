@@ -89,8 +89,8 @@ export default function Certificate() {
                   <b>Certificate of Completion</b>
                 </h3>
               </header>
-              <div class="certificate certificateCompletion">
-                <PDFViewer>
+              <div class="row certificate certificateCompletion">
+                <PDFViewer className="col-md-12">
                   <MyDocument />
                 </PDFViewer>
                
