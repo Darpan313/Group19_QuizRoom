@@ -25,7 +25,7 @@ import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
 import CreateQuiz from "./components/CreateQuiz";
 import StudentDashboardNavigation from "./components/Student/StudentDashboardNavigation";
-// import StudentDashboard from "./components/Student/StudentDashboard";
+import StudentDashboard from "./components/Student/StudentDashboard";
 import StudentClassroom from "./components/Student/StudentClassroom";
 import Login from './components/Login';
 import Register from './components/Register';

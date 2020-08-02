@@ -1,12 +1,11 @@
 import React, { Component, useState } from "react";
-import QuizList from "./QuizList";
+import QuizList from "./StudentQuizList";
 import CreateClass from "./Createclass";
 import { Button } from "react-bootstrap";
 
 export default function Quizzes() {
   var quizList = [
     {
-      quiz_id: "5f19f85ee2df759c1a3663db",
       img: "web-course.png",
       code: "CSCI 5709",
       name: "Advance Web Services",
@@ -18,7 +17,6 @@ export default function Quizzes() {
       grade: "A",
     },
     {
-      quiz_id: "5f19f85ee2df759c1a3663db",
       img: "serverless-course.jpeg",
       code: "CSCI 5410",
       name: "Serverless Data Processing",
@@ -30,7 +28,6 @@ export default function Quizzes() {
       grade: "A+",
     },
     {
-      quiz_id: "5f19f85ee2df759c1a3663db",
       img: "special-topic-course.jpg",
       code: "CSCI 5902",
       name: "Special topics in Applied CS",
@@ -52,17 +49,12 @@ export default function Quizzes() {
 
   return (
     <div className="container">
-      <div className="row d-flex justify-content-center my-3">
-        {/* <Button className="justify-content-left  m-3">Analyse</Button> */}
-        <Button
-          variant="primary"
-          className="mt-3"
-          href="/createquiz"
-          target="_blank"
-        >
-          Create Quiz
-        </Button>
-      </div>
+      {/* <div className="row d-flex justify-content-center my-3">
+        <Button variant="primary"
+              className="mt-3"
+              href="/createquiz"
+              target="_blank">Create Quiz</Button>
+      </div> */}
       {/* <CreateClass addRoom={addRoom}/> */}
       <QuizList quizList={roomlist} />
     </div>

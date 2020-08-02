@@ -1,4 +1,3 @@
-
 #Author: Darpan Patel (B00843607)
 from flask import Flask, request
 from flask_cors import CORS
@@ -10,7 +9,6 @@ CORS(app)
 
 @app.route('/', methods=['GET'])
 def index():
-	print('hello')
 	return app.send_static_file('index.html')
 
 @app.errorhandler(404)   
@@ -21,8 +19,14 @@ def not_found(e):
 from createClass import class_blueprint
 app.register_blueprint(class_blueprint, url_prefix='/class')
 
+
+#Author - Darpan Patel (B00843607)
 from report import report_blueprint
 app.register_blueprint(report_blueprint)
+
+#Author - Darpan Patel (B00843607)
+from analytics import analytics_blueprint
+app.register_blueprint(analytics_blueprint)
 
 #Author - Krutarth Patel (B00835794)
 from faq import faq_blueprint
@@ -39,6 +43,10 @@ app.register_blueprint(support_blueprint)
 #Author - Shwetha Subash (B00852743)
 from profileManagement import profileManagement_blueprint
 app.register_blueprint(profileManagement_blueprint)
+
+#Author - Shwetha Subash (B00852743)
+from listQuiz import listQuiz_blueprint
+app.register_blueprint(listQuiz_blueprint)
 
 #Author - Yuganthi Krishnamurthy (B00839935)
 from quiz import quiz_blueprint

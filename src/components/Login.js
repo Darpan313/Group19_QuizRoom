@@ -8,6 +8,7 @@ export default function Login() {
   const history = useHistory();
   const { userLogin } = React.useContext(UserContext);
   const [email, setEmail] = React.useState("");
+  const [userId, setUserId] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [role, setRole] = React.useState("Student");
   const [modalDisplay, setModalDisplay] = React.useState(false);
@@ -47,39 +48,36 @@ export default function Login() {
   };
 
   const onSubmit = (e) => {
-    ;
-    e.preventDefault()
+    e.preventDefault();
 
     const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-       
-        role:role,
-        email:email,
-        password: password
-      })
+        role: role,
+        email: email,
+        password: password,
+      }),
     };
-    console.log('request ');
-    console.log(requestOptions);
-    fetch('https://web-service-g19-quiz-app.herokuapp.com/login', requestOptions)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data)
+    fetch(
+      "https://web-service-g19-quiz-app.herokuapp.com/login",
+
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((data) => {
         if (data.data === "success") {
-          handleLogin(e)
-          console.log(data.data)
-        }else{
-          alert(data.message)
+          var user = data.message.$oid;
+          setUserId(user);
+          handleLogin(e);
+        } else {
+          alert(data.message);
         }
-      })
-
-  }
-
+      });
+  };
 
   const handleLogin = async (e) => {
-   
-    let response = await loginUser({ email});
+    let response = await loginUser({ email, userId });
     if (response) {
       const { jwt: token, username: username } = response.data;
       const newUser = { token, username, role };
