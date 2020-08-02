@@ -61,22 +61,22 @@ class QuizDetails extends Component {
                                     defaultValue={values.category}
                                 />
                             </div>
-                            <div className="col-md-12 m-t-10">
+                            {/* <div className="col-md-12 m-t-10">
                                 <div> Import from Existing Quiz </div>
-                                {/* <input type="checkbox" onChange={this.onChange}></input>
-                        <label className="m-l-10">Import from Existing Quiz?</label>
-                        <div>
-                        {this.props.values.checked && */}
-                                <select className="col-lg-12 form-control">
-                                    <option>Select Quiz</option>
-                                    <option>Quiz 1</option>
-                                    <option>Quiz 2</option>
-                                    <option>Quiz 3</option>
-                                    <option>Quiz 4</option>
-                                </select>
-                                {/* }
-                        </div> */}
-                            </div>
+                                <input type="checkbox" onChange={this.onChange}></input>
+                                <label className="m-l-10">Import from Existing Quiz?</label>
+                                <div>
+                                    {this.props.values.checked &&
+                                        <select className="col-lg-12 form-control">
+                                            <option>Select Quiz</option>
+                                            <option>Quiz 1</option>
+                                            <option>Quiz 2</option>
+                                            <option>Quiz 3</option>
+                                            <option>Quiz 4</option>
+                                        </select>
+                                    }
+                                </div>
+                            </div> */}
                         </Form.Field>
                         <div className="col-md-12">
                             <div className="row">

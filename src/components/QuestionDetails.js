@@ -44,17 +44,21 @@ class QuestionDetails extends Component {
     }
 
     deleteQuestionFromList = (id) => {
-        let list = this.state.questionSet;
-        list.splice(id, 1);
 
-        for (var i = 0; i < list.length; i++) {
-            list[i].id = i;
+        let confirmation = window.confirm('Do you want to delete Q' + (id + 1) + '?');
+        if (confirmation) {
+            let list = this.state.questionSet;
+            list.splice(id, 1);
+
+            for (var i = 0; i < list.length; i++) {
+                list[i].id = i;
+            }
+
+            this.setState({ id: list.length });
+            this.setState({ questionSet: list });
+            // console.log(id);
+            // console.log(list);   
         }
-
-        this.setState({ id: list.length });
-        this.setState({ questionSet: list });
-        // console.log(id);
-        // console.log(list);
     }
 
     saveQuestionsToDB = (e) => {
@@ -213,11 +217,11 @@ class QuestionDetails extends Component {
                 </div>
                 <div className="col-md-6 sliderDiv">
                     <div>
+                        {rows.length > 0 &&
+                            <h1 className="ui centered">Questions Added</h1>
+                        }
                         <div className="d-md-flex">
                             <div className="overflow-auto p-3  mr-md-3 sliderQuestion">
-                                {rows.length > 0 &&
-                                    <h1 className="ui centered">Questions Added</h1>
-                                }
                                 {rows.map((row) => (
                                     <div>
                                         <div className="col-lg-12">
