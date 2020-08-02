@@ -15,7 +15,6 @@ export default function StudentClassroom() {
   useEffect(() => {
     axios.get('https://web-service-g19-quiz-app.herokuapp.com/class/getAllClass')
         .then(res => {
-          console.log(res.data)
             setRoomList(res.data)
         })
         .catch(err => {
