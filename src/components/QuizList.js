@@ -13,6 +13,7 @@ export default function QuizList(props) {
             return (
               <div className="col-md-3 mt-3" key={index}>
                 <QuizCard
+                  quiz_id={quiz.quiz_id}
                   img={quiz.img}
                   id={quiz.id}
                   code={quiz.code}
@@ -34,6 +35,7 @@ export default function QuizList(props) {
       <div className="row">
         <div className="col-md-3 mt-3">
           <QuizCard
+            quiz_id="5f19f85ee2df759c1a3663db"
             img="special-topic-course.jpg"
             code="CSCI 5902"
             name="Special topics in Applied CS"

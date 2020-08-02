@@ -49,7 +49,7 @@ export default class Dashboard extends React.Component {
                   </div>
                   <div class="col-md-1">
                     <p class="card-text anchor-card-text">
-                      7
+                      3
                     </p>
                     </div>
                   </div>

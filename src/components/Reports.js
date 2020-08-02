@@ -63,11 +63,11 @@ export default function Reports() {
             <Table columns={quizColumns} data={quizData} />
           </div>
         </Tab>
-{/*<Tab eventKey="By User" title="By Users">
+        {/* <Tab eventKey="By User" title="By Users">
           <div className="tableStyle">
             <Table columns={userColumns} data={userData} />
           </div>
-        </Tab>*/}
+        </Tab> */}
         <Tab eventKey="By Classroom" title="By Classrooms">
           <div className="tableStyle">
             <Table columns={classroomColumns} data={classroomData} />

@@ -2,11 +2,13 @@ import { Card, Button, ListGroup } from "react-bootstrap";
 import { FaRegEdit, FaRegTrashAlt, FaRegClock } from "react-icons/fa";
 
 import Dashboard from "../components/Dashboard";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import React from "react";
 
 export default function QuizCard({
+  quiz_id,
   img,
   id,
   name,
@@ -19,8 +21,8 @@ export default function QuizCard({
   marks,
   grade,
 }) {
+  const history = useHistory();
   var url = require(`../assets/${img}`);
-
   if (status === "Active") {
     return (
       <div className="classes">
@@ -70,6 +72,25 @@ export default function QuizCard({
       </div>
     );
   } else {
+    function handleQuizSubmit(quiz_id) {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: quiz_id.quiz_id,
+        }),
+      };
+
+      fetch(
+        "https://web-service-g19-quiz-app.herokuapp.com/analytics/getDataForViz",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          history.push("/analytics", data);
+        });
+      // history.push("/analytics", quiz_id);
+    }
     return (
       <div className="classes">
         <Card border="danger">
@@ -80,7 +101,11 @@ export default function QuizCard({
               <ListGroup.Item> Marks : {marks}</ListGroup.Item>
               <ListGroup.Item> Grade : {grade}</ListGroup.Item>
             </ListGroup>
-            <Button variant="primary" className="mt-3">
+            <Button
+              variant="primary"
+              className="mt-3"
+              onClick={() => handleQuizSubmit({ quiz_id })}
+            >
               Analyze
             </Button>
           </Card.Body>
