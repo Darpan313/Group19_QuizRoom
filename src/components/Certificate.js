@@ -118,7 +118,8 @@ export default function Certificate() {
                 <div class="row">
                 <div class="col-md-6">
                   <div class = "btn btn-primary certificateButtons">
-                  <PDFDownloadLink
+                  <div class="pt-3">
+                  <PDFDownloadLink style={{"color":"white"}}
                     document={<MyDocument />}
                     fileName="certificate.pdf"
                   >
@@ -126,6 +127,7 @@ export default function Certificate() {
                       loading ? "Loading document..." : "Download"
                     }
                   </PDFDownloadLink>
+                  </div>
                   </div>
                   </div>
                   <div class="col-md-6">
