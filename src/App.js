@@ -22,9 +22,17 @@ import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
 import CreateQuiz from "./components/CreateQuiz";
 import StudentDashboardNavigation from "./components/Student/StudentDashboardNavigation";
+<<<<<<< HEAD
 import Login from "./components/Login";
 import Register from "./components/Register";
 import DeleteUser from "./components/DeleteUser";
+=======
+// import StudentDashboard from "./components/Student/StudentDashboard";
+import StudentClassroom from "./components/Student/StudentClassroom";
+import Login from './components/Login';
+import Register from './components/Register';
+import DeleteUser from './components/DeleteUser';
+>>>>>>> d939ed24b9689ef3d533702d2e1d1f2513bc3ca3
 function App() {
   const { user } = React.useContext(UserContext);
   if (user.token && user.role == "Manager") {
@@ -69,6 +77,7 @@ function App() {
             <Route path="/startquiz" component={StartQuiz}></Route>
             <Route path="/faqs" component={Support}></Route>
             <Route path="/certificate" component={Certificate}></Route>
+            <Route path="/StudentClassroom" component={StudentClassroom}></Route>
           </Switch>
         </div>
       </BrowserRouter>

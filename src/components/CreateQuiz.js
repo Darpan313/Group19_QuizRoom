@@ -10,12 +10,19 @@ class CreateQuiz extends Component {
         timer: '',
         category: '',
         question: '',
+        marks:1,
         freeText: '',
         numeric: '',
         mcqChooseOne: '',
         mcqChooseMultiple: '',
         answerOption: '',
-        checked : 0
+        checked : 0,
+        questionCategory: '',
+        option1: '',
+        option2: '',
+        option3: '',
+        option4: '',
+        answer: ''
     }
 
 
@@ -54,8 +61,9 @@ class CreateQuiz extends Component {
 
     render(){
         const {step} = this.state;
-        const { quizTitle,timer,category,question,answerOption,checked } = this.state;
+        const { quizTitle,timer,category,question, marks, answerOption,checked, questionCategory, answer, option1, option2, option3, option4 } = this.state;
         const values = {  quizTitle,timer,category,question,answerOption,checked };
+        const valuesQuestion = {  quizTitle,timer,category, question, marks, answerOption, questionCategory, answer, checked, option1, option2, option3, option4 };
         switch(step) {
         case 1:
             return <QuizDetails 
@@ -71,7 +79,7 @@ class CreateQuiz extends Component {
                     samePage={this.samePage}
                     handleChange = {this.handleChange}
                     
-                    values={values}
+                    values={valuesQuestion}
                     />
         default: 
             return null;
