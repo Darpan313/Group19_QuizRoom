@@ -2,8 +2,9 @@
 
 from flask import Blueprint, jsonify, request
 from flask_restx import Resource,Api
-import pymongo
 from bson.objectid import ObjectId
+import pymongo
+
 
 analytics_blueprint = Blueprint('analytics',__name__)
 api = Api(analytics_blueprint)
