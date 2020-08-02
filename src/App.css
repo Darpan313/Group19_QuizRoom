@@ -67,18 +67,7 @@
   background-color: #f0f0f0;
 }
 
-<<<<<<< HEAD
 .sliderImg {
-=======
-.sliderQuestion{
-  width: 100%;
-  max-height: 640px;
-  outline-width: 5%;
-  outline-color: black;
-}
-
-.sliderImg{
->>>>>>> d939ed24b9689ef3d533702d2e1d1f2513bc3ca3
   background-color: "#F0F0F0";
 }
 .card-header {
