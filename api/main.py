@@ -3,7 +3,6 @@
 from flask import Flask, request
 from flask_cors import CORS
 import json
-from flask_cors import CORS
 # from ping import ping_blueprint
 
 app = Flask(__name__, static_folder="../build", static_url_path='/')
@@ -50,4 +49,4 @@ from getcertificate import getcertificate_blueprint
 app.register_blueprint(getcertificate_blueprint)
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=5000)
+	app.run(host='0.0.0.0', port=5000,debug=True)

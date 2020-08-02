@@ -28,6 +28,21 @@ def getAllClass():
             result.append(classroom)
     return jsonify(result)
 
+# @class_blueprint.route('/getQuiz', methods=['GET'])
+# def getAllClass():
+#     result=[]
+#     classCollection = db.Classroom
+#     classDetails = classCollection.find({})
+#     for c in classDetails:
+#             classroom = {}
+#             classroom['Classname'] = c["Classname"]
+#             classroom['Code'] = c["Code"]
+#             classroom['Term'] = c["Term"]
+#             classroom['Description'] = c["Description"]
+#             classroom['End_date'] = c["End_date"]
+#             classroom['Students']= c["Student_id"]
+#             result.append(classroom)
+#     return jsonify(result)
 
 @class_blueprint.route('/getClass', methods=['POST'])
 def getClass():
@@ -98,14 +113,14 @@ def updateClass():
 def addStudent():
     try:
         putData=request.json
-        classname = putData['className']
-        students = putData['sId']
+        classname = putData['Classname']
+        students = putData['addStudent']
         classCollection=db.Classroom
         result=classCollection.find({'Classname':classname}).count()
         if result:
             for s in students:
                 sId={}
-                sId['s_id'] = s
+                sId['sId'] = s
                 classCollection.update_one({"Classname": classname},{"$addToSet":{"Student_id":sId }}, upsert=True,)    
             return "Student Added!"
         else:
