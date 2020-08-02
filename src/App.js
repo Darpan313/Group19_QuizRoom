@@ -65,7 +65,6 @@ function App() {
           <StudentDashboardNavigation />
           <Switch>
             <Route path="/" component={StudentDashboard} exact></Route>
-            <Route path="/classrooms" component={Classrooms}></Route>
             <Route path="/viewclass" component={ViewClass}></Route>
             <Route path="/StudentQuizzes" component={StudentQuizzes}></Route>
             <Route path="/editprofile" component={EditProfile}></Route>

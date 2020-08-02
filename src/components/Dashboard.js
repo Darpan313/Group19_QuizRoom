@@ -33,12 +33,7 @@ export default class Dashboard extends React.Component {
                         Classrooms
                     </a>
                     </div>
-                    <div class="col-md-1">
-                      <p class="card-text anchor-card-text">
-                        5
-                    </p>
                     </div>
-                  </div>
                 </div>
                 <div class="card-body border-bottom">
                   <div class="row">
@@ -47,12 +42,7 @@ export default class Dashboard extends React.Component {
                         Quizzes
                     </a>
                     </div>
-                    <div class="col-md-1">
-                      <p class="card-text anchor-card-text">
-                        7
-                    </p>
                     </div>
-                  </div>
                 </div>
               </div>
               <br />
