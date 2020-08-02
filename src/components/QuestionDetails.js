@@ -46,11 +46,12 @@ class QuestionDetails extends Component {
     deleteQuestionFromList = (id) => {
         let list = this.state.questionSet;
         list.splice(id, 1);
-        
-        for(var i=0; i<list.length; i++){
+
+        for (var i = 0; i < list.length; i++) {
             list[i].id = i;
         }
 
+        this.setState({ id: list.length });
         this.setState({ questionSet: list });
         // console.log(id);
         // console.log(list);
@@ -92,7 +93,7 @@ class QuestionDetails extends Component {
             <div class="row">
                 <div class="col-md-6">
                     <Form color='blue' >
-                        <h1 className="ui centered">Add Question</h1>
+                        <h1 className="ui centered col-lg-12">Add Question</h1>
                         <Form.Field>
                             <div className="col-md-12 m-t-10">
                                 <div>Question</div>
@@ -196,16 +197,24 @@ class QuestionDetails extends Component {
                         </Form.Field>
 
                         <div className="col-md-12 m-t-20">
-                            <Button onClick={this.back}>Back</Button>
-                            <Button onClick={this.saveQuestionToList} className="m-l-10">Add New Question</Button>
-                            <Button onClick={this.checkFields} className='m-l-10'>Create Quiz </Button>
+                            <div className="row">
+                                <div className="col-md-4">
+                                    <Button className='mt-3 btn btn-primary col-md-12' onClick={this.back}>Back</Button>
+                                </div>
+                                <div className="col-md-4">
+                                    <Button className='mt-3 btn btn-primary col-md-12' onClick={this.saveQuestionToList}>Add Question</Button>
+                                </div>
+                                <div className="col-md-4">
+                                    <Button className='mt-3 btn btn-primary col-md-12' onClick={this.checkFields}>Create Quiz </Button>
+                                </div>
+                            </div>
                         </div>
                     </Form>
                 </div>
-                <div class="col-md-6 sliderDiv">
+                <div className="col-md-6 sliderDiv">
                     <div>
-                        <div class="d-md-flex">
-                            <div class="overflow-auto p-3  mr-md-3 sliderQuestion">
+                        <div className="d-md-flex">
+                            <div className="overflow-auto p-3  mr-md-3 sliderQuestion">
                                 {rows.length > 0 &&
                                     <h1 className="ui centered">Questions Added</h1>
                                 }
