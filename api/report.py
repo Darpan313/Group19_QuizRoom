@@ -83,7 +83,7 @@ class ClassroomReport(Resource):
             except KeyError:
                 quiz_names = 0
             try:
-                students = c["Students"]
+                students = c["Student_id"]
                 students = len(students)
             except KeyError:
                 students = 0
