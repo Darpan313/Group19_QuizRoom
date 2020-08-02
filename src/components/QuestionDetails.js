@@ -59,7 +59,7 @@ class QuestionDetails extends Component {
         // alert(JSON.stringify(rows));
         // alert(JSON.stringify(quiz));
 
-        fetch(`https://web-service-g19-quiz-app.herokuapp.com/support?questions=` + JSON.stringify(rows)+'&quiz='+JSON.stringify(quiz));
+        fetch(`https://web-service-g19-quiz-app.herokuapp.com/addQuestions?questions=` + JSON.stringify(rows)+'&quiz='+JSON.stringify(quiz));
         alert("Questions added!");
         window.location.reload()
 
@@ -94,7 +94,7 @@ class QuestionDetails extends Component {
                                 <b>Question {row.id}:</b> {row.question}
                             </div>
                             <br />
-                            {(row.questionCategory.length <= 0 &&
+                            {(row.questionCategory.length > 0 &&
                                 <div>
                                     <div className="col-lg-12">
                                         <b>Question Category: </b>{row.questionCategory}
