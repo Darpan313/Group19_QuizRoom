@@ -2,6 +2,8 @@
 from flask import Blueprint, request
 from flask_restx import Resource, Api, fields
 import pymongo
+import json
+from bson import json_util, ObjectId
 
 client=pymongo.MongoClient("mongodb+srv://shwethasubash:webgroup19@webtutorial.uaxed.mongodb.net/<dbname>?retryWrites=true&w=majority")
 db=client.QuizzRoom
@@ -55,7 +57,7 @@ class Register(Resource):
 class Login(Resource):
     @api.expect(existingUser, validate=True)
     def post(self):
-        try:
+        # try:
             postData=request.json
             print(postData)
             email = postData.get('email')
@@ -72,17 +74,21 @@ class Login(Resource):
                 if userExists['email']==email and userExists['password']==password and userExists['role'] == role:
                     print('email matches')
                     response_object['data']='success'
-                    response_object['message'] ="Valid user credentials"
+                    print(userExists['_id'])
+                    userId=userExists['_id']
+                    print(userId)
+                    userId=json.loads(json_util.dumps(userId))
+                    response_object['message'] = userId
                 else:
                     response_object['data']='error'
                     response_object['message'] ="Invalid user credenials"
             else:
                 response_object['data']='error'
                 response_object['message'] ="User does not exist. Please Sign Up!"
-        except:
-            response_object['data']='error'
-            response_object['message'] ="Something went wrong while processing the user create request! Please try again."
-        return response_object, 201
+        # except:
+        #     response_object['data']='error'
+        #     response_object['message'] ="Something went wrong while processing the user create request! Please try again."
+            return response_object, 201
 
 class GetDetails(Resource):
     @api.expect(userId, validate=True)

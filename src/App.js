@@ -15,15 +15,14 @@ import Dashboard from "./components/Dashboard";
 import Analytics from "./components/Analytics";
 import Reports from "./components/Reports";
 import Support from "./components/Support";
-
+import StudentClassroom from "./components/Student/StudentClassroom";
 import EditProfile from "./components/EditProfile";
 import Certificate from "./components/Certificate";
 import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
 import CreateQuiz from "./components/CreateQuiz";
 import StudentDashboardNavigation from "./components/Student/StudentDashboardNavigation";
-// import StudentDashboard from "./components/Student/StudentDashboard";
-import StudentClassroom from "./components/Student/StudentClassroom";
+import StudentQuizzes from "./components/StudentQuizzes";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import DeleteUser from "./components/DeleteUser";
@@ -66,7 +65,7 @@ function App() {
             <Route path="/dashboard" component={Dashboard} exact></Route>
             <Route path="/classrooms" component={Classrooms}></Route>
             <Route path="/viewclass" component={ViewClass}></Route>
-            <Route path="/quizzes" component={Quizzes}></Route>
+            <Route path="/quizzes" component={StudentQuizzes}></Route>
             <Route path="/editprofile" component={EditProfile}></Route>
             <Route path="/startquiz" component={StartQuiz}></Route>
             <Route path="/faqs" component={Support}></Route>
