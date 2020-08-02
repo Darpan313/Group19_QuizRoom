@@ -10,7 +10,6 @@ CORS(app)
 
 @app.route('/', methods=['GET'])
 def index():
-	print('hello')
 	return app.send_static_file('index.html')
 
 @app.errorhandler(404)   
