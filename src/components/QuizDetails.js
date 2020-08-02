@@ -4,7 +4,7 @@ import { Form, Button } from 'semantic-ui-react';
 class QuizDetails extends Component{
 
     saveAndContinue = (e) => {
-        if(!(this.props.values.quizTitle||this.props.values.timer||this.props.values.category)){
+        if(this.props.values.quizTitle.length <= 0 || this.props.values.timer.length <= 0 || this.props.values.category.length <= 0){
             alert('All fields are required!')
         }
         else{
@@ -30,7 +30,7 @@ class QuizDetails extends Component{
                 <h1 className="ui centered col-lg-12">Enter Quiz Details</h1>
                 <Form.Field>
                 <div className="col-lg-12">
-                    <div className="col-lg-12"> Question Title </div>
+                    <div className="col-lg-12"> Quiz Title </div>
                     <input
                     placeholder='Quiz title'
                     className="col-lg-12 form-control"
@@ -47,6 +47,7 @@ class QuizDetails extends Component{
                     className="col-lg-12 form-control"
                     onChange={this.props.handleChange('timer')}
                     defaultValue={values.timer}
+                    min='1'
                     type="number"
                     />
                     </div>
