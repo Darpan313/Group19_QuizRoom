@@ -85,7 +85,10 @@ export default function QuizCard({
         }),
       };
 
-      fetch("http://localhost:5000/getDataForViz", requestOptions)
+      fetch(
+        "https://web-service-g19-quiz-app.herokuapp.com/analytics/getDataForViz",
+        requestOptions
+      )
         .then((response) => response.json())
         .then((data) => {
           history.push("/analytics", data);
