@@ -35,7 +35,7 @@ export default class StudentDashboard extends React.Component {
                     </div>
                     <div class="col-md-1">
                     <p class="card-text anchor-card-text">
-                      5
+                      
                     </p>
                     </div>
                     </div>
@@ -49,7 +49,7 @@ export default class StudentDashboard extends React.Component {
                   </div>
                   <div class="col-md-1">
                     <p class="card-text anchor-card-text">
-                      7
+                      
                     </p>
                     </div>
                   </div>
