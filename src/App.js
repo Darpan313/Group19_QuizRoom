@@ -63,7 +63,7 @@ function App() {
         <div className="container-fullwidth">
           <StudentDashboardNavigation />
           <Switch>
-            <Route path="/" component={Dashboard} exact></Route>
+            <Route path="/" component={StudentDashboard} exact></Route>
             <Route path="/dashboard" component={Dashboard} exact></Route>
             <Route path="/classrooms" component={Classrooms}></Route>
             <Route path="/viewclass" component={ViewClass}></Route>
