@@ -26,7 +26,7 @@ export default function ClassroomCard(props) {
       });
   }
     return (
-      status == "Active" ? (
+      status === "Active" ? (
       <div className="classes">
         <Card border="success">
           <Card.Img
@@ -78,7 +78,7 @@ export default function ClassroomCard(props) {
           <Card.Body>
             <Card.Title>{code}</Card.Title>
             <Card.Text>{name}</Card.Text>
-            <Button variant="primary">Open</Button>
+            <div className="pt-3 pb-4"></div>
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">{status}</small>
