@@ -11,7 +11,7 @@ const initialData = {
   Term: "",
   End_date: "",
   Student: "",
-  addStudent:"",
+  addStudent: "",
 };
 
 const initialErrors = {
@@ -37,9 +37,7 @@ export default function EditClassroom({ name, showHide, setShowHide }) {
       .then((res) => {
         setClassDetails({ ...res.data[0] });
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      .catch((err) => {});
   }, []);
 
   useEffect(() => {
@@ -49,66 +47,69 @@ export default function EditClassroom({ name, showHide, setShowHide }) {
       descriptionError: classDetails.Description === "",
     });
   }, [classDetails]);
-  
-  const validation = (value) =>{
+
+  const validation = (value) => {
     let stud = [];
-    if(value === ""){
+    if (value === "") {
       setErrorClass({
         ...erroClass,
         studentError: false,
         studentbutton: false,
       });
-    }else{
-      let array = value.split(',');
-      let flag = 0
+    } else {
+      let array = value.split(",");
+      let flag = 0;
       for (var i = 0; i < array.length; i++) {
-        if(!/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/.test(array[i].trim())) {
+        if (
+          !/^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$/.test(array[i].trim())
+        ) {
           flag = 1;
-          break;        
-        }
-        else {
-          stud.push(array[i].trim())
+          break;
+        } else {
+          stud.push(array[i].trim());
         }
       }
-      if(flag===1){
-          setErrorClass({
-            ...erroClass,
-            studentError: true,
-            studentbutton: false,
-          });
-      }else{
-          setClassDetails({ ...classDetails, addStudent: stud }) 
-          setErrorClass({
-            ...erroClass,
-            studentError: false,
-            studentbutton: true,
-          });
+      if (flag === 1) {
+        setErrorClass({
+          ...erroClass,
+          studentError: true,
+          studentbutton: false,
+        });
+      } else {
+        setClassDetails({ ...classDetails, addStudent: stud });
+        setErrorClass({
+          ...erroClass,
+          studentError: false,
+          studentbutton: true,
+        });
       }
     }
-  }
+  };
 
   const handleStudentClick = () => {
     axios
-      .put("https://web-service-g19-quiz-app.herokuapp.com/class/addStudent", classDetails)
+      .put(
+        "https://web-service-g19-quiz-app.herokuapp.com/class/addStudent",
+        classDetails
+      )
       .then((res) => {
-        setClassDetails({...classDetails,Student: ""});
+        setClassDetails({ ...classDetails, Student: "" });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   const handleClick = () => {
     axios
-      .put("https://web-service-g19-quiz-app.herokuapp.com/class/updateClass", classDetails)
+      .put(
+        "https://web-service-g19-quiz-app.herokuapp.com/class/updateClass",
+        classDetails
+      )
       .then((res) => {
         setClassDetails(initialData);
         setShowHide(!showHide);
         window.location.reload(false);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 
   return (
@@ -138,7 +139,7 @@ export default function EditClassroom({ name, showHide, setShowHide }) {
             value={classDetails.Code}
             placeholder="Class code"
             onChange={(e) => {
-            setClassDetails({ ...classDetails, Code: e.target.value });
+              setClassDetails({ ...classDetails, Code: e.target.value });
             }}
           />
           <Form.Text hidden={!erroClass.codeError} style={{ color: "red" }}>
@@ -183,7 +184,7 @@ export default function EditClassroom({ name, showHide, setShowHide }) {
             <option value="Winter 2021">Winter 2021</option>
           </Form.Control>
         </Form.Group>
-        
+
         <div className="form-group mb-0">
           <label>Select End Date: </label>
           <br />
@@ -205,36 +206,30 @@ export default function EditClassroom({ name, showHide, setShowHide }) {
             type="text"
             name="students"
             className="form-control"
-            value ={classDetails.Student}
+            value={classDetails.Student}
             placeholder="Enter Student email"
             aria-describedby="basic-addon2"
-            onChange={(e) =>
-              validation(e.target.value)}   
-          />   
-        <button
-          className="btn btn-primary btn-outline-secondary"
-          variant="primary"
-          disabled={!erroClass.studentbutton}
-          onClick={() => handleStudentClick()}
-        >
-          Add Students
-        </button>
+            onChange={(e) => validation(e.target.value)}
+          />
+          <button
+            className="btn btn-primary btn-outline-secondary"
+            variant="primary"
+            disabled={!erroClass.studentbutton}
+            onClick={() => handleStudentClick()}
+          >
+            Add Students
+          </button>
         </div>
-        <Form.Text 
-        hidden={erroClass.studentError}
-        muted>
-        Add more than one email comma seprated!!
-      </Form.Text>
-      <Form.Text
-          hidden={!erroClass.studentError}
-          style={{ color: "red" }}
-        >
+        <Form.Text hidden={erroClass.studentError} muted>
+          Add more than one email comma seprated!!
+        </Form.Text>
+        <Form.Text hidden={!erroClass.studentError} style={{ color: "red" }}>
           Enter valid emails with comma seprated!!
         </Form.Text>
 
         <button
           className="btn btn-primary btn-block mt-3"
-          disabled={(erroClass.codeError || erroClass.descriptionError)}
+          disabled={erroClass.codeError || erroClass.descriptionError}
           onClick={() => handleClick()}
         >
           Update Classroom
@@ -245,4 +240,3 @@ export default function EditClassroom({ name, showHide, setShowHide }) {
     </Modal>
   );
 }
-

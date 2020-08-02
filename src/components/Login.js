@@ -59,8 +59,6 @@ export default function Login() {
         password: password,
       }),
     };
-    console.log("request ");
-    console.log(requestOptions);
     fetch(
       "https://web-service-g19-quiz-app.herokuapp.com/login",
 
@@ -68,13 +66,10 @@ export default function Login() {
     )
       .then((response) => response.json())
       .then((data) => {
-        debugger;
-        console.log(data);
         if (data.data === "success") {
           var user = data.message.$oid;
           setUserId(user);
           handleLogin(e);
-          console.log(data.data);
         } else {
           alert(data.message);
         }
