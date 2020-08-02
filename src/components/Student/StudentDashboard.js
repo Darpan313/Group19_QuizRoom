@@ -43,7 +43,7 @@ export default class StudentDashboard extends React.Component {
                   <div class="card-body border-bottom">
                   <div class="row">
                   <div class="col-md-11">
-                    <a class="card-text anchor-card-text" href="/quizzes">
+                    <a class="card-text anchor-card-text" href="/StudentQuizzes">
                       Quizzes
                     </a>
                   </div>

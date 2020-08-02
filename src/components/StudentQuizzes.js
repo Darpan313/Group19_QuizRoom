@@ -1,7 +1,5 @@
 import React, { Component, useState } from "react";
 import QuizList from "./StudentQuizList";
-import CreateClass from "./Createclass";
-import { Button } from "react-bootstrap";
 
 export default function Quizzes() {
   var quizList = [

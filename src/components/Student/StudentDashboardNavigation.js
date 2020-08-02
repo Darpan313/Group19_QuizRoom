@@ -21,7 +21,7 @@ export default function StudentDashboardNavigation() {
         <Nav className="mr-auto">
           <Nav.Link href="/StudentDashboard">Dashboard</Nav.Link>
           <Nav.Link href="/StudentClassroom">Classrooms</Nav.Link>
-          <Nav.Link href="/quizzes">Quizzes</Nav.Link>
+          <Nav.Link href="/StudentQuizzes">Quizzes</Nav.Link>
           <NavDropdown title="Help" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">User Manual</NavDropdown.Item>
             <NavDropdown.Item href="/faqs">FAQ</NavDropdown.Item>

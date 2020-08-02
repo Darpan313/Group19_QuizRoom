@@ -26,6 +26,7 @@ import CreateQuiz from "./components/CreateQuiz";
 import StudentDashboardNavigation from "./components/Student/StudentDashboardNavigation";
 import StudentDashboard from "./components/Student/StudentDashboard";
 import StudentClassroom from "./components/Student/StudentClassroom";
+import StudentQuizzes from "./components/StudentQuizzes";
 import Login from './components/Login';
 import Register from './components/Register';
 import DeleteUser from './components/DeleteUser';
@@ -64,10 +65,9 @@ function App() {
           <StudentDashboardNavigation />
           <Switch>
             <Route path="/" component={StudentDashboard} exact></Route>
-            <Route path="/dashboard" component={Dashboard} exact></Route>
             <Route path="/classrooms" component={Classrooms}></Route>
             <Route path="/viewclass" component={ViewClass}></Route>
-            <Route path="/quizzes" component={Quizzes}></Route>
+            <Route path="/StudentQuizzes" component={StudentQuizzes}></Route>
             <Route path="/editprofile" component={EditProfile}></Route>
             <Route path="/startquiz" component={StartQuiz}></Route>
             <Route path="/faqs" component={Support}></Route>
