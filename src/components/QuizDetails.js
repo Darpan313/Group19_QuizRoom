@@ -38,7 +38,7 @@ class QuizDetails extends Component {
                             </div>
                         </Form.Field>
                         <Form.Field>
-                        <div className="col-md-12 m-t-10">
+                            <div className="col-md-12 m-t-10">
                                 <div> Timer </div>
                                 <input
                                     placeholder='Timer'
@@ -51,7 +51,7 @@ class QuizDetails extends Component {
                             </div>
                         </Form.Field>
                         <Form.Field>
-                        <div className="col-md-12 m-t-10">
+                            <div className="col-md-12 m-t-10">
                                 <div> Category </div>
                                 <input
                                     type='category'

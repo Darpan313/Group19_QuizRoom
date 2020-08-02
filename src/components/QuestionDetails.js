@@ -46,12 +46,12 @@ class QuestionDetails extends Component {
     deleteQuestionFromList = (id) => {
         let list = this.state.questionSet;
         list.splice(id, 1);
-        
+
         for (var i = 0; i < list.length; i++) {
             list[i].id = i;
         }
 
-        this.setState({id: list.length});
+        this.setState({ id: list.length });
         this.setState({ questionSet: list });
         // console.log(id);
         // console.log(list);
@@ -198,16 +198,16 @@ class QuestionDetails extends Component {
 
                         <div className="col-md-12 m-t-20">
                             <div className="row">
-                            <div className="col-md-4">
-                            <Button className='mt-3 btn btn-primary col-md-12' onClick={this.back}>Back</Button>
+                                <div className="col-md-4">
+                                    <Button className='mt-3 btn btn-primary col-md-12' onClick={this.back}>Back</Button>
+                                </div>
+                                <div className="col-md-4">
+                                    <Button className='mt-3 btn btn-primary col-md-12' onClick={this.saveQuestionToList}>Add Question</Button>
+                                </div>
+                                <div className="col-md-4">
+                                    <Button className='mt-3 btn btn-primary col-md-12' onClick={this.checkFields}>Create Quiz </Button>
+                                </div>
                             </div>
-                            <div className="col-md-4">
-                            <Button className='mt-3 btn btn-primary col-md-12' onClick={this.saveQuestionToList}>Add Question</Button>
-                            </div>
-                            <div className="col-md-4">
-                            <Button className='mt-3 btn btn-primary col-md-12' onClick={this.checkFields}>Create Quiz </Button>
-                            </div>
-                        </div>
                         </div>
                     </Form>
                 </div>
