@@ -44,17 +44,21 @@ class QuestionDetails extends Component {
     }
 
     deleteQuestionFromList = (id) => {
-        let list = this.state.questionSet;
-        list.splice(id, 1);
 
-        for (var i = 0; i < list.length; i++) {
-            list[i].id = i;
+        let confirmation = window.confirm('Do you want to delete Q'+ (id+1) +'?');
+        if (confirmation) {
+            let list = this.state.questionSet;
+            list.splice(id, 1);
+
+            for (var i = 0; i < list.length; i++) {
+                list[i].id = i;
+            }
+
+            this.setState({ id: list.length });
+            this.setState({ questionSet: list });
+            // console.log(id);
+            // console.log(list);   
         }
-
-        this.setState({ id: list.length });
-        this.setState({ questionSet: list });
-        // console.log(id);
-        // console.log(list);
     }
 
     saveQuestionsToDB = (e) => {
