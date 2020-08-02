@@ -14,7 +14,6 @@ import ContactUs from "./components/ContactUs";
 import Faqs from "./components/Faqs";
 import Features from "./components/Features";
 import Dashboard from "./components/Dashboard";
-import StudentDashboard from "./components/Student/StudentDashboard";
 import Analytics from "./components/Analytics";
 import Reports from "./components/Reports";
 import Support from "./components/Support";
