@@ -20,7 +20,7 @@ export default function StudentDashboardNavigation() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/StudentDashboard">Dashboard</Nav.Link>
-          <Nav.Link href="/classrooms">Classrooms</Nav.Link>
+          <Nav.Link href="/StudentClassroom">Classrooms</Nav.Link>
           <Nav.Link href="/quizzes">Quizzes</Nav.Link>
           <NavDropdown title="Help" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">User Manual</NavDropdown.Item>

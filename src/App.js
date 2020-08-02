@@ -24,6 +24,8 @@ import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
 import CreateQuiz from "./components/CreateQuiz";
 import StudentDashboardNavigation from "./components/Student/StudentDashboardNavigation";
+// import StudentDashboard from "./components/Student/StudentDashboard";
+import StudentClassroom from "./components/Student/StudentClassroom";
 import Login from './components/Login';
 import Register from './components/Register';
 import DeleteUser from './components/DeleteUser';
@@ -70,6 +72,7 @@ function App() {
             <Route path="/startquiz" component={StartQuiz}></Route>
             <Route path="/faqs" component={Support}></Route>
             <Route path="/certificate" component={Certificate}></Route>
+            <Route path="/StudentClassroom" component={StudentClassroom}></Route>
           </Switch>
         </div>
       </BrowserRouter>
