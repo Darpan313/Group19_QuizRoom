@@ -22,8 +22,14 @@ def not_found(e):
 from createClass import class_blueprint
 app.register_blueprint(class_blueprint, url_prefix='/class')
 
+
+#Author - Darpan Patel (B00843607)
 from report import report_blueprint
 app.register_blueprint(report_blueprint)
+
+#Author - Darpan Patel (B00843607)
+from analytics import analytics_blueprint
+app.register_blueprint(analytics_blueprint)
 
 #Author - Krutarth Patel (B00835794)
 from faq import faq_blueprint

@@ -63,19 +63,11 @@ export default function Reports() {
             <Table columns={quizColumns} data={quizData} />
           </div>
         </Tab>
-<<<<<<< HEAD
         {/* <Tab eventKey="By User" title="By Users">
           <div className="tableStyle">
             <Table columns={userColumns} data={userData} />
           </div>
         </Tab> */}
-=======
-{/*<Tab eventKey="By User" title="By Users">
-          <div className="tableStyle">
-            <Table columns={userColumns} data={userData} />
-          </div>
-        </Tab>*/}
->>>>>>> 10df1e3603154ebe3c963e5e9d9b34b38ff4ed00
         <Tab eventKey="By Classroom" title="By Classrooms">
           <div className="tableStyle">
             <Table columns={classroomColumns} data={classroomData} />

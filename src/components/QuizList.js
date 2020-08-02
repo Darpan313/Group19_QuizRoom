@@ -13,6 +13,7 @@ export default function QuizList(props) {
             return (
               <div className="col-md-3 mt-3" key={index}>
                 <QuizCard
+                  quiz_id={quiz.quiz_id}
                   img={quiz.img}
                   code={quiz.code}
                   name={quiz.name}
@@ -33,12 +34,14 @@ export default function QuizList(props) {
       <div className="row">
         <div className="col-md-3 mt-3">
           <QuizCard
+            quiz_id="5f19f85ee2df759c1a3663db"
             img="special-topic-course.jpg"
             code="CSCI 5902"
             name="Special topics in Applied CS"
             status="Closed"
             marks="20/30"
-            grade="A"          />
+            grade="A"
+          />
         </div>
         <div className="col-md-3 mt-3">
           <QuizCard
@@ -47,7 +50,8 @@ export default function QuizList(props) {
             name="Special topics in Applied CS"
             status="Closed"
             marks="25/30"
-            grade="A+"            />
+            grade="A+"
+          />
         </div>
         <div className="col-md-3 mt-3">
           <QuizCard
@@ -56,7 +60,8 @@ export default function QuizList(props) {
             name="Special topics in Applied CS"
             status="Closed"
             marks="5/10"
-            grade="B"          />
+            grade="B"
+          />
         </div>
         <div className="col-md-3 mt-3">
           <QuizCard
@@ -65,7 +70,8 @@ export default function QuizList(props) {
             name="Special topics in Applied CS"
             status="Closed"
             marks="5/10"
-            grade="B"            />
+            grade="B"
+          />
         </div>
         <div className="col-md-3 mt-3">
           <QuizCard
@@ -74,7 +80,7 @@ export default function QuizList(props) {
             name="Advance Web Services"
             status="Closed"
             marks="5/10"
-            grade="B"  
+            grade="B"
           />
         </div>
       </div>
