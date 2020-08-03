@@ -27,9 +27,9 @@ import StudentDashboardNavigation from "./components/Student/StudentDashboardNav
 import StudentDashboard from "./components/Student/StudentDashboard";
 import StudentClassroom from "./components/Student/StudentClassroom";
 import StudentQuizzes from "./components/StudentQuizzes";
-import Login from './components/Login';
-import Register from './components/Register';
-import DeleteUser from './components/DeleteUser';
+import Login from "./components/Login";
+import Register from "./components/Register";
+import DeleteUser from "./components/DeleteUser";
 function App() {
   const { user } = React.useContext(UserContext);
   if (user.token && user.role == "Manager") {
@@ -53,6 +53,7 @@ function App() {
             <Route path="/login" component={Login}></Route>
             <Route path="/register" component={Register}></Route>
             <Route path="/deleteUser" component={DeleteUser}></Route>
+            <Route path="/analytics" component={Analytics}></Route>
           </Switch>
         </div>
       </BrowserRouter>
@@ -71,8 +72,14 @@ function App() {
             <Route path="/startquiz" component={StartQuiz}></Route>
             <Route path="/faqs" component={Support}></Route>
             <Route path="/certificate" component={Certificate}></Route>
-            <Route path="/StudentClassroom" component={StudentClassroom}></Route>
-            <Route path="/StudentDashboard" component={StudentDashboard}></Route>
+            <Route
+              path="/StudentClassroom"
+              component={StudentClassroom}
+            ></Route>
+            <Route
+              path="/StudentDashboard"
+              component={StudentDashboard}
+            ></Route>
           </Switch>
         </div>
       </BrowserRouter>
