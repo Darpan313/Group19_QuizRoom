@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Modal } from "react-bootstrap";
+import emailjs from "emailjs-com";
 
 export default class EmailCertificate extends Component {
   constructor(props) {
@@ -9,6 +10,8 @@ export default class EmailCertificate extends Component {
       email: "",
     };
   }
+
+  //saves the email address entered in the textfield to the state object
   handleEmailChange(e) {
     this.setState({ email: e.target.value });
   }
@@ -19,32 +22,30 @@ export default class EmailCertificate extends Component {
     this.setState({ showHide: !this.state.showHide });
   }
 
-  handleUserInput = (e) => {
-    const email = e.target.email;
-  };
+  // handleUserInput = (e) => {
+  //   const email = e.target.email;
+  // };
 
   sendEmail = (e) => {
     e.preventDefault();
-
+    // user_f6tt833GFucVWlamKULHy
     // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
     //     content: base64
     // });
 
-    // client.send(message, function (err, message) {
-    //     console.log(err || message);
-    // });
-
-  //   var template_params = {
-  //     "reply_to": "reply_to_value",
-  //     "from_name": "from_name_value",
-  //     "to_name": "to_name_value",
-  //     "message_html": "message_html_value"
-  //  }
-   
-  //  var service_id = "default_service";
-  //  var template_id = "template_9Tjf3eaC";
-  //  emailjs.send(service_id, template_id, template_params);
-    
+    let self = this;
+    emailjs
+      .sendForm("gmail", "emailpdf", e.target, "user_f6tt833GFucVWlamKULHy") //Sends an acknowledgement email to the user using emailjs library
+      .then(
+        (result) => {
+          alert("Email sent!");
+          window.location.reload();
+          this.handleModalShowHide();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   render() {
@@ -60,14 +61,26 @@ export default class EmailCertificate extends Component {
           </Modal.Header>
           <Modal.Body>
             <div>
-              <input
-                type="email"
-                name="email"
-                required
-                onChange={(e) => this.handleEmailChange(e)}
-              />
+              <form onSubmit={this.sendEmail}>
+                <input
+                  className="form-control "
+                  type="email"
+                  id="email"
+                  name="email"
+                  ref="email"
+                  value={this.state.email}
+                  onChange={(e) => this.handleEmailChange(e)}
+                  placeholder="Email"
+                  required
+                  autoFocus
+                />
+                <button className="btn btn-primary supportButton"  
+>
+                  Submit
+                </button>
+              </form>
             </div>
-            <Button onClick={this.sendEmail}>Submit</Button>
+            {/* <Button onClick={this.sendEmail}>Submit</Button> */}
           </Modal.Body>
         </Modal>
       </div>
