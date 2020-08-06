@@ -54,6 +54,10 @@
 
 }
 
+.pdfview{
+  height: 550px;
+}
+
 .sliderFAQ{
   max-width: 115%;
   max-height: 570px;

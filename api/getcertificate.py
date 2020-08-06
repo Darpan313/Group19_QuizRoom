@@ -23,7 +23,6 @@ class Certificate(Resource):
             quiz_name = data["quiz_name"]
             publish = data["published_date"]
             question_list = data["questions"]
-            # classroom_name = getClassroom(quiz_id)
             mark = 0
             for question in question_list:
                 mark+=question["marks"]
