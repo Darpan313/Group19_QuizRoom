@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 
-export default class Dashboard extends React.Component {
+export default class StudentDashboard extends React.Component {
   render() {
     return (
       <div>
@@ -29,20 +29,30 @@ export default class Dashboard extends React.Component {
                 <div class="card-body border-bottom">
                   <div class="row">
                     <div class="col-md-11">
-                      <a class="card-text anchor-card-text" href="/classrooms">
+                      <a class="card-text anchor-card-text" href="/StudentClassroom">
                         Classrooms
                     </a>
                     </div>
+                    <div class="col-md-1">
+                      <p class="card-text anchor-card-text">
+
+                      </p>
                     </div>
+                  </div>
                 </div>
                 <div class="card-body border-bottom">
                   <div class="row">
                     <div class="col-md-11">
-                      <a class="card-text anchor-card-text" href="/quizzes">
+                      <a class="card-text anchor-card-text" href="/StudentQuizzes">
                         Quizzes
                     </a>
                     </div>
+                    <div class="col-md-1">
+                      <p class="card-text anchor-card-text">
+
+                      </p>
                     </div>
+                  </div>
                 </div>
               </div>
               <br />

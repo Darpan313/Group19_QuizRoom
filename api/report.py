@@ -30,7 +30,7 @@ class QuizReport(Resource):
     def get(self):
         data = {}
         results = []
-        for q in quizCollection.find({}):
+        for q in quizCollection.find({"questions.responses":{"$exists":True}}):
             quiz = {}
             data = q
             quiz_id = data["_id"]
@@ -43,6 +43,7 @@ class QuizReport(Resource):
             avg_que_score = 0
             for question in question_list:
                 mark+=question["marks"]
+
                 response_list = question["responses"]
                 q_totalmark = 0
                 for response in response_list:
@@ -82,7 +83,7 @@ class ClassroomReport(Resource):
             except KeyError:
                 quiz_names = 0
             try:
-                students = c["Students"]
+                students = c["Student_id"]
                 students = len(students)
             except KeyError:
                 students = 0

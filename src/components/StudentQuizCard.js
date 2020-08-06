@@ -2,13 +2,11 @@ import { Card, Button, ListGroup } from "react-bootstrap";
 import { FaRegEdit, FaRegTrashAlt, FaRegClock } from "react-icons/fa";
 
 import Dashboard from "../components/Dashboard";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import React from "react";
 
 export default function QuizCard({
-  quiz_id,
   img,
   id,
   name,
@@ -21,8 +19,8 @@ export default function QuizCard({
   marks,
   grade,
 }) {
-  const history = useHistory();
   var url = require(`../assets/${img}`);
+
   if (status === "Active") {
     return (
       <div className="classes">
@@ -38,18 +36,23 @@ export default function QuizCard({
                 <FaRegClock />
               </ListGroup.Item>
             </ListGroup>
-            {/* <Button
+            <Button
               variant="primary"
               className="mt-3"
               href="/startquiz"
               target="_blank"
             >
-             
+              {/* <a
+                href="/startquiz"
+                target="_blank"
+                without
+                rel="noopener noreferrer"
+              > */}
               Open
-             
-            </Button> */}
+              {/* </a> */}
+            </Button>
           </Card.Body>
-          <Card.Footer>
+          {/* <Card.Footer>
             <div className="row">
               <div className="col-auto mr-auto">
                 <small className="text-muted">{status}</small>
@@ -67,30 +70,11 @@ export default function QuizCard({
                 </div>
               </div>
             </div>
-          </Card.Footer>
+          </Card.Footer> */}
         </Card>
       </div>
     );
   } else {
-    function handleQuizSubmit(quiz_id) {
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: quiz_id.quiz_id,
-        }),
-      };
-
-      fetch(
-        "https://web-service-g19-quiz-app.herokuapp.com/analytics/getDataForViz",
-        requestOptions
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          history.push("/analytics", data);
-        });
-      // history.push("/analytics", quiz_id);
-    }
     return (
       <div className="classes">
         <Card border="danger">
@@ -101,11 +85,7 @@ export default function QuizCard({
               <ListGroup.Item> Marks : {marks}</ListGroup.Item>
               <ListGroup.Item> Grade : {grade}</ListGroup.Item>
             </ListGroup>
-            <Button
-              variant="primary"
-              className="mt-3"
-              onClick={() => handleQuizSubmit({ quiz_id })}
-            >
+            <Button variant="primary" className="mt-3">
               Analyze
             </Button>
           </Card.Body>

@@ -24,9 +24,12 @@ import { UserContext } from "./context/user";
 import Footer from "./components/Footer";
 import CreateQuiz from "./components/CreateQuiz";
 import StudentDashboardNavigation from "./components/Student/StudentDashboardNavigation";
-import Login from './components/Login';
-import Register from './components/Register';
-import DeleteUser from './components/DeleteUser';
+import StudentDashboard from "./components/Student/StudentDashboard";
+import StudentClassroom from "./components/Student/StudentClassroom";
+import StudentQuizzes from "./components/StudentQuizzes";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import DeleteUser from "./components/DeleteUser";
 function App() {
   const { user } = React.useContext(UserContext);
   if (user.token && user.role == "Manager") {
@@ -50,6 +53,7 @@ function App() {
             <Route path="/login" component={Login}></Route>
             <Route path="/register" component={Register}></Route>
             <Route path="/deleteUser" component={DeleteUser}></Route>
+            <Route path="/analytics" component={Analytics}></Route>
           </Switch>
         </div>
       </BrowserRouter>
@@ -61,15 +65,21 @@ function App() {
         <div className="container-fullwidth">
           <StudentDashboardNavigation />
           <Switch>
-            <Route path="/" component={Dashboard} exact></Route>
-            <Route path="/dashboard" component={Dashboard} exact></Route>
-            <Route path="/classrooms" component={Classrooms}></Route>
+            <Route path="/" component={StudentDashboard} exact></Route>
             <Route path="/viewclass" component={ViewClass}></Route>
-            <Route path="/quizzes" component={Quizzes}></Route>
+            <Route path="/StudentQuizzes" component={StudentQuizzes}></Route>
             <Route path="/editprofile" component={EditProfile}></Route>
             <Route path="/startquiz" component={StartQuiz}></Route>
             <Route path="/faqs" component={Support}></Route>
             <Route path="/certificate" component={Certificate}></Route>
+            <Route
+              path="/StudentClassroom"
+              component={StudentClassroom}
+            ></Route>
+            <Route
+              path="/StudentDashboard"
+              component={StudentDashboard}
+            ></Route>
           </Switch>
         </div>
       </BrowserRouter>

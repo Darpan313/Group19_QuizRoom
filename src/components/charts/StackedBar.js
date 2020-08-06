@@ -6,39 +6,36 @@ import {
   VictoryAxis,
   VictoryLabel,
 } from "victory";
-const dataA = [
-  { x: "Personal Drones", y: 57 },
-  { x: "Smart Thermostat", y: 40 },
-  { x: "Television", y: 38 },
-  { x: "Smartwatch", y: 37 },
-  { x: "Fitness Monitor", y: 25 },
-  { x: "Tablet", y: 19 },
-  { x: "Camera", y: 15 },
-  { x: "Laptop", y: 13 },
-  { x: "Phone", y: 12 },
-];
-
-const dataB = dataA.map((point) => {
-  const y = Math.round(point.y + 3 * (Math.random() - 0.5));
-  return { ...point, y };
-});
 
 const width = 500;
 const height = 500;
 
-export default class StackedBar extends Component {
-  render() {
-    return (
-      <VictoryChart horizontal height={height} width={width} padding={40}>
+export default function StackedBar({ data }) {
+  const dataA = data;
+
+  const dataB = dataA.map((point) => {
+    const y = Math.round(100 - point.y);
+    return { ...point, y };
+  });
+  return (
+    <>
+      <h4 className="ml-3 mt-2">Analysis by Question Category</h4>
+      <VictoryChart
+        horizontal
+        height={height}
+        width={width}
+        domainPadding={{ x: 60 }}
+        padding={{ top: 30, bottom: 200, right: 70, left: 70 }}
+      >
         <VictoryStack style={{ data: { width: 25 }, labels: { fontSize: 15 } }}>
           <VictoryBar
-            style={{ data: { fill: "tomato" } }}
+            style={{ data: { fill: "#90ee90" } }}
             data={dataA}
             y={(data) => -Math.abs(data.y)}
             labels={({ datum }) => `${Math.abs(datum.y)}%`}
           />
           <VictoryBar
-            style={{ data: { fill: "orange" } }}
+            style={{ data: { fill: "#F08080" } }}
             data={dataB}
             labels={({ datum }) => `${Math.abs(datum.y)}%`}
           />
@@ -62,6 +59,6 @@ export default class StackedBar extends Component {
           tickValues={dataA.map((point) => point.x).reverse()}
         />
       </VictoryChart>
-    );
-  }
+    </>
+  );
 }
