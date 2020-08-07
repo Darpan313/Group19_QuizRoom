@@ -58,7 +58,7 @@ export default class EmailCertificate extends Component {
 
   render() {
     return (
-      <div className="pt-3 pb-3">
+      <div className="pt-1 pb-3">
         <Button variant="primary" onClick={() => this.handleModalShowHide()}>
           Email
         </Button>

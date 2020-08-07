@@ -115,7 +115,7 @@ export default function Certificate() {
           }}
           hideZoom
           hideRotation
-          scale={0.9}
+          scale={0.8}
           hideNavbar
         />
       </div>
@@ -136,7 +136,7 @@ export default function Certificate() {
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="pt-3 pb-3 float-right">
+          <div class="pt-1 pb-3 float-right">
             <Button variant="primary" onClick={(e) => onSubmit(e)}>
               Download
             </Button>
